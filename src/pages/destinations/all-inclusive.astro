@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import PageHero from '../../components/layout/PageHero.astro';
+import FinalCTA from '../../components/sections/FinalCTA.astro';
+import SocialProof from '../../components/sections/SocialProof.astro';
+
+const serviceSchema = {
+  '@type': 'Service',
+  '@id': 'https://destinationgotravel.com/destinations/all-inclusive#service',
+  name: 'All-Inclusive Resort Planning',
+  description: 'Expert all-inclusive resort planning for the Caribbean, Mexico, Central America, and the Maldives. Dawn matches you to the right resort for how you actually travel.',
+  provider: { '@id': 'https://destinationgotravel.com/#organization' },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  serviceType: 'Travel Planning',
+  url: 'https://destinationgotravel.com/destinations/all-inclusive',
+};
+
+const regions = [
+  { name: 'Caribbean', description: 'From Punta Cana to St. Lucia — Dawn knows the resorts that actually deliver luxury at every price point.' },
+  { name: 'Mexico', description: 'Los Cabos, Cancún, Riviera Maya. She knows the difference between the photos and the reality.' },
+  { name: 'Central America', description: 'Costa Rica, Belize, Panama. For travelers who want nature and luxury without the trade-off.' },
+  { name: 'The Maldives', description: 'Overwater bungalows and absolute seclusion. Dawn handles the logistics so you can focus on arriving.' },
+];
+
+const whatToExpect = [
+  { heading: "No guesswork on the resort.", body: "Dawn has done the research so you don't have to. She'll match you to a property based on what you actually care about — the beach, the food, the vibe, the crowd." },
+  { heading: "Pre-arrival requests handled.", body: "Anniversary? Birthday? Special dietary needs? Dawn communicates with the resort before you arrive so those details are in place when you check in." },
+  { heading: "Handled start to finish.", body: "From resort selection to pre-arrival requests to travel documents — Dawn manages every detail so your only job is to show up and enjoy the trip." },
+];
+---
+
+<BaseLayout
+  title="All-Inclusive Resort Planning — Caribbean, Mexico & Beyond | DestinationGo Travel"
+  description="Not all all-inclusives are equal. Dawn knows which resorts deliver on their promise. Resort planning for empty nesters and retirees, based in Greenville, SC."
+  schema={serviceSchema}
+>
+
+  <PageHero
+    eyebrow="All-Inclusive Resorts"
+    heading="Not all all-inclusives are created equal. Dawn knows the difference."
+    subheading="Some resorts look better in photos than they are in person. Dawn will tell you which ones actually deliver — and match you to the right property for the way you vacation."
+    ctaText="Find My Resort"
+    ctaHref="/plan-my-trip"
+  />
+
+  <!-- What to Expect -->
+  <section class="ai-expect">
+    <div class="container">
+      <p class="eyebrow" style="text-align:center;">What You Get</p>
+      <div class="hairline" style="margin-inline:auto;margin-bottom:1rem;"></div>
+      <h2 class="expect-heading">What working with Dawn looks like for a resort trip</h2>
+      <div class="expect-grid">
+        {whatToExpect.map((item, i) => (
+          <div class="expect-item">
+            <div class="expect-number">{String(i + 1).padStart(2, '0')}</div>
+            <div>
+              <h3 class="expect-title">{item.heading}</h3>
+              <p class="expect-body">{item.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Regions -->
+  <section class="ai-regions">
+    <div class="container">
+      <p class="eyebrow" style="text-align:center;">Where Dawn Books</p>
+      <div class="hairline" style="margin-inline:auto;margin-bottom:1rem;"></div>
+      <h2 class="regions-heading">Popular all-inclusive destinations</h2>
+      <div class="regions-grid">
+        {regions.map(r => (
+          <div class="region-card card card-hover">
+            <h3 class="region-name">{r.name}</h3>
+            <p class="region-description">{r.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <SocialProof />
+  <FinalCTA />
+
+</BaseLayout>
+
+<style>
+  /* What to Expect */
+  .ai-expect {
+    padding: 5rem 0;
+    background: var(--cream-50);
+  }
+  .expect-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.375rem, 1.5vw + 0.75rem, 2rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 640px;
+    margin-inline: auto;
+  }
+  .expect-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 780px;
+    margin-inline: auto;
+  }
+  .expect-item {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    padding: 2rem;
+    background: #fff;
+    border: 1px solid var(--gold-300, #d4b86a);
+    border-radius: 4px;
+  }
+  .expect-number {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--gold-500);
+    opacity: 0.6;
+    flex-shrink: 0;
+    line-height: 1;
+    padding-top: 0.2rem;
+  }
+  .expect-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ink-900);
+    margin-bottom: 0.5rem;
+  }
+  .expect-body {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--ink-600);
+  }
+
+  /* Regions */
+  .ai-regions {
+    padding: 5rem 0;
+    background: #fff;
+  }
+  .regions-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .regions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin-inline: auto;
+  }
+  .region-card { padding: 2rem; }
+  .region-name {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--teal-700);
+    margin-bottom: 0.75rem;
+  }
+  .region-description {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--ink-600);
+  }
+
+  @media (max-width: 700px) {
+    .regions-grid { grid-template-columns: 1fr; }
+    .expect-item { flex-direction: column; gap: 1rem; }
+  }
+</style>

@@ -1,0 +1,114 @@
+---
+const markers = [
+  { stat: '5+', label: 'Years Experience' },
+  { stat: '15+', label: 'Countries Visited' },
+  { stat: '100%', label: 'Personalized Planning' },
+];
+---
+
+<section class="guide-section">
+  <div class="container">
+    <div class="guide-grid">
+      <div>
+        <div class="guide-photo-wrap">
+          <div class="guide-photo-filigree"></div>
+          <img src="/images/dawn-owens.webp" alt="Dawn Owens, Luxury Travel Advisor" width="480" height="600" />
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Meet Your Guide</p>
+        <div class="hairline hairline--left"></div>
+        <p class="guide-empathy">Most people who reach out to Dawn aren't looking for more options. They've already found too many. They need someone to look at what's in front of them and say: this is the right choice for you.</p>
+        <p class="guide-authority">Dawn Owens has been planning travel for over five years and has visited more than 15 countries across Europe and beyond — not as a tourist checking boxes, but as someone who pays close attention to the details that make a trip feel effortless.</p>
+        <div class="guide-markers">
+          {markers.map(m => (
+            <div>
+              <div class="marker-stat">{m.stat}</div>
+              <div class="marker-label">{m.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .guide-section {
+    background-color: var(--cream-50);
+    padding: 5rem 0;
+  }
+  .guide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+  .guide-photo-wrap {
+    position: relative;
+    aspect-ratio: 4/5;
+    border: 1px solid var(--gold-500);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .guide-photo-filigree {
+    position: absolute;
+    inset: 6px;
+    border: 1px solid var(--gold-400);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .guide-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  .guide-empathy {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 1.375rem;
+    line-height: 1.6;
+    color: var(--ink-900);
+    margin-bottom: 1.5rem;
+  }
+  .guide-authority {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: var(--ink-700);
+  }
+  .guide-markers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--gold-500);
+  }
+  .marker-stat {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 2rem;
+    color: var(--teal-700);
+    letter-spacing: 0.05em;
+    text-align: center;
+  }
+  .marker-label {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--teal-500);
+    margin-top: 4px;
+    text-align: center;
+  }
+  @media (max-width: 900px) {
+    .guide-grid { grid-template-columns: 1fr; }
+  }
+</style>

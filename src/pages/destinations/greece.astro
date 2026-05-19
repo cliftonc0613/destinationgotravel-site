@@ -1,0 +1,460 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import PageHero from '../../components/layout/PageHero.astro';
+import FinalCTA from '../../components/sections/FinalCTA.astro';
+
+const pageSchema = {
+  '@type': 'Event',
+  '@id': 'https://destinationgotravel.com/destinations/greece#event',
+  name: "Dawn's Exclusive All-Women's Greece Group Trip",
+  description: "An exclusive escorted all-women's group trip to Greece, curated by luxury travel advisor Dawn Owens of DestinationGo Travel.",
+  organizer: { '@id': 'https://destinationgotravel.com/#organization' },
+  location: { '@type': 'Place', name: 'Greece', address: { '@type': 'PostalAddress', addressCountry: 'GR' } },
+  url: 'https://destinationgotravel.com/destinations/greece',
+};
+
+const tripHighlights = [
+  {
+    label: 'Destination',
+    value: 'Greece — Athens, Santorini & Beyond',
+  },
+  {
+    label: 'Trip Style',
+    value: 'Escorted small-group, all-women',
+  },
+  {
+    label: 'Who It\'s For',
+    value: 'Women who want to travel well without traveling alone',
+  },
+  {
+    label: 'Availability',
+    value: 'Limited spots — early access list open now',
+  },
+];
+
+const whatIsIncluded = [
+  'Curated itinerary designed by Dawn — no guesswork',
+  'Small group of like-minded women travelers',
+  'Accommodation selected for character and quality',
+  'Local guides and authentic experiences',
+  'All logistics handled start to finish',
+  'Dawn on-trip — personally leading the group',
+];
+---
+
+<BaseLayout
+  title="Greece Group Trip — Exclusive All-Women's Escorted Tour | DestinationGo Travel"
+  description="Dawn Owens is leading an all-women's escorted group trip to Greece. Limited spots available. Join the early access list to be first when details drop."
+  schema={pageSchema}
+>
+
+  <PageHero
+    eyebrow="Exclusive Group Trip"
+    heading="Greece. Small group. All women. <em>Fully handled.</em>"
+    subheading="Dawn is curating an exclusive escorted trip to Greece for a small group of women who want to experience Europe the right way — without doing it alone."
+    size="compact"
+  />
+
+  <!-- Main content -->
+  <section class="greece-body">
+    <div class="container">
+      <div class="greece-grid">
+
+        <!-- Left: Trip Details -->
+        <div class="greece-details">
+
+          <div class="details-block">
+            <p class="eyebrow eyebrow--teal" style="text-align:left;">About the Trip</p>
+            <div class="hairline hairline--left"></div>
+            <h2 class="details-heading">A curated Greece experience — led by Dawn, start to finish.</h2>
+            <p class="details-body">This isn't a tour group. It's a small, intentional trip designed for women who want the magic of Greece — the white-washed villages, the Aegean light, the food, the history — without the overwhelm of planning it themselves or the loneliness of doing it solo.</p>
+            <p class="details-body">Dawn handles every detail. You just show up ready to experience it.</p>
+          </div>
+
+          <div class="highlights-block">
+            <h3 class="highlights-heading">Trip at a glance</h3>
+            <dl class="highlights-list">
+              {tripHighlights.map(h => (
+                <div class="highlight-row">
+                  <dt class="highlight-label">{h.label}</dt>
+                  <dd class="highlight-value">{h.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div class="included-block">
+            <h3 class="highlights-heading">What's included</h3>
+            <ul class="included-list">
+              {whatIsIncluded.map(item => (
+                <li>
+                  <svg class="include-check" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Right: Waitlist Form -->
+        <div class="greece-form-col">
+          <div class="form-card">
+            <div class="form-card-header">
+              <p class="eyebrow eyebrow--teal">Early Access</p>
+              <div class="hairline hairline--left"></div>
+              <h2 class="form-card-heading">Join the waitlist.</h2>
+              <p class="form-card-intro">Dates, pricing, and full itinerary details will go to the early access list first — before any public announcement. No commitment required.</p>
+              <ul class="form-perks">
+                <li>
+                  <svg class="perk-check" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  First to hear when spots open
+                </li>
+                <li>
+                  <svg class="perk-check" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  Directly from Dawn — no spam
+                </li>
+                <li>
+                  <svg class="perk-check" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  No commitment to join the list
+                </li>
+              </ul>
+            </div>
+            <div class="form-embed">
+              <script is:inline src="https://www.google.com/recaptcha/api.js?render=site-key"></script>
+              <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.6/iframeResizer.min.js"></script>
+              <iframe src="https://traveljoy.com/webforms/WcFEnCJZhi94VQxqZ7f482rt/forms/CjmKwvuVCK2sgrtdpjva2utN" frameborder="0" width="100%" height="600" id="tj-form-CjmKwvuVCK2sgrtdpjva2utN" title="Greece Trip Waitlist Form"></iframe>
+              <script is:inline>iFrameResize({checkOrigin:false, onInit: function() { document.getElementById("tj-form-CjmKwvuVCK2sgrtdpjva2utN").iFrameResizer.sendMessage({ origin: document.location.origin }); }});</script>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About Greece -->
+  <section class="about-greece">
+    <div class="container">
+      <div class="about-greece-inner">
+        <div class="about-greece-text">
+          <p class="eyebrow eyebrow--teal">Why Greece</p>
+          <div class="hairline hairline--left"></div>
+          <h2 class="about-heading">One of the world's most enduring travel destinations.</h2>
+          <p class="about-body">Greece has captivated travelers for thousands of years. From the ancient ruins of Athens to the volcanic cliffs of Santorini to the crystal waters of the Ionian coast, few destinations offer the same combination of history, beauty, and warmth.</p>
+          <p class="about-body">The food alone is worth the trip. Fresh seafood, local olive oil, slow-cooked meats, and wine poured generously at tables that stay full well past midnight. Greece moves at a pace that invites you to slow down with it.</p>
+          <p class="about-body">Each island and region has its own personality. Santorini is dramatic and iconic. Crete is wild and vast. Mykonos is cosmopolitan. The Peloponnese is quiet and ancient. Corfu is lush and Venetian. There is no single Greece to see, which is exactly why having someone who knows the country well makes all the difference.</p>
+        </div>
+        <div class="about-greece-highlights">
+          <div class="greece-fact-card">
+            <div class="greece-fact-number">6,000+</div>
+            <div class="greece-fact-label">Islands and islets</div>
+          </div>
+          <div class="greece-fact-card">
+            <div class="greece-fact-number">18</div>
+            <div class="greece-fact-label">UNESCO World Heritage Sites</div>
+          </div>
+          <div class="greece-fact-card">
+            <div class="greece-fact-number">3,000+</div>
+            <div class="greece-fact-label">Years of recorded history</div>
+          </div>
+          <div class="greece-fact-card">
+            <div class="greece-fact-number">300+</div>
+            <div class="greece-fact-label">Days of sunshine per year</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="greece-places">
+        <h3 class="places-heading">Places worth knowing</h3>
+        <div class="places-grid">
+          <div class="place-card card">
+            <h4 class="place-name">Athens</h4>
+            <p class="place-desc">The cradle of Western civilization. The Acropolis, the Parthenon, the ancient Agora. Athens is also a living city with neighborhood markets, rooftop bars, and some of the best street food in Europe.</p>
+          </div>
+          <div class="place-card card">
+            <h4 class="place-name">Santorini</h4>
+            <p class="place-desc">The iconic caldera views, blue-domed churches, and spectacular sunsets. Best experienced slowly, off-season, and with a knowledgeable advisor who can steer you past the crowds toward the quieter side of the island.</p>
+          </div>
+          <div class="place-card card">
+            <h4 class="place-name">Crete</h4>
+            <p class="place-desc">Greece's largest island rewards those who stay longer. Ancient Minoan palaces, gorge hikes, remote beach villages, and a food culture so distinct it could be its own cuisine.</p>
+          </div>
+          <div class="place-card card">
+            <h4 class="place-name">The Peloponnese</h4>
+            <p class="place-desc">Ruins, Byzantine fortresses, and olive groves as far as the eye can see. Far fewer tourists than the islands, and some of the most dramatic scenery in Greece.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+
+</BaseLayout>
+
+<style>
+  /* Greece hero background image override */
+  :global(.page-hero) {
+    background-image:
+      linear-gradient(to bottom, rgba(14,81,89,0.65) 0%, rgba(14,81,89,0.55) 40%, rgba(14,81,89,0.80) 100%),
+      url('/images/greece-santorini-aegean-sea.webp');
+    background-size: cover;
+    background-position: center 40%;
+  }
+
+  .greece-body {
+    padding: 5rem 0 6rem;
+    background: #fff;
+  }
+  .greece-grid {
+    display: grid;
+    grid-template-columns: 1fr 480px;
+    gap: 4rem;
+    align-items: start;
+    max-width: 1160px;
+    margin-inline: auto;
+  }
+
+  /* Left column */
+  .details-block { margin-bottom: 3rem; }
+  .details-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.375rem, 1.5vw + 0.75rem, 2rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+  }
+  .details-body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--ink-600);
+    margin-bottom: 1rem;
+  }
+
+  .highlights-block,
+  .included-block {
+    background: var(--cream-50);
+    border: 1px solid var(--gold-400);
+    border-radius: 4px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .highlights-heading {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-500);
+    margin-bottom: 1.25rem;
+  }
+  .highlights-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .highlight-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .highlight-row:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .highlight-label {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--ink-500);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .highlight-value {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--ink-900);
+    line-height: 1.5;
+  }
+
+  .included-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .included-list li {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--ink-700);
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+  .include-check { color: var(--teal-600); flex-shrink: 0; }
+
+  /* Right column — form card */
+  .form-card {
+    background: var(--cream-50);
+    border: 1px solid var(--gold-400);
+    border-radius: 4px;
+    overflow: hidden;
+    position: sticky;
+    top: calc(4.5rem + 2rem);
+  }
+  .form-card-header {
+    padding: 2.5rem 2.5rem 0;
+  }
+  .form-card-heading {
+    font-family: var(--font-display);
+    font-size: 1.625rem;
+    font-weight: 600;
+    color: var(--ink-900);
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+  .form-card-intro {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--ink-600);
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+  .form-perks {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 0;
+  }
+  .form-perks li {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--ink-700);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .perk-check { color: var(--teal-600); flex-shrink: 0; }
+
+  .form-embed {
+    padding: 1.5rem 2.5rem 2.5rem;
+  }
+  .form-embed iframe {
+    display: block;
+    border: none;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 1024px) {
+    .greece-grid {
+      grid-template-columns: 1fr;
+      max-width: 720px;
+    }
+    .form-card { position: static; }
+  }
+
+  /* About Greece */
+  .about-greece {
+    padding: 5rem 0 6rem;
+    background: var(--cream-50);
+  }
+  .about-greece-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    max-width: 1160px;
+    margin-inline: auto;
+    margin-bottom: 4rem;
+  }
+  .about-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2vw + 0.5rem, 2.25rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+  }
+  .about-body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--ink-600);
+    margin-bottom: 1rem;
+  }
+  .about-greece-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    align-self: center;
+  }
+  .greece-fact-card {
+    background: #fff;
+    border: 1px solid var(--gold-400);
+    border-radius: 4px;
+    padding: 1.75rem 1.5rem;
+    border-left: 3px solid var(--gold-500);
+  }
+  .greece-fact-number {
+    font-family: var(--font-display);
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: var(--teal-700);
+    letter-spacing: 0.03em;
+    line-height: 1;
+    margin-bottom: 0.375rem;
+  }
+  .greece-fact-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-500);
+  }
+
+  /* Places */
+  .greece-places { max-width: 1160px; margin-inline: auto; }
+  .places-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 1.5vw + 0.5rem, 1.75rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    margin-bottom: 2rem;
+  }
+  .places-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .place-card { padding: 2rem; }
+  .place-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--teal-700);
+    margin-bottom: 0.75rem;
+  }
+  .place-desc {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--ink-600);
+  }
+
+  @media (max-width: 900px) {
+    .about-greece-inner { grid-template-columns: 1fr; }
+    .places-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .about-greece-highlights { grid-template-columns: 1fr 1fr; }
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import TrustStrip from '../components/sections/TrustStrip.astro';
+import ProblemSection from '../components/sections/ProblemSection.astro';
+import ValueStack from '../components/sections/ValueStack.astro';
+import GuideSection from '../components/sections/GuideSection.astro';
+import PlanSteps from '../components/sections/PlanSteps.astro';
+import Specialties from '../components/sections/Specialties.astro';
+import PhotoGallery from '../components/sections/PhotoGallery.astro';
+import Explainer from '../components/sections/Explainer.astro';
+import LeadCapture from '../components/sections/LeadCapture.astro';
+import SocialProof from '../components/sections/SocialProof.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+
+const localBusinessSchema = {
+  '@type': ['TravelAgency', 'LocalBusiness'],
+  '@id': 'https://destinationgotravel.com/#business',
+  name: 'DestinationGo Travel',
+  description: 'Luxury travel planning for empty nesters and retirees. Specializing in Europe, all-inclusive resorts, and cruises.',
+  url: 'https://destinationgotravel.com',
+  telephone: '864-506-0213',
+  email: 'dawn@destinationgotravel.com',
+  priceRange: '$$',
+  areaServed: [
+    { '@type': 'City', name: 'Greenville', addressRegion: 'SC' },
+    { '@type': 'City', name: 'Spartanburg', addressRegion: 'SC' },
+    { '@type': 'City', name: 'Anderson', addressRegion: 'SC' },
+    { '@type': 'City', name: 'Clemson', addressRegion: 'SC' },
+  ],
+  employee: {
+    '@type': 'Person',
+    name: 'Dawn Owens',
+    jobTitle: 'Luxury Travel Advisor',
+  },
+  sameAs: [
+    'https://facebook.com/profile.php?id=100095178252273',
+    'https://instagram.com/destinationgotravelagency',
+  ],
+};
+---
+
+<BaseLayout
+  title="DestinationGo Travel — Luxury Travel Planning for Europe, Resorts & Cruises"
+  description="For empty nesters and retirees ready to travel well — without the planning overwhelm. Europe, all-inclusives, and cruises handled start to finish."
+  preloadImage="/images/ritz-carlton-resort-aerial-beach-pool.webp"
+  schema={localBusinessSchema}
+>
+  <Hero />
+  <TrustStrip />
+  <ProblemSection />
+  <ValueStack />
+  <GuideSection />
+  <PlanSteps />
+  <Specialties />
+  <PhotoGallery />
+  <Explainer />
+  <LeadCapture />
+  <SocialProof />
+  <FinalCTA />
+</BaseLayout>

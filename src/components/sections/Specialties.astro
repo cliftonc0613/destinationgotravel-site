@@ -1,0 +1,164 @@
+---
+const destinations = [
+  {
+    title: 'Europe',
+    image: '/images/luxury-villa-pool-tropical-garden.webp',
+    desc: "From river cruises along the Rhine to slow weeks in the Tuscan countryside, Dawn has visited over 15 countries and brings firsthand knowledge to every European trip she plans.",
+    ctaLabel: 'Plan a Europe Trip',
+  },
+  {
+    title: 'All-Inclusive Resorts',
+    image: '/images/resort-pool-evening-palm-trees.webp',
+    desc: "Not all all-inclusives are created equal. Dawn knows which properties deliver on the promise of luxury and which ones look better in photos than in person.",
+    ctaLabel: 'Find Your Resort',
+  },
+  {
+    title: 'Cruises',
+    image: '/images/royal-caribbean-star-of-the-seas-nassau.webp',
+    desc: "Whether it's an ocean voyage, a river cruise, or a small-ship expedition, Dawn matches you to the right ship, itinerary, and cabin — so there are no surprises when you board.",
+    ctaLabel: 'Explore Cruises',
+  },
+];
+---
+
+<section class="specialties" id="destinations">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3.5rem;">
+      <p class="eyebrow">Specialties</p>
+      <div class="hairline"></div>
+      <h2 class="section-heading">Where do you want to go?</h2>
+      <p class="section-subheading">Dawn specializes in three areas — and knows each of them well enough to tell you exactly which trip is right for you.</p>
+    </div>
+
+    <div class="destination-grid">
+      {destinations.map(dest => (
+        <div class="dest-card card card-hover">
+          <div class="dest-photo">
+            <div class="dest-photo-bg" style={`background-image:url('${dest.image}');`}></div>
+            <div class="dest-photo-overlay"></div>
+            <div class="dest-photo-filigree" aria-hidden="true"></div>
+            <div class="dest-photo-title">{dest.title}</div>
+          </div>
+          <div class="dest-body">
+            <p class="dest-desc">{dest.desc}</p>
+            <div class="dest-cta"><a href="/destinations" class="cta-link">{dest.ctaLabel}</a></div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Greece tease -->
+    <div class="greece-tease">
+      <div class="greece-filigree" aria-hidden="true"></div>
+      <p class="eyebrow eyebrow--gold" style="margin-bottom:1rem; position:relative; z-index:1;">Coming Soon</p>
+      <h3 class="greece-title" style="position:relative; z-index:1;">Something new is coming.</h3>
+      <p class="greece-sub" style="position:relative; z-index:1;">Dawn is launching her first escorted group trip — an exclusive all-women's journey to Greece. Limited spots. Be the first to know.</p>
+      <a href="/plan-my-trip#greece-waitlist" class="btn btn--primary" style="position:relative; z-index:1;">Add Me to the List</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .specialties {
+    background-color: var(--cream-100);
+    padding: 5rem 0;
+  }
+  .destination-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .dest-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .dest-photo {
+    position: relative;
+    height: 13rem;
+    overflow: hidden;
+  }
+  .dest-photo-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 700ms ease;
+  }
+  .dest-card:hover .dest-photo-bg { transform: scale(1.05); }
+  .dest-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(14,81,89,0.10) 0%, rgba(14,81,89,0.82) 100%);
+  }
+  .dest-photo-filigree {
+    position: absolute;
+    inset: 5px;
+    border: 1px solid rgba(230,206,146,0.25);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .dest-photo-title {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    color: var(--cream-50);
+    padding: 1rem 1.5rem;
+    align-self: flex-end;
+    width: 100%;
+    margin-top: auto;
+  }
+  .dest-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  .dest-desc {
+    flex: 1;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--ink-700);
+  }
+  .dest-cta { margin-top: 1.5rem; }
+
+  .greece-tease {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    text-align: center;
+    background-color: var(--teal-700);
+    border: 1px solid var(--gold-500);
+    border-radius: 4px;
+    position: relative;
+  }
+  .greece-filigree {
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(230,206,146,0.25);
+    pointer-events: none;
+  }
+  .greece-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+    color: var(--cream-50);
+    margin-bottom: 0.75rem;
+  }
+  .greece-sub {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--cream-100);
+    max-width: 480px;
+    margin: 0 auto 2rem;
+  }
+  @media (max-width: 900px) {
+    .destination-grid { grid-template-columns: 1fr; }
+  }
+</style>

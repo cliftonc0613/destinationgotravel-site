@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import PageHero from '../../components/layout/PageHero.astro';
+import FinalCTA from '../../components/sections/FinalCTA.astro';
+
+const serviceSchema = [
+  {
+    '@type': 'Service',
+    '@id': 'https://destinationgotravel.com/destinations/europe#service',
+    name: 'Europe Travel Planning',
+    provider: { '@id': 'https://destinationgotravel.com/#organization' },
+    serviceType: 'Travel Planning',
+    url: 'https://destinationgotravel.com/destinations/europe',
+  },
+  {
+    '@type': 'Service',
+    '@id': 'https://destinationgotravel.com/destinations/all-inclusive#service',
+    name: 'All-Inclusive Resort Planning',
+    provider: { '@id': 'https://destinationgotravel.com/#organization' },
+    serviceType: 'Travel Planning',
+    url: 'https://destinationgotravel.com/destinations/all-inclusive',
+  },
+  {
+    '@type': 'Service',
+    '@id': 'https://destinationgotravel.com/destinations/cruises#service',
+    name: 'Cruise Planning',
+    provider: { '@id': 'https://destinationgotravel.com/#organization' },
+    serviceType: 'Travel Planning',
+    url: 'https://destinationgotravel.com/destinations/cruises',
+  },
+];
+
+const specialties = [
+  {
+    slug: 'europe',
+    label: 'Europe',
+    eyebrow: 'Old World, Expertly Planned',
+    heading: 'River villages, ancient cities, and countryside escapes — handled start to finish.',
+    description: 'From the canals of Venice to the lavender fields of Provence, Dawn brings firsthand knowledge to every European itinerary she builds.',
+    image: '/images/luxury-villa-pool-tropical-garden.webp',
+    imageAlt: 'Luxury villa pool surrounded by tropical gardens in Europe',
+    cta: 'Plan a Europe Trip',
+  },
+  {
+    slug: 'all-inclusive',
+    label: 'All-Inclusive Resorts',
+    eyebrow: 'Luxury Without the Logistics',
+    heading: 'The right resort makes everything easier. Dawn knows which ones actually deliver.',
+    description: "Not all all-inclusives are created equal. Dawn has researched (and visited) the properties that deliver on their promise — so you're not disappointed when you arrive.",
+    image: '/images/resort-pool-evening-palm-trees.webp',
+    imageAlt: 'Luxury resort pool at evening with palm trees',
+    cta: 'Find Your Resort',
+  },
+  {
+    slug: 'cruises',
+    label: 'Cruises',
+    eyebrow: 'River, Ocean & Expedition',
+    heading: 'The right ship, itinerary, and cabin — matched to the way you actually travel.',
+    description: 'Whether it\'s a river cruise through the heart of Europe or an ocean voyage to Alaska, Dawn matches you to the experience that fits your pace and preferences.',
+    image: '/images/royal-caribbean-star-of-the-seas-nassau.webp',
+    imageAlt: 'Royal Caribbean cruise ship at Nassau port',
+    cta: 'Explore Cruises',
+  },
+];
+---
+
+<BaseLayout
+  title="Destinations — Europe, All-Inclusive Resorts & Cruises | DestinationGo Travel"
+  description="Europe, all-inclusives, and cruises — planned by an advisor who's been there. Serving empty nesters and retirees in Greenville SC and Upstate South Carolina."
+  schema={serviceSchema}
+>
+
+  <PageHero
+    eyebrow="Destinations"
+    heading="Three specialties. One trusted advisor."
+    subheading="Dawn focuses on what she knows best — so every trip she plans is backed by real expertise, not guesswork."
+  />
+
+  <!-- Specialty Cards -->
+  {specialties.map((s, i) => (
+    <section class:list={['specialty-row', i % 2 !== 0 && 'specialty-row--alt']}>
+      <div class="container">
+        <div class="specialty-grid">
+          <div class="specialty-image-col">
+            <div class="specialty-image-wrap">
+              <img src={s.image} alt={s.imageAlt} width="600" height="450" />
+            </div>
+          </div>
+          <div class="specialty-content-col">
+            <p class="eyebrow">{s.eyebrow}</p>
+            <div class="hairline hairline--left"></div>
+            <h2 class="specialty-heading">{s.heading}</h2>
+            <p class="specialty-body">{s.description}</p>
+            <a href={`/destinations/${s.slug}`} class="btn btn--teal">{s.cta}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <FinalCTA />
+
+</BaseLayout>
+
+<style>
+  /* Alternating rows */
+  .specialty-row {
+    padding: 5rem 0;
+    background: #fff;
+  }
+  .specialty-row--alt {
+    background-color: var(--cream-50);
+  }
+  .specialty-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+  .specialty-row--alt .specialty-image-col {
+    order: 2;
+  }
+  .specialty-row--alt .specialty-content-col {
+    order: 1;
+  }
+  .specialty-image-wrap {
+    border: 1px solid var(--gold-500);
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+  .specialty-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .specialty-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.375rem, 1.5vw + 0.75rem, 2rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+  }
+  .specialty-body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--ink-600);
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 900px) {
+    .specialty-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .specialty-row--alt .specialty-image-col { order: unset; }
+    .specialty-row--alt .specialty-content-col { order: unset; }
+  }
+</style>

@@ -1,0 +1,76 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Sveltia CMS is inactive until Netlify Identity + Git Gateway are enabled.
+# To activate: enable Netlify Identity on the Netlify dashboard, enable Git Gateway,
+# then invite Dawn (dawn@destinationgotravel.com) as an editor.
+
+media_folder: public/images/blog
+public_folder: /images/blog
+
+collections:
+  - name: blog
+    label: Blog Posts
+    label_singular: Blog Post
+    folder: src/content/blog
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "/blog/{{slug}}"
+    fields:
+      - label: Title
+        name: title
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+        hint: "Used as the meta description and social media preview. Keep under 160 characters."
+      - label: Publish Date
+        name: publishDate
+        widget: datetime
+        date_format: YYYY-MM-DD
+        time_format: false
+      - label: Updated Date
+        name: updatedDate
+        widget: datetime
+        date_format: YYYY-MM-DD
+        time_format: false
+        required: false
+      - label: Hero Image
+        name: heroImage
+        widget: image
+        hint: "Recommended size: 1200x630px. Also used as OG/social image."
+      - label: Hero Image Alt Text
+        name: heroImageAlt
+        widget: string
+        hint: "Describe the image for screen readers and SEO."
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - { label: "Europe", value: "Europe" }
+          - { label: "All-Inclusive Resorts", value: "All-Inclusive" }
+          - { label: "Cruises", value: "Cruises" }
+          - { label: "General Travel", value: "General" }
+      - label: Tags
+        name: tags
+        widget: list
+        default: []
+        hint: "Comma-separated tags for filtering (e.g. Italy, River Cruise, Tips)"
+      - label: Featured Post
+        name: featured
+        widget: boolean
+        default: false
+        hint: "Featured posts appear at the top of the blog index."
+      - label: Author
+        name: author
+        widget: hidden
+        default: "Dawn Owens"
+      - label: Draft
+        name: draft
+        widget: boolean
+        default: false
+        hint: "Draft posts are not published to the live site."
+      - label: Body
+        name: body
+        widget: markdown

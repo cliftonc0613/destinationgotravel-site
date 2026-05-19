@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+const lastUpdated = 'May 2026';
+---
+
+<BaseLayout
+  title="Terms & Conditions | DestinationGo Travel"
+  description="Terms and conditions for using the DestinationGo Travel website."
+  noindex={true}
+>
+  <section class="legal-page">
+    <div class="container">
+      <div class="legal-inner">
+        <p class="eyebrow">Legal</p>
+        <div class="hairline hairline--left"></div>
+        <h1 class="legal-heading">Terms & Conditions</h1>
+        <p class="legal-date">Last updated: {lastUpdated}</p>
+
+        <div class="legal-body prose">
+          <h2>1. Use of This Website</h2>
+          <p>By using destinationgotravel.com, you agree to these terms. This website is operated by DestinationGo Travel (Dawn Owens). We reserve the right to modify these terms at any time. Continued use of the site constitutes acceptance of any changes.</p>
+
+          <h2>2. Travel Advisory Services</h2>
+          <p>Information provided on this website is for general informational purposes. Specific travel recommendations and bookings are provided through direct communication with Dawn Owens as your travel advisor. We are not responsible for changes in pricing, availability, or travel conditions beyond our control.</p>
+
+          <h2>3. Travel Insurance</h2>
+          <p>We strongly recommend purchasing travel insurance for all trips. Dawn can recommend travel insurance options as part of your trip planning. We are not liable for losses resulting from the absence of travel insurance coverage.</p>
+
+          <h2>4. Supplier Terms</h2>
+          <p>All travel bookings are subject to the terms and conditions of the individual suppliers (hotels, cruise lines, tour operators, airlines). By booking travel through DestinationGo Travel, you agree to be bound by those supplier terms in addition to ours.</p>
+
+          <h2>5. Limitation of Liability</h2>
+          <p>DestinationGo Travel acts as an agent for travel suppliers. We are not responsible for the acts or omissions of suppliers, or for injury, damage, loss, or delay arising from circumstances beyond our control, including weather events, acts of government, or force majeure.</p>
+
+          <h2>6. Intellectual Property</h2>
+          <p>All content on this website — including text, images, and design — is owned by or licensed to DestinationGo Travel and may not be reproduced without written permission.</p>
+
+          <h2>7. Contact</h2>
+          <p>Questions about these terms? Contact us at <a href="mailto:dawn@destinationgotravel.com">dawn@destinationgotravel.com</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    background: var(--cream-50);
+    padding: 5rem 0;
+  }
+  .legal-inner {
+    max-width: 760px;
+    margin-inline: auto;
+  }
+  .legal-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 2.5vw + 0.75rem, 2.5rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    margin-bottom: 0.25rem;
+  }
+  .legal-date {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--ink-500);
+    margin-bottom: 3rem;
+  }
+</style>

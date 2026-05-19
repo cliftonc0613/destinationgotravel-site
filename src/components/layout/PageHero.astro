@@ -1,0 +1,117 @@
+---
+interface Props {
+  eyebrow?: string;
+  heading: string;
+  subheading?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  ctaSecondaryText?: string;
+  ctaSecondaryHref?: string;
+  /** Align content: 'center' (default) or 'left' */
+  align?: 'center' | 'left';
+  /** Extra padding when no CTA: 'compact' reduces vertical space */
+  size?: 'default' | 'compact';
+}
+
+const {
+  eyebrow,
+  heading,
+  subheading,
+  ctaText,
+  ctaHref,
+  ctaSecondaryText,
+  ctaSecondaryHref,
+  align = 'center',
+  size = 'default',
+} = Astro.props;
+---
+
+<section class:list={['page-hero', `page-hero--${align}`, `page-hero--${size}`]}>
+  <div class="page-hero-filigree" aria-hidden="true"></div>
+  <div class="container">
+    <div class="page-hero-inner">
+      {eyebrow && <p class="eyebrow eyebrow--gold">{eyebrow}</p>}
+      {eyebrow && <div class="hairline" style={align === 'left' ? '' : 'margin-inline:auto;'}></div>}
+      <h1 class="page-hero-heading" set:html={heading} />
+      {subheading && <p class="page-hero-subheading">{subheading}</p>}
+      {(ctaText || ctaSecondaryText) && (
+        <div class="page-hero-ctas">
+          {ctaText && ctaHref && <a href={ctaHref} class="btn btn--primary">{ctaText}</a>}
+          {ctaSecondaryText && ctaSecondaryHref && <a href={ctaSecondaryHref} class="btn btn--outline-teal">{ctaSecondaryText}</a>}
+        </div>
+      )}
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    position: relative;
+    background-color: var(--teal-700);
+    overflow: hidden;
+  }
+  .page-hero-filigree {
+    position: absolute;
+    top: calc(4.5rem + 14px);
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    border: 1px solid rgba(230, 206, 146, 0.12);
+    pointer-events: none;
+  }
+  .page-hero .container { position: relative; }
+
+  /* Padding + min-height — extra top padding clears the fixed header */
+  .page-hero--default { padding: 7rem 0 5rem; min-height: 375px; display: flex; align-items: center; }
+  .page-hero--compact { padding: 6rem 0 3.5rem; min-height: 375px; display: flex; align-items: center; }
+  .page-hero--default .container,
+  .page-hero--compact .container { width: 100%; }
+
+  /* Alignment */
+  .page-hero-inner {
+    max-width: 720px;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .page-hero--left .page-hero-inner {
+    text-align: left;
+    margin-inline: 0;
+  }
+
+  .page-hero-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.875rem, 3vw + 0.75rem, 3rem);
+    font-weight: 600;
+    color: var(--cream-100, #fdf9f0);
+    line-height: 1.2;
+    margin: 1.25rem 0 0;
+  }
+  .page-hero-heading em {
+    color: var(--gold-400);
+    font-style: italic;
+  }
+
+  .page-hero-subheading {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 1.25vw + 0.5rem, 1.25rem);
+    color: rgba(253, 249, 240, 0.8);
+    line-height: 1.65;
+    margin-top: 1.25rem;
+  }
+
+  .page-hero-ctas {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .page-hero--left .page-hero-ctas {
+    justify-content: flex-start;
+  }
+
+  @media (max-width: 600px) {
+    .page-hero-ctas { flex-direction: column; align-items: stretch; }
+  }
+</style>

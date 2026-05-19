@@ -1,0 +1,139 @@
+---
+const stats = [
+  { value: '5+', label: 'Years of Experience' },
+  { value: '15+', label: 'Countries Visited Firsthand' },
+  { value: '100%', label: 'Handled for You' },
+];
+
+const testimonials = [
+  {
+    quote: "Dawn handled everything from start to finish. We showed up at the airport and didn't have to think about a single thing. Best vacation we've ever taken — and we've been traveling for 30 years.",
+    name: 'Sandra & James M.',
+    location: 'Greenville, SC — Mediterranean Cruise',
+  },
+  {
+    quote: "I had been putting off this trip to Italy for years because the planning felt overwhelming. Dawn made it feel completely effortless. She gave me one itinerary, one recommendation, and it was perfect.",
+    name: 'Patricia L.',
+    location: 'Spartanburg, SC — Italy River Cruise',
+  },
+  {
+    quote: "The all-inclusive resort Dawn picked for our anniversary was flawless. She knew which category of room was worth the upgrade and which restaurants to book ahead. Seamless is the only word for it.",
+    name: 'Carol & Robert T.',
+    location: 'Anderson, SC — Caribbean All-Inclusive',
+  },
+];
+
+const starPath = "M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z";
+---
+
+<section class="social-proof">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:3.5rem;">
+      <p class="eyebrow">Client Stories</p>
+      <div class="hairline"></div>
+      <h2 class="section-heading">What it feels like to travel with Dawn.</h2>
+      <p class="section-subheading">Her clients describe the experience the same way, over and over.</p>
+    </div>
+
+    <div class="stats-bar" aria-label="Key statistics">
+      {stats.map((s, i) => (
+        <div class="stat-item" style={i > 0 ? 'border-left: 1px solid var(--gold-500);' : ''}>
+          <div class="stat-value">{s.value}</div>
+          <div class="stat-label">{s.label}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="testimonial-grid">
+      {testimonials.map(t => (
+        <figure class="testimonial-card card">
+          <div class="stars" aria-label="5 stars">
+            {Array(5).fill(null).map(() => (
+              <svg class="star" viewBox="0 0 20 20" aria-hidden="true"><path d={starPath}/></svg>
+            ))}
+          </div>
+          <blockquote class="testimonial-quote">"{t.quote}"</blockquote>
+          <figcaption class="testimonial-client">
+            <div class="client-name">{t.name}</div>
+            <div class="client-location">{t.location}</div>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .social-proof {
+    background-color: var(--cream-100);
+    padding: 5rem 0;
+  }
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--gold-500);
+    border-bottom: 1px solid var(--gold-500);
+    padding: 2rem 0;
+    margin-bottom: 4rem;
+  }
+  .stat-item { text-align: center; padding: 0.5rem 1rem; }
+  .stat-value {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 2.25rem;
+    color: var(--teal-700);
+    letter-spacing: 0.05em;
+  }
+  .stat-label {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--teal-500);
+    margin-top: 4px;
+  }
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+  .testimonial-card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .stars { display: flex; gap: 4px; margin-bottom: 1.25rem; }
+  .star { width: 1rem; height: 1rem; fill: var(--gold-500); }
+  .testimonial-quote {
+    flex: 1;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--ink-700);
+    margin-bottom: 1.5rem;
+  }
+  .testimonial-client {
+    border-top: 1px solid var(--line);
+    padding-top: 1rem;
+  }
+  .client-name {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--ink-900);
+  }
+  .client-location {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    color: var(--ink-500);
+    margin-top: 2px;
+  }
+  @media (max-width: 900px) {
+    .testimonial-grid { grid-template-columns: 1fr; }
+  }
+</style>

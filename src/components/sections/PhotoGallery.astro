@@ -1,0 +1,51 @@
+---
+const cells = [
+  { image: '/images/caribbean-beach-palm-trees-turquoise-water.webp', alt: 'Caribbean beach with palm trees and turquoise water' },
+  { image: '/images/tropical-cocktails-beach-ocean.webp', alt: 'Tropical cocktails on the beach' },
+  { image: '/images/luxury-resort-poolside-tropical-garden.webp', alt: 'Luxury resort poolside with tropical garden' },
+  { image: '/images/norwegian-aqua-cruise-ship-ocean.webp', alt: 'Norwegian Aqua cruise ship on the ocean' },
+  { image: '/images/carnival-cruise-alaska-fjord-mountains.webp', alt: 'Cruise ship in Alaskan fjord with mountains' },
+];
+---
+
+<section class="photo-gallery" aria-label="Travel destination gallery">
+  <div class="gallery-strip">
+    {cells.map(cell => (
+      <div
+        class="gallery-cell"
+        style={`background-image:url('${cell.image}');`}
+        role="img"
+        aria-label={cell.alt}
+      ></div>
+    ))}
+  </div>
+  <p class="gallery-caption">Caribbean · Mediterranean · Alaska · The Maldives · And Beyond</p>
+</section>
+
+<style>
+  .photo-gallery { background-color: var(--ink-900); }
+  .gallery-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    height: clamp(180px, 24vw, 320px);
+  }
+  .gallery-cell {
+    background-size: cover;
+    background-position: center;
+  }
+  .gallery-caption {
+    padding: 1rem 0;
+    text-align: center;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.58rem;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    color: var(--gold-500);
+    opacity: 0.75;
+  }
+  @media (max-width: 900px) {
+    .gallery-strip { grid-template-columns: repeat(3, 1fr); }
+    .gallery-cell:nth-child(n+4) { display: none; }
+  }
+</style>

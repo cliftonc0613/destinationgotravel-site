@@ -1,0 +1,108 @@
+---
+---
+<section class="lead-capture" id="greece-waitlist">
+  <div class="container">
+    <div class="lead-grid">
+      <div>
+        <p class="eyebrow eyebrow--gold" style="margin-bottom:1rem;">Exclusive Access</p>
+        <div class="hairline hairline--left"></div>
+        <h2 class="lead-heading">Planning a trip to Greece?</h2>
+        <p class="lead-sub">Dawn is launching an exclusive all-women's escorted group trip. Limited spots available.</p>
+      </div>
+      <div class="card lead-card">
+        <div class="filigree" aria-hidden="true"></div>
+        <h3 class="lead-offer-title" style="position:relative; z-index:1;">Join the Greece Waitlist</h3>
+        <p class="lead-offer-desc" style="position:relative; z-index:1;">Be the first to receive dates, pricing, and itinerary details when they're released.</p>
+        <ul class="lead-benefits" style="position:relative; z-index:1;">
+          <li><svg class="benefit-check" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Priority access before public announcement</li>
+          <li><svg class="benefit-check" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>No commitment required to join the list</li>
+          <li><svg class="benefit-check" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Directly from Dawn — no spam, no pressure</li>
+        </ul>
+        <form name="greece-waitlist" method="POST" data-netlify="true" style="position:relative; z-index:1;">
+          <input type="hidden" name="form-name" value="greece-waitlist" />
+          <input class="lead-input" type="text" name="name" placeholder="Your name" required aria-label="Your name" />
+          <input class="lead-input" type="email" name="email" placeholder="Your email address" required aria-label="Your email address" />
+          <button type="submit" class="btn btn--primary-teal" style="width:100%; text-align:center;">Add Me to the Early Access List</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lead-capture {
+    background-color: var(--teal-800);
+    padding: 5rem 0;
+  }
+  .lead-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 960px;
+    margin-inline: auto;
+  }
+  .lead-heading {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 2.5vw + 0.5rem, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: 0.01em;
+    color: var(--cream-50);
+    margin-bottom: 1rem;
+  }
+  .lead-sub {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--teal-100);
+  }
+  .lead-card { padding: 2.5rem; position: relative; }
+  .lead-offer-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--ink-900);
+    margin-bottom: 0.5rem;
+  }
+  .lead-offer-desc {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--ink-700);
+    margin-bottom: 1.25rem;
+  }
+  .lead-benefits { list-style: none; margin-bottom: 1.75rem; }
+  .lead-benefits li {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--ink-700);
+    padding: 0.375rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .benefit-check {
+    color: var(--teal-600);
+    flex-shrink: 0;
+  }
+  .lead-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--ink-900);
+    background-color: var(--cream-50);
+    margin-bottom: 0.875rem;
+    outline: none;
+    transition: border-color 150ms ease;
+    display: block;
+  }
+  .lead-input:focus { border-color: var(--teal-500); }
+  @media (max-width: 900px) {
+    .lead-grid { grid-template-columns: 1fr; }
+  }
+</style>

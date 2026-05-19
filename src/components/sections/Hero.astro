@@ -1,0 +1,118 @@
+---
+---
+<section class="hero" style="padding-top: 4.5rem;">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-filigree"></div>
+  <div class="hero-content">
+    <p class="eyebrow eyebrow--gold hero-animate d1">Luxury Travel Planning</p>
+    <div class="hairline hero-animate d2"></div>
+    <h1 class="hero-animate d3">You Don't Need More Options. You Need the Right One.</h1>
+    <p class="hero-sub hero-animate d4">For empty nesters and retirees ready to travel well — without the overwhelm of planning it yourself.</p>
+    <div class="hero-ctas hero-animate d5">
+      <a href="/plan-my-trip" class="btn btn--primary">Plan My Trip</a>
+      <a href="#how-it-works" class="btn btn--outline-gold">See How It Works</a>
+    </div>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">
+    <div class="scroll-pill">
+      <div class="scroll-dot scroll-pill-dot"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/ritz-carlton-resort-aerial-beach-pool.webp');
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10,50,56,0.60) 0%, rgba(10,50,56,0.35) 35%, rgba(10,50,56,0.70) 70%, rgba(10,50,56,0.90) 100%);
+  }
+  .hero-filigree {
+    position: absolute;
+    top: calc(4.5rem + 16px);
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    pointer-events: none;
+    border: 1px solid rgba(230,206,146,0.22);
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 7rem 2rem;
+    max-width: 900px;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.25rem, 5vw + 0.5rem, 4.5rem);
+    line-height: 1.08;
+    letter-spacing: 0.01em;
+    color: var(--cream-50);
+    text-wrap: balance;
+    margin-bottom: 1.75rem;
+  }
+  .hero-sub {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.1rem, 1.5vw + 0.5rem, 1.35rem);
+    line-height: 1.75;
+    color: var(--cream-100);
+    opacity: 0.92;
+    max-width: 540px;
+    margin-inline: auto;
+  }
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  .scroll-pill {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 2rem;
+    height: 3.5rem;
+    border-radius: 99px;
+    border: 1px solid rgba(230,206,146,0.40);
+    padding: 0.5rem;
+    overflow: hidden;
+  }
+  .scroll-pill-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--gold-500);
+  }
+  @media (max-width: 600px) {
+    .hero-ctas { flex-direction: column; align-items: center; }
+    .hero-ctas .btn { width: 100%; max-width: 280px; text-align: center; }
+  }
+</style>

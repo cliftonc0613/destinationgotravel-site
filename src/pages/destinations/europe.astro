@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import PageHero from '../../components/layout/PageHero.astro';
+import FinalCTA from '../../components/sections/FinalCTA.astro';
+import SocialProof from '../../components/sections/SocialProof.astro';
+
+const serviceSchema = {
+  '@type': 'Service',
+  '@id': 'https://destinationgotravel.com/destinations/europe#service',
+  name: 'Europe Travel Planning',
+  description: 'Expert Europe travel planning including river cruises, city immersions, countryside escapes, and multi-country tours for empty nesters and retirees.',
+  provider: { '@id': 'https://destinationgotravel.com/#organization' },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  serviceType: 'Travel Planning',
+  url: 'https://destinationgotravel.com/destinations/europe',
+};
+
+const experiences = [
+  {
+    title: 'River Cruises',
+    description: 'Float through the Rhine, Danube, or Douro at a pace that actually lets you see things. Dawn matches you to the right cruise line, ship, and cabin for the way you travel.',
+  },
+  {
+    title: 'City Immersions',
+    description: 'Rome, Paris, Prague, Lisbon. Dawn builds itineraries that go beyond the highlights — the neighborhoods, the restaurants, the moments that make a city feel real.',
+  },
+  {
+    title: 'Countryside Escapes',
+    description: 'Tuscany, Provence, the Cotswolds. Slow travel through the places that make Europe feel timeless — with the logistics already sorted.',
+  },
+  {
+    title: 'Multi-Country Tours',
+    description: 'Baltics to the Med. Eastern Europe to the Atlantic coast. Dawn designs longer journeys that flow naturally from place to place — no unnecessary backtracking.',
+  },
+];
+---
+
+<BaseLayout
+  title="Europe Travel Planning — River Cruises, City Immersions & More | DestinationGo Travel"
+  description="Europe travel planning for empty nesters in Greenville, SC. River cruises, city escapes, and countryside itineraries — by an advisor who's actually been there."
+  schema={serviceSchema}
+>
+
+  <PageHero
+    eyebrow="Europe"
+    heading="Europe, the way it's meant to be experienced."
+    subheading="Dawn has visited over 15 countries across Europe — not as a tourist checking boxes, but as someone who pays attention to the details that make a trip feel effortless."
+    ctaText="Plan a Europe Trip"
+    ctaHref="/plan-my-trip"
+  />
+
+  <!-- Why Europe with Dawn -->
+  <section class="europe-why">
+    <div class="container">
+      <div class="why-grid">
+        <div>
+          <p class="eyebrow">Why Book With Dawn</p>
+          <div class="hairline hairline--left"></div>
+          <h2 class="why-heading">Firsthand knowledge changes everything.</h2>
+          <p class="why-body">There's a difference between researching a destination and knowing it. Dawn has spent years traveling Europe — not on familiarization trips designed to impress advisors, but on real trips where she noticed what the hotel got wrong and what the restaurant got exactly right.</p>
+          <p class="why-body">That knowledge is what she brings to every itinerary she builds for you.</p>
+        </div>
+        <div class="why-stats">
+          <div class="why-stat">
+            <div class="why-stat-number">15+</div>
+            <div class="why-stat-label">European Countries Visited</div>
+          </div>
+          <div class="why-stat">
+            <div class="why-stat-number">5+</div>
+            <div class="why-stat-label">Years of Planning Experience</div>
+          </div>
+          <div class="why-stat">
+            <div class="why-stat-number">100%</div>
+            <div class="why-stat-label">Handled Start to Finish</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiences -->
+  <section class="europe-experiences">
+    <div class="container">
+      <p class="eyebrow" style="text-align:center;">What I Plan</p>
+      <div class="hairline" style="margin-inline:auto;margin-bottom:1rem;"></div>
+      <h2 class="experiences-heading">Europe experiences Dawn specializes in</h2>
+      <div class="experiences-grid">
+        {experiences.map(e => (
+          <div class="experience-card card card-hover">
+            <h3 class="experience-title">{e.title}</h3>
+            <p class="experience-body">{e.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <SocialProof />
+  <FinalCTA />
+
+</BaseLayout>
+
+<style>
+  /* Why */
+  .europe-why {
+    padding: 5rem 0;
+    background: var(--cream-50);
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+  .why-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2vw + 0.5rem, 2.25rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+  }
+  .why-body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--ink-600);
+    margin-bottom: 1rem;
+  }
+  .why-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .why-stat {
+    padding: 1.75rem 2rem;
+    border-left: 3px solid var(--gold-500);
+    background: #fff;
+  }
+  .why-stat-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--teal-700);
+    letter-spacing: 0.05em;
+  }
+  .why-stat-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-500);
+    margin-top: 4px;
+  }
+
+  /* Experiences */
+  .europe-experiences {
+    padding: 5rem 0;
+    background: #fff;
+  }
+  .experiences-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin-inline: auto;
+  }
+  .experience-card { padding: 2rem; }
+  .experience-title {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--teal-700);
+    margin-bottom: 0.75rem;
+  }
+  .experience-body {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--ink-600);
+  }
+
+  @media (max-width: 900px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .experiences-grid { grid-template-columns: 1fr; }
+  }
+</style>

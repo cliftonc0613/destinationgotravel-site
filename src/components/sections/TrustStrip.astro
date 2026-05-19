@@ -1,0 +1,60 @@
+---
+const stats = [
+  { stat: '5 Years', label: 'Planning Luxury Travel' },
+  { stat: '15+', label: 'Countries Visited' },
+  { stat: '100%', label: 'Tailored to You' },
+  { stat: '24/7', label: 'Support Before, During & After' },
+];
+---
+
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-grid">
+      {stats.map((item, i) => (
+        <div class="trust-item" style={i === 0 ? 'border-left:none;' : ''}>
+          <div class="trust-stat">{item.stat}</div>
+          <div class="trust-label">{item.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .trust-strip {
+    background-color: var(--cream-50);
+    border-top: 1px solid var(--gold-500);
+    border-bottom: 1px solid var(--gold-500);
+    padding: 2rem 0;
+  }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .trust-item {
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-left: 1px solid var(--gold-500);
+  }
+  .trust-stat {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--teal-700);
+    letter-spacing: 0.05em;
+  }
+  .trust-label {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--teal-500);
+    margin-top: 4px;
+  }
+  @media (max-width: 900px) {
+    .trust-grid { grid-template-columns: repeat(2, 1fr); }
+    .trust-item:nth-child(3) { border-left: none; border-top: 1px solid var(--gold-500); }
+    .trust-item:nth-child(4) { border-top: 1px solid var(--gold-500); }
+  }
+</style>

@@ -1,0 +1,352 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import PageHero from '../components/layout/PageHero.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+import SocialProof from '../components/sections/SocialProof.astro';
+
+const personSchema = {
+  '@type': 'Person',
+  '@id': 'https://destinationgotravel.com/about#dawn',
+  name: 'Dawn Owens',
+  jobTitle: 'Luxury Travel Advisor',
+  description: 'Dawn Owens is a luxury travel advisor based in Upstate South Carolina, specializing in Europe, all-inclusive resorts, and cruises for empty nesters and retirees.',
+  url: 'https://destinationgotravel.com/about',
+  image: 'https://destinationgotravel.com/images/dawn-owens.webp',
+  telephone: '864-506-0213',
+  email: 'dawn@destinationgotravel.com',
+  worksFor: {
+    '@id': 'https://destinationgotravel.com/#business',
+  },
+  knowsAbout: ['Europe travel', 'All-inclusive resorts', 'River cruises', 'Ocean cruises', 'Luxury travel planning'],
+  areaServed: [
+    { '@type': 'City', name: 'Greenville', addressRegion: 'SC' },
+    { '@type': 'City', name: 'Spartanburg', addressRegion: 'SC' },
+    { '@type': 'City', name: 'Anderson', addressRegion: 'SC' },
+    { '@type': 'City', name: 'Clemson', addressRegion: 'SC' },
+  ],
+};
+
+const credentials = [
+  { stat: '5+', label: 'Years in Travel' },
+  { stat: '15+', label: 'Countries Visited' },
+  { stat: '100%', label: 'Personalized Service' },
+  { stat: '100%', label: 'Handled for You' },
+];
+
+const values = [
+  {
+    heading: "I plan trips I'd take myself.",
+    body: "Every property I recommend, I've researched deeply — or visited personally. I won't send you somewhere I wouldn't go. That standard keeps my recommendations honest.",
+  },
+  {
+    heading: "Your trip should fit your life.",
+    body: "A couple celebrating 40 years of marriage doesn't need the same trip as someone taking their first big solo adventure. I ask the questions that help me plan something that's actually right for you.",
+  },
+  {
+    heading: "I handle the things you don't want to think about.",
+    body: "Transfers. Insurance. Pre-arrival notes to the resort. The kinds of details that separate a smooth trip from a stressful one. That's what I do — so you don't have to.",
+  },
+];
+---
+
+<BaseLayout
+  title="About Dawn Owens — Luxury Travel Advisor | DestinationGo Travel"
+  description="Meet Dawn Owens, a luxury travel advisor based in Greenville, SC. Specializing in Europe, all-inclusive resorts, and cruises for empty nesters and retirees."
+  schema={personSchema}
+>
+
+  <!-- Page Hero — matches destination pages -->
+  <PageHero
+    eyebrow="Meet Dawn"
+    heading="The travel advisor who plans trips <em>she'd actually take.</em>"
+    subheading="Most travel advisors will hand you a brochure. Dawn hands you an itinerary built around exactly who you are, what you value, and what you want to feel when you finally get there."
+    ctaText="Plan My Trip"
+    ctaHref="/plan-my-trip"
+    ctaSecondaryText="864-506-0213"
+    ctaSecondaryHref="tel:8645060213"
+  />
+
+  <!-- Photo + Bio split -->
+  <section class="about-intro">
+    <div class="container">
+      <div class="about-intro-grid">
+        <div class="about-photo-col">
+          <div class="about-photo-wrap">
+            <div class="about-photo-filigree" aria-hidden="true"></div>
+            <img
+              src="/images/dawn-owens.webp"
+              alt="Dawn Owens, Luxury Travel Advisor for DestinationGo Travel"
+              width="520"
+              height="650"
+            />
+          </div>
+        </div>
+        <div class="about-bio-col">
+          <p class="eyebrow">About Dawn</p>
+          <div class="hairline hairline--left"></div>
+          <h2 class="about-bio-heading">A travel advisor who actually knows the destination.</h2>
+          <p class="about-lead">
+            Dawn Owens has been planning travel for over five years, visiting more than 15 countries — not as a tourist, but as someone who pays close attention to the details that make a trip feel effortless.
+          </p>
+          <p class="about-body">
+            She specializes in Europe, all-inclusive resorts, and cruises for empty nesters and retirees in Upstate South Carolina who are ready to travel well. When you work with Dawn, you get an advisor who has done the research, knows the properties, and handles the logistics — so you can just show up.
+          </p>
+          <div class="about-credentials">
+            {credentials.map(c => (
+              <div class="credential-item">
+                <div class="credential-stat">{c.stat}</div>
+                <div class="credential-label">{c.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="about-story">
+    <div class="container">
+      <div class="story-inner">
+        <p class="eyebrow" style="text-align:center;">The Story</p>
+        <div class="hairline" style="margin-inline:auto;margin-bottom:2.5rem;"></div>
+        <h2 class="story-heading">Why I became a travel advisor</h2>
+        <div class="story-text">
+          <p>I've always believed that travel changes you — not in a cliché way, but in the specific, quiet way that happens when you slow down somewhere new and start to notice things you'd never notice at home. The way light falls on old stone in Tuscany. The silence of a river at sunrise. The feeling of not knowing exactly what comes next.</p>
+          <p>After years of planning my own trips and helping friends navigate theirs, I realized something: the part most people dread — the research, the logistics, the comparing of options that all start to look the same — is the part I actually love. I find it satisfying to cut through the noise and figure out what's actually right for a specific person, not just what looks best in a photo.</p>
+          <p>I became a travel advisor because I wanted to do that work for other people. To take on the complexity so they could just show up and experience something they'll remember for the rest of their lives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="about-values">
+    <div class="container">
+      <p class="eyebrow" style="text-align:center;">How I Work</p>
+      <div class="hairline" style="margin-inline:auto;margin-bottom:1rem;"></div>
+      <h2 class="values-heading">What you can expect working with me</h2>
+      <div class="values-grid">
+        {values.map((v, i) => (
+          <div class="value-card card card-hover">
+            <div class="value-number">{String(i + 1).padStart(2, '0')}</div>
+            <h3 class="value-title">{v.heading}</h3>
+            <p class="value-body">{v.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Service promise -->
+  <section class="about-cost">
+    <div class="container">
+      <div class="cost-inner">
+        <div class="cost-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></div>
+        <div>
+          <h2 class="cost-heading">You show up. I handle everything else.</h2>
+          <p class="cost-body">From the first conversation to the day you return home, Dawn manages the research, the bookings, the logistics, and all the details in between. You get a dedicated expert who knows your preferences and is reachable when you need her — before, during, and after your trip.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <SocialProof />
+  <FinalCTA />
+
+</BaseLayout>
+
+<style>
+  /* Photo + Bio intro section */
+  .about-intro {
+    padding: 5rem 0;
+    background: var(--cream-50);
+  }
+  .about-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+  .about-photo-wrap {
+    position: relative;
+    aspect-ratio: 4/5;
+    border: 1px solid var(--gold-500);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .about-photo-filigree {
+    position: absolute;
+    inset: 6px;
+    border: 1px solid var(--gold-400);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .about-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  .about-bio-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2vw + 0.75rem, 2.25rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+    margin-top: 1.25rem;
+  }
+  .about-lead {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--ink-900);
+    margin-bottom: 1.25rem;
+  }
+  .about-body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--ink-700);
+    margin-bottom: 2rem;
+  }
+  .about-credentials {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: 1.75rem 0 0;
+    border-top: 1px solid var(--gold-500);
+  }
+  .credential-item { text-align: center; }
+  .credential-stat {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--teal-700);
+    letter-spacing: 0.05em;
+  }
+  .credential-label {
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--teal-500);
+    margin-top: 3px;
+  }
+
+  /* Story */
+  .about-story {
+    padding: 5rem 0;
+    background: #fff;
+  }
+  .story-inner {
+    max-width: 720px;
+    margin-inline: auto;
+  }
+  .story-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2vw + 0.75rem, 2.25rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .story-text p {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+    color: var(--ink-700);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Values */
+  .about-values {
+    background-color: var(--cream-50);
+    padding: 5rem 0;
+  }
+  .values-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2vw + 0.5rem, 2rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+  .value-card { padding: 2rem; }
+  .value-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--gold-500);
+    margin-bottom: 1rem;
+    opacity: 0.6;
+  }
+  .value-title {
+    font-family: var(--font-heading);
+    font-size: 1.1875rem;
+    font-weight: 600;
+    color: var(--ink-900);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+  .value-body {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--ink-600);
+  }
+
+  /* Cost / service promise */
+  .about-cost {
+    padding: 4rem 0;
+    background: var(--teal-900, #0d3333);
+  }
+  .cost-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+    max-width: 860px;
+    margin-inline: auto;
+  }
+  .cost-icon {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--gold-400);
+    flex-shrink: 0;
+    line-height: 1;
+    padding-top: 0.25rem;
+  }
+  .cost-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 1.5vw + 0.75rem, 1.75rem);
+    font-weight: 600;
+    color: var(--cream-100, #fdf9f0);
+    margin-bottom: 0.75rem;
+  }
+  .cost-body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(253, 249, 240, 0.75);
+  }
+
+  @media (max-width: 900px) {
+    .about-intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-credentials { grid-template-columns: repeat(2, 1fr); }
+    .values-grid { grid-template-columns: 1fr; }
+    .cost-inner { flex-direction: column; gap: 1.5rem; }
+  }
+</style>

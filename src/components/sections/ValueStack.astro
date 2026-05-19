@@ -1,0 +1,84 @@
+---
+const values = [
+  {
+    num: '01',
+    title: 'One recommendation, not a shortlist',
+    desc: "Dawn reviews your inquiry and comes back with the right trip for you — not five options you have to sort through yourself.",
+  },
+  {
+    num: '02',
+    title: 'Every detail handled',
+    desc: "Hotels, transfers, activities, reservations. Everything is booked and documented through a personalized itinerary before you leave home.",
+  },
+  {
+    num: '03',
+    title: 'Show up. Enjoy it.',
+    desc: "You'll know exactly what's happening, when, and where — without having done a single hour of research. Her clients call it seamless. That's the whole point.",
+  },
+];
+---
+
+<section class="value-stack">
+  <div class="container">
+    <div style="text-align:center;">
+      <p class="eyebrow eyebrow--gold">How It's Different</p>
+      <div class="hairline"></div>
+      <h2 class="section-heading section-heading--light">This is what working with Dawn looks like.</h2>
+      <p class="section-subheading section-subheading--light" style="max-width:560px;">You tell Dawn what you're dreaming of. She asks the right questions, narrows it down, and comes back with a recommendation — not a list.</p>
+    </div>
+    <div class="value-grid">
+      {values.map(v => (
+        <div class="value-card card">
+          <div class="value-number">{v.num}</div>
+          <h3 class="value-title">{v.title}</h3>
+          <p class="value-desc">{v.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .value-stack {
+    background-color: var(--teal-700);
+    padding: 5rem 0;
+  }
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+  .value-card {
+    padding: 2.5rem;
+    position: relative;
+    background: rgba(255,255,255,0.06) !important;
+    border-color: rgba(230,206,146,0.30) !important;
+  }
+  .value-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 3.5rem;
+    color: rgba(230, 206, 146, 0.18);
+    line-height: 1;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+  }
+  .value-title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.375rem;
+    color: var(--cream-50);
+    line-height: 1.3;
+    margin-bottom: 0.875rem;
+  }
+  .value-desc {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--teal-100);
+  }
+  @media (max-width: 900px) {
+    .value-grid { grid-template-columns: 1fr; }
+  }
+</style>

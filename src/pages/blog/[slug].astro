@@ -1,0 +1,301 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import FinalCTA from '../../components/sections/FinalCTA.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const {
+  title,
+  description,
+  publishDate,
+  updatedDate,
+  heroImage,
+  heroImageAlt,
+  category,
+  author,
+  tags,
+} = post.data;
+
+const canonicalUrl = `https://destinationgotravel.com/blog/${post.id}`;
+
+const blogPostingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  image: `https://destinationgotravel.com${heroImage}`,
+  datePublished: publishDate.toISOString(),
+  ...(updatedDate && { dateModified: updatedDate.toISOString() }),
+  author: {
+    '@type': 'Person',
+    name: author,
+    url: 'https://destinationgotravel.com/about',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'DestinationGo Travel',
+    url: 'https://destinationgotravel.com',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://destinationgotravel.com/images/dgota-logo.png',
+    },
+  },
+  url: canonicalUrl,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalUrl,
+  },
+  keywords: tags.join(', '),
+};
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
+---
+
+<BaseLayout
+  title={`${title} | DestinationGo Travel`}
+  description={description}
+  ogImage={heroImage}
+  schema={blogPostingSchema}
+>
+
+  <!-- Post Hero -->
+  <div class="post-hero">
+    <img
+      src={heroImage}
+      alt={heroImageAlt}
+      width="1400"
+      height="600"
+      class="post-hero-img"
+      loading="eager"
+    />
+    <div class="post-hero-overlay">
+      <div class="container">
+        <div class="post-hero-inner">
+          <span class="post-category-badge">{category}</span>
+          <h1 class="post-title">{title}</h1>
+          <div class="post-meta">
+            <span class="post-author">By {author}</span>
+            <span class="post-meta-sep" aria-hidden="true">·</span>
+            <time datetime={publishDate.toISOString()} class="post-date">
+              {formatDate(publishDate)}
+            </time>
+            {updatedDate && (
+              <>
+                <span class="post-meta-sep" aria-hidden="true">·</span>
+                <span class="post-updated">Updated {formatDate(updatedDate)}</span>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Post Body -->
+  <div class="post-layout">
+    <div class="container">
+      <div class="post-columns">
+
+        <!-- Main Content -->
+        <article class="post-content prose">
+          <Content />
+
+          <!-- Tags -->
+          {tags.length > 0 && (
+            <div class="post-tags">
+              <span class="post-tags-label">Filed under:</span>
+              {tags.map((tag) => (
+                <span class="post-tag">{tag}</span>
+              ))}
+            </div>
+          )}
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="post-sidebar">
+          <!-- About Dawn card -->
+          <div class="sidebar-card card">
+            <div class="sidebar-card-body">
+              <p class="eyebrow" style="margin-bottom:0.75rem;">Your Travel Advisor</p>
+              <h2 class="sidebar-card-heading">Plan a trip with Dawn</h2>
+              <p class="sidebar-card-text">
+                Dawn Owens is a luxury travel advisor based in Upstate South Carolina, specializing in Europe, all-inclusive resorts, and cruises for empty nesters and retirees.
+              </p>
+              <a href="/plan-my-trip" class="btn btn--primary-teal" style="width:100%;text-align:center;margin-top:1.5rem;">
+                Start Planning
+              </a>
+              <a href="/about" class="cta-link" style="display:block;text-align:center;margin-top:1rem;">
+                Meet Dawn →
+              </a>
+            </div>
+          </div>
+
+          <!-- Related category -->
+          <div class="sidebar-category">
+            <p class="eyebrow" style="margin-bottom:0.5rem;">More in {category}</p>
+            <div class="hairline hairline--left" style="margin-bottom:1rem;"></div>
+            <a href={`/blog/?category=${category}`} class="cta-link">
+              Browse all {category} posts →
+            </a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <FinalCTA />
+
+</BaseLayout>
+
+<style>
+  /* Post hero */
+  .post-hero {
+    position: relative;
+    height: clamp(320px, 50vh, 560px);
+    overflow: hidden;
+  }
+  .post-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .post-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(6, 43, 48, 0.82) 0%, rgba(6, 43, 48, 0.3) 60%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 3rem;
+  }
+  .post-hero-inner {
+    max-width: 800px;
+  }
+  .post-category-badge {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--teal-700);
+    background: rgba(253, 249, 240, 0.95);
+    padding: 4px 12px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  .post-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw + 0.75rem, 3rem);
+    font-weight: 600;
+    color: var(--cream-100, #fdf9f0);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .post-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: rgba(253, 249, 240, 0.7);
+  }
+  .post-meta-sep { opacity: 0.4; }
+  .post-author { font-weight: 700; }
+
+  /* Layout */
+  .post-layout {
+    padding: 5rem 0 6rem;
+    background: #fff;
+  }
+  .post-columns {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* Sidebar */
+  .post-sidebar {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .sidebar-card-body { padding: 2rem; }
+  .sidebar-card-heading {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--ink-900);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .sidebar-card-text {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--ink-700);
+  }
+  .sidebar-category {
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--line);
+  }
+
+  /* Tags */
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+  .post-tags-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-500);
+  }
+  .post-tag {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal-700);
+    background: var(--teal-100);
+    padding: 3px 10px;
+    border-radius: 3px;
+  }
+
+  @media (max-width: 1024px) {
+    .post-columns { grid-template-columns: 1fr; gap: 3rem; }
+    .post-sidebar { position: static; }
+  }
+  @media (max-width: 640px) {
+    .post-hero { height: 280px; }
+  }
+</style>
