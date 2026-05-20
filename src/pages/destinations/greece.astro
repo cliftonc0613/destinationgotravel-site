@@ -4,12 +4,13 @@ import PageHero from '../../components/layout/PageHero.astro';
 import FinalCTA from '../../components/sections/FinalCTA.astro';
 
 const pageSchema = {
-  '@type': 'Event',
-  '@id': 'https://destinationgotravel.com/destinations/greece#event',
-  name: "Dawn's Exclusive All-Women's Greece Group Trip",
+  '@type': 'Service',
+  '@id': 'https://destinationgotravel.com/destinations/greece#service',
+  name: "Greece Group Trip — Luxury Travel Planning",
   description: "An exclusive escorted all-women's group trip to Greece, curated by luxury travel advisor Dawn Owens of DestinationGo Travel.",
-  organizer: { '@id': 'https://destinationgotravel.com/#organization' },
-  location: { '@type': 'Place', name: 'Greece', address: { '@type': 'PostalAddress', addressCountry: 'GR' } },
+  provider: { '@id': 'https://destinationgotravel.com/#organization' },
+  areaServed: 'Greece',
+  serviceType: 'Group Travel Planning',
   url: 'https://destinationgotravel.com/destinations/greece',
 };
 
@@ -46,6 +47,7 @@ const whatIsIncluded = [
   title="Greece Group Trip — Exclusive All-Women's Escorted Tour | DestinationGo Travel"
   description="Dawn Owens is leading an all-women's escorted group trip to Greece. Limited spots available. Join the early access list to be first when details drop."
   schema={pageSchema}
+  ogImage="/images/greece-santorini-aegean-sea.jpg"
 >
 
   <PageHero
