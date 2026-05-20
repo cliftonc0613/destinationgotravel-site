@@ -30,24 +30,24 @@ const navLinks = [
       </button>
     </div>
   </div>
-
-  <!-- Mobile menu -->
-  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-    <button class="mobile-menu-close" aria-label="Close navigation menu">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <line x1="4" y1="4" x2="18" y2="18" />
-        <line x1="18" y1="4" x2="4" y2="18" />
-      </svg>
-    </button>
-    <nav aria-label="Mobile navigation">
-      {navLinks.map(link => (
-        <a href={link.href} class="mobile-nav-link">{link.label}</a>
-      ))}
-      <a href="/plan-my-trip" class="btn btn--primary-teal mobile-cta">Plan My Trip</a>
-    </nav>
-  </div>
-  <div class="mobile-overlay" id="mobile-overlay"></div>
 </header>
+
+<!-- Mobile menu outside <header> so backdrop-filter doesn't create a new containing block -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <button class="mobile-menu-close" aria-label="Close navigation menu">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="4" y1="4" x2="18" y2="18" />
+      <line x1="18" y1="4" x2="4" y2="18" />
+    </svg>
+  </button>
+  <nav aria-label="Mobile navigation">
+    {navLinks.map(link => (
+      <a href={link.href} class="mobile-nav-link">{link.label}</a>
+    ))}
+    <a href="/plan-my-trip" class="btn btn--primary-teal mobile-cta">Plan My Trip</a>
+  </nav>
+</div>
+<div class="mobile-overlay" id="mobile-overlay"></div>
 
 <style>
   header {
@@ -136,7 +136,7 @@ const navLinks = [
     right: 0;
     bottom: 0;
     width: min(320px, 85vw);
-    background-color: var(--cream-50);
+    background-color: #ffffff;
     border-left: 1px solid var(--line);
     padding: 2rem 1.5rem;
     z-index: 100;
@@ -157,6 +157,7 @@ const navLinks = [
     margin-bottom: 2rem;
   }
   .mobile-menu nav {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
@@ -189,9 +190,10 @@ const navLinks = [
     background-color: rgba(6, 43, 48, 0.5);
     z-index: 99;
     opacity: 0;
+    pointer-events: none;
     transition: opacity 300ms ease;
   }
-  .mobile-overlay.is-open { opacity: 1; }
+  .mobile-overlay.is-open { opacity: 1; pointer-events: auto; }
 
   @media (max-width: 768px) {
     nav, header > .container > .header-inner > .btn { display: none; }
