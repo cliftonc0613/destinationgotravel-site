@@ -21,11 +21,20 @@ function formatDate(date: Date) {
     year: 'numeric',
   });
 }
+
+const schema = {
+  '@type': 'CollectionPage',
+  name: 'Travel Blog — DestinationGo Travel',
+  description: 'Travel tips, destination guides, and planning advice for empty nesters and retirees from luxury travel advisor Dawn Owens.',
+  url: 'https://destinationgotravel.com/blog',
+  publisher: { '@id': 'https://destinationgotravel.com/#organization' },
+};
 ---
 
 <BaseLayout
   title="Travel Tips & Inspiration — DestinationGo Travel Blog"
   description="Travel advice for empty nesters from Dawn Owens. Europe itineraries, resort picks, and cruise guides from a luxury travel advisor in Greenville, SC."
+  schema={schema}
 >
 
   <PageHero
