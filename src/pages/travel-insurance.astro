@@ -1,0 +1,338 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import PageHero from '../components/layout/PageHero.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+
+const schema = {
+  '@type': 'Service',
+  '@id': 'https://destinationgotravel.com/travel-insurance#service',
+  name: 'Travel Insurance Planning',
+  description: 'Dawn Owens helps clients find the right travel insurance plan to protect their investment — covering trip cancellation, medical emergencies, baggage loss, and more.',
+  provider: { '@id': 'https://destinationgotravel.com/#organization' },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  serviceType: 'Travel Insurance Consultation',
+  url: 'https://destinationgotravel.com/travel-insurance',
+};
+
+const coverageTypes = [
+  {
+    heading: 'Trip Cancellation & Interruption',
+    body: 'Reimburses prepaid, non-refundable trip costs if you have to cancel or cut a trip short due to a covered reason — illness, injury, death of a family member, and more.',
+  },
+  {
+    heading: 'Emergency Medical & Evacuation',
+    body: 'Covers medical expenses and emergency evacuation if you become seriously ill or injured while traveling. Your domestic health insurance often provides little or no coverage abroad.',
+  },
+  {
+    heading: 'Baggage Loss & Delay',
+    body: 'Reimburses you for lost, stolen, or damaged luggage — and covers the cost of essential items if your bags are delayed.',
+  },
+  {
+    heading: 'Travel Delay',
+    body: 'Covers additional expenses — meals, accommodations, and transportation — when your trip is delayed due to a covered reason such as severe weather or a mechanical issue.',
+  },
+  {
+    heading: 'Missed Connection',
+    body: 'Especially important for cruises and tours. If a covered delay causes you to miss a cruise departure or scheduled tour, this coverage helps get you back on track.',
+  },
+  {
+    heading: 'Cancel for Any Reason',
+    body: 'An optional upgrade that lets you cancel your trip for reasons not otherwise covered and receive a partial reimbursement — the most flexible protection available.',
+  },
+];
+
+const whyMatters = [
+  {
+    num: '01',
+    heading: 'Suppliers can — and do — go out of business.',
+    body: 'Airline bankruptcies, cruise line defaults, tour operator closures — they happen. Travel insurance with supplier default coverage protects your investment if a company stops operations.',
+  },
+  {
+    num: '02',
+    heading: 'Your health insurance stops at the border.',
+    body: 'Most U.S. health plans provide little or no coverage overseas. A medical evacuation alone can cost $50,000 or more. The right travel insurance plan covers both treatment and transport.',
+  },
+  {
+    num: '03',
+    heading: 'Life is unpredictable.',
+    body: 'Illness, a family emergency, a job loss — any of these can force a cancellation. Without insurance, non-refundable deposits and trip costs can be lost entirely.',
+  },
+];
+---
+
+<BaseLayout
+  title="Travel Insurance — Protect Your Investment | DestinationGo Travel"
+  description="Dawn Owens helps clients find the right travel insurance plan for every trip. Trip cancellation, medical coverage, evacuation, and more — customized to your itinerary."
+  schema={schema}
+>
+
+  <PageHero
+    eyebrow="Travel Insurance"
+    heading="Protect your investment. <em>Travel with confidence.</em>"
+    subheading="We will work with you to customize the perfect travel insurance plan for you — so that if something goes wrong, your trip and your money are protected."
+    ctaText="Talk to Dawn About Insurance"
+    ctaHref="/plan-my-trip"
+  />
+
+  <!-- Why it matters -->
+  <section class="ti-why">
+    <div class="container">
+      <div class="ti-why-inner">
+        <div class="ti-why-header">
+          <p class="eyebrow">Why It Matters</p>
+          <div class="hairline hairline--left"></div>
+          <h2 class="ti-why-heading">Most travelers don't think about insurance — until they need it.</h2>
+          <p class="ti-why-lead">A single unexpected event can erase thousands of dollars in non-refundable travel costs. The right plan makes sure that never happens.</p>
+        </div>
+        <div class="ti-why-points">
+          {whyMatters.map(item => (
+            <div class="ti-why-item">
+              <div class="ti-why-num">{item.num}</div>
+              <div>
+                <h3 class="ti-why-title">{item.heading}</h3>
+                <p class="ti-why-body">{item.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coverage types -->
+  <section class="ti-coverage">
+    <div class="container">
+      <p class="eyebrow" style="text-align:center;">What's Covered</p>
+      <div class="hairline" style="margin-inline:auto; margin-bottom:1rem;"></div>
+      <h2 class="ti-coverage-heading">The coverage types that matter most.</h2>
+      <p class="ti-coverage-sub">Every plan is different. Dawn helps you understand what you're buying and make sure your coverage matches your trip.</p>
+      <div class="ti-coverage-grid">
+        {coverageTypes.map(item => (
+          <div class="ti-coverage-card card">
+            <div class="ti-coverage-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="ti-coverage-title">{item.heading}</h3>
+            <p class="ti-coverage-body">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Dawn's approach -->
+  <section class="ti-approach">
+    <div class="container">
+      <div class="ti-approach-inner">
+        <div class="ti-approach-content">
+          <p class="eyebrow eyebrow--gold">Dawn's Approach</p>
+          <div class="hairline hairline--left"></div>
+          <h2 class="ti-approach-heading">Insurance isn't one-size-fits-all. Neither is Dawn's advice.</h2>
+          <p class="ti-approach-body">Dawn reviews your itinerary, your travel party, and your concerns — then helps you identify a plan that fits your actual situation. She won't push you toward the most expensive option. She'll help you understand what you need and why, so you can make the decision that's right for you.</p>
+          <p class="ti-approach-body">Travel insurance is not required to book with DestinationGo — but it is strongly recommended on every trip. The cost of a good plan is almost always a fraction of what you'd lose without it.</p>
+          <a href="/plan-my-trip" class="btn btn--primary-teal" style="margin-top:1.5rem; display:inline-block;">Start Planning Your Trip</a>
+        </div>
+        <div class="ti-approach-aside">
+          <div class="ti-aside-card">
+            <p class="ti-aside-eyebrow">Good to Know</p>
+            <ul class="ti-aside-list">
+              <li>Insurance is almost always less expensive when purchased shortly after your initial trip deposit</li>
+              <li>Pre-existing medical conditions may be covered if insurance is purchased within a set window of your deposit date</li>
+              <li>"Cancel for Any Reason" coverage must typically be added at the time of initial purchase</li>
+              <li>Dawn can assist with travel insurance claims — navigating the paperwork so you don't have to</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCTA />
+
+</BaseLayout>
+
+<style>
+  /* Why it matters */
+  .ti-why {
+    background: var(--cream-50);
+    padding: 5rem 0;
+  }
+  .ti-why-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+  .ti-why-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 2vw + 0.75rem, 2.25rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+    margin-top: 1.25rem;
+  }
+  .ti-why-lead {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--ink-600);
+  }
+  .ti-why-points { display: flex; flex-direction: column; gap: 2rem; }
+  .ti-why-item { display: flex; gap: 1.5rem; align-items: flex-start; }
+  .ti-why-num {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold-500);
+    opacity: 0.7;
+    flex-shrink: 0;
+    line-height: 1;
+    padding-top: 0.2rem;
+  }
+  .ti-why-title {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--ink-900);
+    margin-bottom: 0.5rem;
+    line-height: 1.35;
+  }
+  .ti-why-body {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--ink-600);
+  }
+
+  /* Coverage grid */
+  .ti-coverage {
+    background: var(--cream-100);
+    padding: 5rem 0;
+  }
+  .ti-coverage-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 2vw + 0.5rem, 2.125rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+  .ti-coverage-sub {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--ink-600);
+    text-align: center;
+    max-width: 600px;
+    margin-inline: auto;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+  }
+  .ti-coverage-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+  .ti-coverage-card { padding: 2rem; }
+  .ti-coverage-icon {
+    color: var(--teal-600);
+    margin-bottom: 1rem;
+  }
+  .ti-coverage-title {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--ink-900);
+    margin-bottom: 0.625rem;
+    line-height: 1.35;
+  }
+  .ti-coverage-body {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--ink-600);
+  }
+
+  /* Approach split */
+  .ti-approach {
+    background: var(--cream-50);
+    padding: 5rem 0;
+  }
+  .ti-approach-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+  .ti-approach-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 2vw + 0.5rem, 2.125rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+    margin-top: 1.25rem;
+  }
+  .ti-approach-body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--ink-600);
+    margin-bottom: 1rem;
+  }
+  .ti-aside-card {
+    background: var(--teal-900);
+    border-radius: 4px;
+    padding: 2rem;
+    border: 1px solid rgba(230,206,146,0.2);
+  }
+  .ti-aside-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold-400);
+    margin-bottom: 1.25rem;
+  }
+  .ti-aside-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .ti-aside-list li {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: rgba(251,250,245,0.75);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .ti-aside-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold-500);
+    opacity: 0.7;
+  }
+
+  @media (max-width: 900px) {
+    .ti-why-inner,
+    .ti-approach-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .ti-coverage-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .ti-coverage-grid { grid-template-columns: 1fr; }
+  }
+</style>
