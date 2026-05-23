@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../components/layout/BaseLayout.astro';
+import PageHero from '../components/layout/PageHero.astro';
 const lastUpdated = 'May 2026';
 ---
 
@@ -8,12 +9,16 @@ const lastUpdated = 'May 2026';
   description="Terms and conditions for using the DestinationGo Travel website."
   noindex={true}
 >
+  <PageHero
+    eyebrow="Legal"
+    heading="Terms &amp; Conditions"
+    subheading="Please read these terms carefully before planning travel with DestinationGo."
+    size="compact"
+  />
+
   <section class="legal-page">
     <div class="container">
       <div class="legal-inner">
-        <p class="eyebrow">Legal</p>
-        <div class="hairline hairline--left"></div>
-        <h1 class="legal-heading">Terms & Conditions</h1>
         <p class="legal-date">Last updated: {lastUpdated}</p>
 
         <div class="legal-body prose">
