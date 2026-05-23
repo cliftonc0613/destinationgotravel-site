@@ -109,10 +109,7 @@ const whyMatters = [
       <div class="ti-coverage-grid">
         {coverageTypes.map(item => (
           <div class="ti-coverage-card card">
-            <div class="ti-coverage-icon" aria-hidden="true">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3 class="ti-coverage-title">{item.heading}</h3>
+<h3 class="ti-coverage-title">{item.heading}</h3>
             <p class="ti-coverage-body">{item.body}</p>
           </div>
         ))}
@@ -238,11 +235,7 @@ const whyMatters = [
     margin-inline: auto;
   }
   .ti-coverage-card { padding: 2rem; }
-  .ti-coverage-icon {
-    color: var(--teal-600);
-    margin-bottom: 1rem;
-  }
-  .ti-coverage-title {
+.ti-coverage-title {
     font-family: var(--font-heading);
     font-size: 1.125rem;
     font-weight: 600;
