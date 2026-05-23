@@ -135,8 +135,12 @@ a { color: inherit; }
 }
 .btn--outline-teal {
   background-color: transparent;
-  color: var(--cream-50);
+  color: var(--teal-800);
   border: 1px solid var(--gold-500);
+}
+.btn--outline-teal:hover {
+  background-color: var(--gold-500);
+  color: var(--ink-900);
 }
 .cta-link {
   font-family: var(--font-sans);
