@@ -5,6 +5,7 @@ import FinalCTA from '../components/sections/FinalCTA.astro';
 
 const photos = [
   { src: '/images/greece-santorini-aegean-sea.webp', w: 5504, h: 3072, alt: 'Santorini, Greece — whitewashed cliffs above the Aegean Sea', category: 'Europe' },
+  { src: '/images/europe001.jpg', w: 1024, h: 601, alt: 'Inside the Colosseum in Rome, Italy', category: 'Europe' },
   { src: '/images/caribbean-beach-palm-trees-turquoise-water.webp', w: 768, h: 1024, alt: 'Caribbean beach with palm trees and turquoise water', category: 'Caribbean' },
   { src: '/images/ritz-carlton-resort-aerial-beach-pool.webp', w: 1024, h: 768, alt: 'Aerial view of Ritz-Carlton resort beach and pool', category: 'Resorts' },
   { src: '/images/norwegian-aqua-cruise-ship-ocean.webp', w: 768, h: 1024, alt: 'Norwegian Aqua cruise ship at sea', category: 'Cruises' },
@@ -18,6 +19,7 @@ const photos = [
   { src: '/images/norwegian-viva-cruise-ship-port.webp', w: 1024, h: 768, alt: 'Norwegian Viva cruise ship docked in port', category: 'Cruises' },
   { src: '/images/dawn-on-trip.jpg', w: 768, h: 1024, alt: 'Dawn Owens on a client research trip', category: 'Behind the Scenes' },
   { src: '/images/dawn-on-trip002.jpg', w: 768, h: 1024, alt: 'Dawn Owens exploring destinations firsthand', category: 'Behind the Scenes' },
+  { src: '/images/ship2.jpg', w: 768, h: 1024, alt: 'Carnival cruise ship in an Alaskan bay with snow-capped mountains', category: 'Cruises' },
 ];
 
 const categories = ['All', ...Array.from(new Set(photos.map(p => p.category)))];
