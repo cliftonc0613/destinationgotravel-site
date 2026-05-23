@@ -1,0 +1,230 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import PageHero from '../components/layout/PageHero.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+
+const photos = [
+  { src: '/images/greece-santorini-aegean-sea.webp', w: 5504, h: 3072, alt: 'Santorini, Greece — whitewashed cliffs above the Aegean Sea', category: 'Europe' },
+  { src: '/images/caribbean-beach-palm-trees-turquoise-water.webp', w: 768, h: 1024, alt: 'Caribbean beach with palm trees and turquoise water', category: 'Caribbean' },
+  { src: '/images/ritz-carlton-resort-aerial-beach-pool.webp', w: 1024, h: 768, alt: 'Aerial view of Ritz-Carlton resort beach and pool', category: 'Resorts' },
+  { src: '/images/travel-itinerary-rome-italy-colosseum.webp', w: 996, h: 2047, alt: 'Colosseum in Rome, Italy', category: 'Europe' },
+  { src: '/images/norwegian-aqua-cruise-ship-ocean.webp', w: 768, h: 1024, alt: 'Norwegian Aqua cruise ship at sea', category: 'Cruises' },
+  { src: '/images/luxury-villa-pool-tropical-garden.webp', w: 1024, h: 768, alt: 'Private villa pool surrounded by tropical garden', category: 'Resorts' },
+  { src: '/images/travel-itinerary-amalfi-coast-sorrento.webp', w: 1014, h: 2048, alt: 'Amalfi Coast and Sorrento, Italy', category: 'Europe' },
+  { src: '/images/carnival-cruise-alaska-fjord-mountains.webp', w: 768, h: 1024, alt: 'Cruise ship in Alaskan fjord with mountains', category: 'Cruises' },
+  { src: '/images/resort-pool-evening-palm-trees.webp', w: 768, h: 1024, alt: 'Resort pool at evening surrounded by palm trees', category: 'Resorts' },
+  { src: '/images/royal-caribbean-star-of-the-seas-nassau.webp', w: 939, h: 1024, alt: 'Royal Caribbean Star of the Seas in Nassau', category: 'Cruises' },
+  { src: '/images/luxury-resort-poolside-tropical-garden.webp', w: 768, h: 1024, alt: 'Luxury resort poolside with tropical garden', category: 'Resorts' },
+  { src: '/images/norwegian-aqua-cruise-ship-port.webp', w: 768, h: 1024, alt: 'Norwegian Aqua cruise ship docked in port', category: 'Cruises' },
+  { src: '/images/tropical-cocktails-beach-ocean.webp', w: 768, h: 1024, alt: 'Tropical cocktails on the beach at sunset', category: 'Caribbean' },
+  { src: '/images/norwegian-viva-cruise-ship-port.webp', w: 1024, h: 768, alt: 'Norwegian Viva cruise ship docked in port', category: 'Cruises' },
+  { src: '/images/dawn-on-trip.jpg', w: 768, h: 1024, alt: 'Dawn Owens on a client research trip', category: 'Behind the Scenes' },
+  { src: '/images/dawn-on-trip002.jpg', w: 768, h: 1024, alt: 'Dawn Owens exploring destinations firsthand', category: 'Behind the Scenes' },
+];
+
+const categories = ['All', ...Array.from(new Set(photos.map(p => p.category)))];
+---
+
+<BaseLayout
+  title="Travel Gallery — DestinationGo Travel"
+  description="Browse photos from the destinations, resorts, and cruise experiences Dawn Owens specializes in — Europe, the Caribbean, all-inclusive resorts, and luxury cruises."
+>
+
+  <PageHero
+    eyebrow="The World, Up Close"
+    heading="Places worth going. <em>Experiences worth remembering.</em>"
+    subheading="A look at the destinations, resorts, and cruises Dawn researches and recommends for her clients."
+    ctaText="Plan My Trip"
+    ctaHref="/plan-my-trip"
+  />
+
+  <section class="gallery-section">
+    <div class="container">
+
+      <div class="filter-bar" role="tablist" aria-label="Filter gallery by category">
+        {categories.map((cat, i) => (
+          <button
+            class={`filter-btn${i === 0 ? ' is-active' : ''}`}
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            data-filter={cat}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <div class="pswp-gallery gallery-grid" id="pswp-gallery">
+        {photos.map((photo, i) => (
+          <a
+            href={photo.src}
+            data-pswp-width={photo.w}
+            data-pswp-height={photo.h}
+            data-pswp-alt={photo.alt}
+            data-category={photo.category}
+            class="gallery-item"
+            target="_blank"
+          >
+            <img
+              src={photo.src}
+              alt={photo.alt}
+              loading={i < 6 ? 'eager' : 'lazy'}
+              decoding="async"
+            />
+            <div class="gallery-item-overlay" aria-hidden="true">
+              <span class="gallery-item-category">{photo.category}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <FinalCTA />
+
+</BaseLayout>
+
+<style>
+  .gallery-section {
+    padding: 4rem 0 6rem;
+    background: var(--cream-50);
+  }
+
+  /* Filter bar */
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+    justify-content: center;
+  }
+  .filter-btn {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ink-600);
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 0.5rem 1.25rem;
+    cursor: pointer;
+    transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
+  }
+  .filter-btn:hover {
+    color: var(--teal-700);
+    border-color: var(--teal-400);
+  }
+  .filter-btn.is-active {
+    background: var(--teal-800);
+    color: var(--cream-50);
+    border-color: var(--teal-800);
+  }
+
+  /* Masonry grid */
+  .gallery-grid {
+    columns: 3;
+    column-gap: 1rem;
+  }
+  .gallery-item {
+    break-inside: avoid;
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    background: var(--ink-100);
+  }
+  .gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 400ms var(--ease-resort, ease);
+  }
+  .gallery-item:hover img {
+    transform: scale(1.04);
+  }
+  .gallery-item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(6,43,48,0.55) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 250ms ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem;
+    pointer-events: none;
+  }
+  .gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+  }
+  .gallery-item-category {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gold-400);
+  }
+  .gallery-item.is-hidden {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    .gallery-grid { columns: 2; }
+  }
+  @media (max-width: 560px) {
+    .gallery-grid { columns: 1; }
+  }
+</style>
+
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+  import 'photoswipe/style.css';
+
+  // Category filtering
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const items = document.querySelectorAll<HTMLElement>('.gallery-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('is-active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const filter = btn.dataset.filter!;
+      items.forEach(item => {
+        if (filter === 'All' || item.dataset.category === filter) {
+          item.classList.remove('is-hidden');
+        } else {
+          item.classList.add('is-hidden');
+        }
+      });
+    });
+  });
+
+  // PhotoSwipe — only open on non-hidden items
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#pswp-gallery',
+    children: 'a.gallery-item:not(.is-hidden)',
+    pswpModule: () => import('photoswipe'),
+    showHideAnimationType: 'zoom',
+    bgOpacity: 0.92,
+    padding: { top: 20, bottom: 40, left: 20, right: 20 },
+  });
+
+  // Re-register children after filter changes so only visible photos cycle
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      lightbox.options.children = 'a.gallery-item:not(.is-hidden)';
+    });
+  });
+
+  lightbox.init();
+</script>
