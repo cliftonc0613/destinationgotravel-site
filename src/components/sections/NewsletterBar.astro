@@ -1,0 +1,81 @@
+---
+---
+<div class="footer-newsletter">
+  <div class="container">
+    <div class="footer-newsletter-inner">
+      <div>
+        <p>Get travel inspiration delivered to your inbox.</p>
+        <p>Destinations, deals, and trip ideas from Dawn — no spam, ever.</p>
+      </div>
+      <form class="footer-form" name="newsletter" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="newsletter" />
+        <input class="footer-input" type="email" name="email" placeholder="Your email address" required aria-label="Email address" />
+        <button class="footer-subscribe" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  .footer-newsletter {
+    border-bottom: 1px solid rgba(14, 63, 69, 0.6);
+    background-color: rgba(6, 43, 48, 0.4);
+    padding: 2.5rem 0;
+  }
+  .footer-newsletter-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .footer-newsletter p:first-child {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--cream-50);
+  }
+  .footer-newsletter p:last-child {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--teal-300);
+    margin-top: 0.25rem;
+  }
+  .footer-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 400px;
+    width: 100%;
+  }
+  .footer-input {
+    flex: 1;
+    padding: 0.625rem 1rem;
+    border: 1px solid var(--teal-600);
+    border-radius: 6px;
+    background-color: rgba(14, 81, 89, 0.5);
+    color: var(--cream-50);
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    outline: none;
+    transition: border-color 150ms ease;
+  }
+  .footer-input::placeholder { color: var(--teal-300); }
+  .footer-input:focus { border-color: var(--gold-500); }
+  .footer-subscribe {
+    background-color: var(--gold-500);
+    color: var(--ink-900);
+    padding: 0.625rem 1.25rem;
+    border: none;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.875rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 150ms ease;
+  }
+  .footer-subscribe:hover { background-color: var(--gold-400); }
+  @media (max-width: 700px) {
+    .footer-newsletter-inner { flex-direction: column; }
+  }
+</style>
