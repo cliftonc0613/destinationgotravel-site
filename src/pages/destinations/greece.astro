@@ -428,9 +428,13 @@ const whatIsIncluded = [
     margin-bottom: 2rem;
   }
   .places-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    justify-content: center;
     gap: 1.5rem;
+  }
+  .place-card {
+    max-width: 480px;
+    width: 100%;
   }
   .place-card { padding: 2rem; }
   .place-name {
