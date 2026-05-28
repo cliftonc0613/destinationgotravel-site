@@ -13,7 +13,6 @@ const resourceLinks = [
   { href: '/terms', label: 'Terms & Conditions' },
 ];
 
-const locations = ['Greenville, SC', 'Spartanburg, SC', 'Anderson, SC', 'Clemson, SC'];
 ---
 
 <footer>
@@ -71,12 +70,7 @@ const locations = ['Greenville, SC', 'Spartanburg, SC', 'Anderson, SC', 'Clemson
             <li><a href={link.href}>{link.label}</a></li>
           ))}
         </ul>
-        <p class="footer-col-title" style="margin-top:2rem;">Service Areas</p>
-        <ul class="footer-links">
-          {locations.map(loc => (
-            <li><span>{loc}</span></li>
-          ))}
-        </ul>
+
       </div>
 
       <!-- Contact -->
