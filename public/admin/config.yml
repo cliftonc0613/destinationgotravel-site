@@ -1,10 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: cliftonc0613/destinationgotravel-site
   branch: main
-
-# Sveltia CMS is inactive until Netlify Identity + Git Gateway are enabled.
-# To activate: enable Netlify Identity on the Netlify dashboard, enable Git Gateway,
-# then invite Dawn (dawn@destinationgotravel.com) as an editor.
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
 
 media_folder: public/images/blog
 public_folder: /images/blog
