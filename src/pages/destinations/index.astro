@@ -120,6 +120,37 @@ const specialties = [
     </section>
   ))}
 
+
+  <!-- 2027 Group Trip Interest Form -->
+  <section class="group-form-section">
+    <div class="container">
+      <div class="group-form-card">
+        <h2 class="group-form-heading">2027 Hosted Group Trip Interest Form</h2>
+        <form name="group-trip-interest" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="group-form">
+          <input type="hidden" name="form-name" value="group-trip-interest" />
+          <p class="hidden"><label>Do not fill this out: <input name="bot-field" /></label></p>
+          <div class="form-field">
+            <label for="first-name">First name<span class="req">*</span></label>
+            <input type="text" id="first-name" name="first-name" required />
+          </div>
+          <div class="form-field">
+            <label for="last-name">Last name<span class="req">*</span></label>
+            <input type="text" id="last-name" name="last-name" required />
+          </div>
+          <div class="form-field">
+            <label for="email">Email<span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="ex: example@email.com" required />
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+          <button type="submit" class="group-form-submit">Submit form</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <FinalCTA />
 
 </BaseLayout>
@@ -173,6 +204,85 @@ const specialties = [
     color: var(--ink-600);
     margin-bottom: 2rem;
   }
+
+
+  /* Group trip form */
+  .group-form-section {
+    padding: 5rem 0;
+    background: var(--cream-50);
+  }
+  .group-form-card {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid var(--gold-200, #e8d9a0);
+    padding: 2.5rem;
+    max-width: 480px;
+    margin-inline: auto;
+  }
+  .group-form-heading {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--ink-900);
+    margin-bottom: 1.5rem;
+  }
+  .group-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+  .form-field label {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink-800);
+  }
+  .req {
+    color: #c00;
+    margin-left: 2px;
+  }
+  .form-field input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.95rem;
+    font-family: var(--font-sans);
+    color: var(--ink-900);
+    background: #fff;
+    transition: border-color 0.15s;
+  }
+  .form-field input:focus {
+    outline: none;
+    border-color: #1a7abf;
+    box-shadow: 0 0 0 2px rgba(26,122,191,0.15);
+  }
+  .form-field input::placeholder {
+    color: #aaa;
+  }
+  .group-form-submit {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.625rem 1.375rem;
+    background: #1a7abf;
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.15s;
+  }
+  .group-form-submit:hover {
+    background: #155f96;
+  }
+  .hidden { display: none; }
 
   @media (max-width: 900px) {
     .specialty-grid { grid-template-columns: 1fr; gap: 2.5rem; }
