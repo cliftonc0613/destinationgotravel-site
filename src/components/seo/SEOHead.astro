@@ -38,8 +38,19 @@ const baseSchema = {
       '@id': `${siteUrl}/#organization`,
       name: 'DestinationGo Travel',
       url: siteUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/images/dgota-logo.png`,
+      },
       telephone: '864-506-0213',
       email: 'dawn@destinationgotravel.com',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '864-506-0213',
+        contactType: 'customer service',
+        areaServed: 'US',
+        availableLanguage: 'English',
+      },
       sameAs: [
         'https://facebook.com/profile.php?id=100095178252273',
         'https://instagram.com/destinationgotravelagency',

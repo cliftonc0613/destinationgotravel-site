@@ -22,6 +22,12 @@ const localBusinessSchema = {
   telephone: '864-506-0213',
   email: 'dawn@destinationgotravel.com',
   priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Greenville',
+    addressRegion: 'SC',
+    addressCountry: 'US',
+  },
   areaServed: [
     { '@type': 'City', name: 'Greenville', addressRegion: 'SC' },
     { '@type': 'City', name: 'Spartanburg', addressRegion: 'SC' },
