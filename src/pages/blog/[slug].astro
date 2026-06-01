@@ -58,6 +58,15 @@ const blogPostingSchema = {
   keywords: tags.join(', '),
 };
 
+const breadcrumbSchema = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://destinationgotravel.com' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://destinationgotravel.com/blog' },
+    { '@type': 'ListItem', position: 3, name: title, item: canonicalUrl },
+  ],
+};
+
 function formatDate(date: Date) {
   return date.toLocaleDateString('en-US', {
     month: 'long',
@@ -71,7 +80,7 @@ function formatDate(date: Date) {
   title={`${title} | DestinationGo Travel`}
   description={description}
   ogImage={heroImage}
-  schema={blogPostingSchema}
+  schema={[blogPostingSchema, breadcrumbSchema]}
 >
 
   <!-- Post Hero -->

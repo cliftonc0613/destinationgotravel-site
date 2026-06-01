@@ -24,6 +24,7 @@ function formatDate(date: Date) {
 
 const schema = {
   '@type': 'CollectionPage',
+  '@id': 'https://destinationgotravel.com/blog#page',
   name: 'Travel Blog — DestinationGo Travel',
   description: 'Travel tips, destination guides, and planning advice for empty nesters and retirees from luxury travel advisor Dawn Owens.',
   url: 'https://destinationgotravel.com/blog',
@@ -40,7 +41,7 @@ const schema = {
   <PageHero
     eyebrow="The Blog"
     heading="Travel inspiration, honestly told."
-    subheading="Real advice from an advisor who's actually been there — Europe itineraries, resort picks, cruise guides, and more."
+    subheading="Real advice from an advisor who's actually been there: Europe itineraries, resort picks, cruise guides, and more."
   />
 
   <!-- Filter Tabs -->
@@ -70,7 +71,7 @@ const schema = {
           <p class="eyebrow" style="text-align:center;">Coming Soon</p>
           <div class="hairline" style="margin-inline:auto;margin-bottom:2rem;"></div>
           <h2 class="blog-empty-heading">Travel stories on the way.</h2>
-          <p class="blog-empty-body">Dawn is writing up her best advice on Europe, all-inclusive resorts, and cruises. Check back soon — or <a href="/plan-my-trip" class="cta-link">start planning your trip now</a>.</p>
+          <p class="blog-empty-body">Dawn is writing up her best advice on Europe, all-inclusive resorts, and cruises. Check back soon, or <a href="/plan-my-trip" class="cta-link">start planning your trip now</a>.</p>
         </div>
       ) : (
         <div class="blog-grid" id="blog-grid">

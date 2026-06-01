@@ -16,30 +16,37 @@ const serviceSchema = {
 };
 
 const regions = [
-  { name: 'Caribbean', description: 'From Punta Cana to St. Lucia — Dawn knows the resorts that actually deliver luxury at every price point.' },
+  { name: 'Caribbean', description: 'From Punta Cana to St. Lucia, Dawn knows the resorts that actually deliver luxury at every price point.' },
   { name: 'Mexico', description: 'Los Cabos, Cancún, Riviera Maya. She knows the difference between the photos and the reality.' },
   { name: 'Central America', description: 'Costa Rica, Belize, Panama. For travelers who want nature and luxury without the trade-off.' },
   { name: 'The Maldives', description: 'Overwater bungalows and absolute seclusion. Dawn handles the logistics so you can focus on arriving.' },
 ];
 
 const whatToExpect = [
-  { heading: "No guesswork on the resort.", body: "Dawn has done the research so you don't have to. She'll match you to a property based on what you actually care about — the beach, the food, the vibe, the crowd." },
+  { heading: "No guesswork on the resort.", body: "Dawn has done the research so you don't have to. She'll match you to a property based on what you actually care about: the beach, the food, the vibe, the crowd." },
   { heading: "Pre-arrival requests handled.", body: "Anniversary? Birthday? Special dietary needs? Dawn communicates with the resort before you arrive so those details are in place when you check in." },
-  { heading: "Handled start to finish.", body: "From resort selection to pre-arrival requests to travel documents — Dawn manages every detail so your only job is to show up and enjoy the trip." },
+  { heading: "Handled start to finish.", body: "From resort selection to pre-arrival requests to travel documents. Dawn manages every detail so your only job is to show up and enjoy the trip." },
 ];
+const breadcrumbSchema = {
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://destinationgotravel.com' },
+    { '@type': 'ListItem', position: 2, name: 'Destinations', item: 'https://destinationgotravel.com/destinations' },
+    { '@type': 'ListItem', position: 3, name: 'All-Inclusive Resorts', item: 'https://destinationgotravel.com/destinations/all-inclusive' },
+  ],
+};
 ---
-
 <BaseLayout
   title="All-Inclusive Resort Planning — Caribbean, Mexico & Beyond | DestinationGo Travel"
   description="Not all all-inclusives are equal. Dawn knows which resorts deliver on their promise. Resort planning for empty nesters and retirees, based in Greenville, SC."
-  schema={serviceSchema}
+  schema={[serviceSchema, breadcrumbSchema]}
   ogImage="/images/resort-pool-evening-palm-trees.jpg"
 >
 
   <PageHero
     eyebrow="All-Inclusive Resorts"
     heading="Not all all-inclusives are created equal. Dawn knows the difference."
-    subheading="Some resorts look better in photos than they are in person. Dawn will tell you which ones actually deliver — and match you to the right property for the way you vacation."
+    subheading="Some resorts look better in photos than they are in person. Dawn will tell you which ones actually deliver and match you to the right property for the way you vacation."
     ctaText="Find My Resort"
     ctaHref="/plan-my-trip"
   />

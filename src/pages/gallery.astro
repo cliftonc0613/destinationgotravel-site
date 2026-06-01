@@ -3,8 +3,17 @@ import BaseLayout from '../components/layout/BaseLayout.astro';
 import PageHero from '../components/layout/PageHero.astro';
 import FinalCTA from '../components/sections/FinalCTA.astro';
 
+const gallerySchema = {
+  '@type': 'CollectionPage',
+  '@id': 'https://destinationgotravel.com/gallery#page',
+  name: 'Travel Gallery — DestinationGo Travel',
+  description: 'Browse photos from the destinations, resorts, and cruise experiences Dawn Owens specializes in: Europe, the Caribbean, all-inclusive resorts, and luxury cruises.',
+  url: 'https://destinationgotravel.com/gallery',
+  publisher: { '@id': 'https://destinationgotravel.com/#organization' },
+};
+
 const photos = [
-  { src: '/images/greece-santorini-aegean-sea.webp', w: 5504, h: 3072, alt: 'Santorini, Greece — whitewashed cliffs above the Aegean Sea', category: 'Europe' },
+  { src: '/images/greece-santorini-aegean-sea.webp', w: 5504, h: 3072, alt: 'Santorini, Greece: whitewashed cliffs above the Aegean Sea', category: 'Europe' },
   { src: '/images/europe001.jpg', w: 1024, h: 601, alt: 'Inside the Colosseum in Rome, Italy', category: 'Europe' },
   { src: '/images/caribbean-beach-palm-trees-turquoise-water.webp', w: 768, h: 1024, alt: 'Caribbean beach with palm trees and turquoise water', category: 'Caribbean' },
   { src: '/images/ritz-carlton-resort-aerial-beach-pool.webp', w: 1024, h: 768, alt: 'Aerial view of Ritz-Carlton resort beach and pool', category: 'Resorts' },
@@ -28,7 +37,8 @@ const categories = ['All', ...Array.from(new Set(photos.map(p => p.category)))];
 
 <BaseLayout
   title="Travel Gallery — DestinationGo Travel"
-  description="Browse photos from the destinations, resorts, and cruise experiences Dawn Owens specializes in — Europe, the Caribbean, all-inclusive resorts, and luxury cruises."
+  description="Browse photos from the destinations, resorts, and cruise experiences Dawn Owens specializes in: Europe, the Caribbean, all-inclusive resorts, and luxury cruises."
+  schema={gallerySchema}
 >
 
   <PageHero

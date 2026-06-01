@@ -18,6 +18,10 @@ const personSchema = {
     '@id': 'https://destinationgotravel.com/#business',
   },
   knowsAbout: ['Europe travel', 'All-inclusive resorts', 'River cruises', 'Ocean cruises', 'Luxury travel planning'],
+  sameAs: [
+    'https://facebook.com/profile.php?id=100095178252273',
+    'https://instagram.com/destinationgotravelagency',
+  ],
   areaServed: [
     { '@type': 'City', name: 'Greenville', addressRegion: 'SC' },
     { '@type': 'City', name: 'Spartanburg', addressRegion: 'SC' },
@@ -36,7 +40,7 @@ const credentials = [
 const values = [
   {
     heading: "I plan trips I'd take myself.",
-    body: "Every property I recommend, I've researched deeply — or visited personally. I won't send you somewhere I wouldn't go. That standard keeps my recommendations honest.",
+    body: "Every property I recommend, I've researched deeply or visited personally. I won't send you somewhere I wouldn't go. That standard keeps my recommendations honest.",
   },
   {
     heading: "Your trip should fit your life.",
@@ -44,7 +48,7 @@ const values = [
   },
   {
     heading: "I handle the things you don't want to think about.",
-    body: "Transfers. Insurance. Pre-arrival notes to the resort. The kinds of details that separate a smooth trip from a stressful one. That's what I do — so you don't have to.",
+    body: "Transfers. Insurance. Pre-arrival notes to the resort. The kinds of details that separate a smooth trip from a stressful one. That's what I do, so you don't have to.",
   },
 ];
 ---
@@ -86,10 +90,10 @@ const values = [
           <div class="hairline hairline--left"></div>
           <h2 class="about-bio-heading">A travel advisor who actually knows the destination.</h2>
           <p class="about-lead">
-            Dawn Owens has been planning travel for over five years, visiting more than 15 countries — not as a tourist, but as someone who pays close attention to the details that make a trip feel effortless.
+            Dawn Owens has been planning travel for over five years, visiting more than 15 countries, not as a tourist, but as someone who pays close attention to the details that make a trip feel effortless.
           </p>
           <p class="about-body">
-            She specializes in Europe, all-inclusive resorts, and cruises for empty nesters and retirees in Upstate South Carolina who are ready to travel well. When you work with Dawn, you get an advisor who has done the research, knows the properties, and handles the logistics — so you can just show up.
+            She specializes in Europe, all-inclusive resorts, and cruises for empty nesters and retirees in Upstate South Carolina who are ready to travel well. When you work with Dawn, you get an advisor who has done the research, knows the properties, and handles the logistics so you can just show up.
           </p>
           <div class="about-credentials">
             {credentials.map(c => (
@@ -112,8 +116,8 @@ const values = [
         <div class="hairline" style="margin-inline:auto;margin-bottom:2.5rem;"></div>
         <h2 class="story-heading">Why I became a travel advisor</h2>
         <div class="story-text">
-          <p>I've always believed that travel changes you — not in a cliché way, but in the specific, quiet way that happens when you slow down somewhere new and start to notice things you'd never notice at home. The way light falls on old stone in Tuscany. The silence of a river at sunrise. The feeling of not knowing exactly what comes next.</p>
-          <p>After years of planning my own trips and helping friends navigate theirs, I realized something: the part most people dread — the research, the logistics, the comparing of options that all start to look the same — is the part I actually love. I find it satisfying to cut through the noise and figure out what's actually right for a specific person, not just what looks best in a photo.</p>
+          <p>I've always believed that travel changes you, not in a cliché way, but in the specific, quiet way that happens when you slow down somewhere new and start to notice things you'd never notice at home. The way light falls on old stone in Tuscany. The silence of a river at sunrise. The feeling of not knowing exactly what comes next.</p>
+          <p>After years of planning my own trips and helping friends navigate theirs, I realized something: the part most people dread (the research, the logistics, the comparing of options that all start to look the same) is the part I actually love. I find it satisfying to cut through the noise and figure out what's actually right for a specific person, not just what looks best in a photo.</p>
           <p>I became a travel advisor because I wanted to do that work for other people. To take on the complexity so they could just show up and experience something they'll remember for the rest of their lives.</p>
         </div>
       </div>
@@ -145,7 +149,7 @@ const values = [
         <div class="cost-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></div>
         <div>
           <h2 class="cost-heading">You show up. I handle everything else.</h2>
-          <p class="cost-body">From the first conversation to the day you return home, Dawn manages the research, the bookings, the logistics, and all the details in between. You get a dedicated expert who knows your preferences and is reachable when you need her — before, during, and after your trip.</p>
+          <p class="cost-body">From the first conversation to the day you return home, Dawn manages the research, the bookings, the logistics, and all the details in between. You get a dedicated expert who knows your preferences and is reachable when you need her, before, during, and after your trip.</p>
         </div>
       </div>
     </div>
