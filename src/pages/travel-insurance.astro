@@ -7,7 +7,7 @@ const schema = {
   '@type': 'Service',
   '@id': 'https://destinationgotravel.com/travel-insurance#service',
   name: 'Travel Insurance Planning',
-  description: 'Dawn Owens helps clients find the right travel insurance plan to protect their investment — covering trip cancellation, medical emergencies, baggage loss, and more.',
+  description: 'Dawn Owens helps clients find the right travel insurance plan to protect their investment, covering trip cancellation, medical emergencies, baggage loss, and more.',
   provider: { '@id': 'https://destinationgotravel.com/#organization' },
   areaServed: { '@type': 'Country', name: 'United States' },
   serviceType: 'Travel Insurance Consultation',
@@ -17,7 +17,7 @@ const schema = {
 const coverageTypes = [
   {
     heading: 'Trip Cancellation & Interruption',
-    body: 'Reimburses prepaid, non-refundable trip costs if you have to cancel or cut a trip short due to a covered reason — illness, injury, death of a family member, and more.',
+    body: 'Reimburses prepaid, non-refundable trip costs if you have to cancel or cut a trip short due to a covered reason: illness, injury, death of a family member, and more.',
   },
   {
     heading: 'Emergency Medical & Evacuation',
@@ -25,11 +25,11 @@ const coverageTypes = [
   },
   {
     heading: 'Baggage Loss & Delay',
-    body: 'Reimburses you for lost, stolen, or damaged luggage — and covers the cost of essential items if your bags are delayed.',
+    body: 'Reimburses you for lost, stolen, or damaged luggage and covers the cost of essential items if your bags are delayed.',
   },
   {
     heading: 'Travel Delay',
-    body: 'Covers additional expenses — meals, accommodations, and transportation — when your trip is delayed due to a covered reason such as severe weather or a mechanical issue.',
+    body: 'Covers additional expenses (meals, accommodations, and transportation) when your trip is delayed due to a covered reason such as severe weather or a mechanical issue.',
   },
   {
     heading: 'Missed Connection',
@@ -37,15 +37,15 @@ const coverageTypes = [
   },
   {
     heading: 'Cancel for Any Reason',
-    body: 'An optional upgrade that lets you cancel your trip for reasons not otherwise covered and receive a partial reimbursement — the most flexible protection available.',
+    body: 'An optional upgrade that lets you cancel your trip for reasons not otherwise covered and receive a partial reimbursement, the most flexible protection available.',
   },
 ];
 
 const whyMatters = [
   {
     num: '01',
-    heading: 'Suppliers can — and do — go out of business.',
-    body: 'Airline bankruptcies, cruise line defaults, tour operator closures — they happen. Travel insurance with supplier default coverage protects your investment if a company stops operations.',
+    heading: 'Suppliers can and do go out of business.',
+    body: 'Airline bankruptcies, cruise line defaults, and tour operator closures happen. Travel insurance with supplier default coverage protects your investment if a company stops operations.',
   },
   {
     num: '02',
@@ -55,21 +55,21 @@ const whyMatters = [
   {
     num: '03',
     heading: 'Life is unpredictable.',
-    body: 'Illness, a family emergency, a job loss — any of these can force a cancellation. Without insurance, non-refundable deposits and trip costs can be lost entirely.',
+    body: 'Illness, a family emergency, or a job loss can force a cancellation. Without insurance, non-refundable deposits and trip costs can be lost entirely.',
   },
 ];
 ---
 
 <BaseLayout
   title="Travel Insurance — Protect Your Investment | DestinationGo Travel"
-  description="Dawn Owens helps clients find the right travel insurance plan for every trip. Trip cancellation, medical coverage, evacuation, and more — customized to your itinerary."
+  description="Dawn Owens helps clients find the right travel insurance plan for every trip. Trip cancellation, medical coverage, evacuation, and more, customized to your itinerary."
   schema={schema}
 >
 
   <PageHero
     eyebrow="Travel Insurance"
     heading="Protect your investment. <em>Travel with confidence.</em>"
-    subheading="We will work with you to customize the perfect travel insurance plan for you — so that if something goes wrong, your trip and your money are protected."
+    subheading="We will work with you to customize the perfect travel insurance plan for you. If something goes wrong, your trip and your money are protected."
     ctaText="Talk to Dawn About Insurance"
     ctaHref="/plan-my-trip"
   />
@@ -81,7 +81,7 @@ const whyMatters = [
         <div class="ti-why-header">
           <p class="eyebrow">Why It Matters</p>
           <div class="hairline hairline--left"></div>
-          <h2 class="ti-why-heading">Most travelers don't think about insurance — until they need it.</h2>
+          <h2 class="ti-why-heading">Most travelers don't think about insurance until they need it.</h2>
           <p class="ti-why-lead">A single unexpected event can erase thousands of dollars in non-refundable travel costs. The right plan makes sure that never happens.</p>
         </div>
         <div class="ti-why-points">
