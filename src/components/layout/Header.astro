@@ -46,6 +46,14 @@ const navLinks = [
       <a href={link.href} class="mobile-nav-link">{link.label}</a>
     ))}
     <a href="/plan-my-trip" class="btn btn--primary-teal mobile-cta">Plan My Trip</a>
+    <div class="mobile-social">
+      <a href="https://www.facebook.com/profile.php?id=100095178252273" target="_blank" rel="noopener noreferrer" class="mobile-social-btn" aria-label="Facebook">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/destinationgotravelagency" target="_blank" rel="noopener noreferrer" class="mobile-social-btn" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+      </a>
+    </div>
   </nav>
 </div>
 <div class="mobile-overlay" id="mobile-overlay"></div>
@@ -184,6 +192,25 @@ const navLinks = [
     text-align: center;
   }
 
+  .mobile-social {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  .mobile-social-btn {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-600);
+    text-decoration: none;
+    transition: border-color 150ms ease, color 150ms ease;
+  }
+  .mobile-social-btn:hover { border-color: var(--teal-700); color: var(--teal-700); }
+
   .mobile-overlay {
     display: none;
     position: fixed;
@@ -200,7 +227,26 @@ const navLinks = [
     nav, header > .container > .header-inner > .btn { display: none; }
     .mobile-menu-toggle { display: flex; }
     .mobile-menu { display: flex; }
-    .mobile-overlay { display: block; }
+    .mobile-social {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  .mobile-social-btn {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-600);
+    text-decoration: none;
+    transition: border-color 150ms ease, color 150ms ease;
+  }
+  .mobile-social-btn:hover { border-color: var(--teal-700); color: var(--teal-700); }
+
+  .mobile-overlay { display: block; }
   }
 </style>
 
