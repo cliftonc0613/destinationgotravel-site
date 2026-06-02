@@ -41,6 +41,9 @@ const { ...seoProps } = Astro.props;
             });
           }
         });
+        if (window.location.hash && window.location.hash.includes("recovery_token")) {
+          window.netlifyIdentity.open();
+        }
       }
     </script>
   </body>
