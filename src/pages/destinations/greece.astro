@@ -70,8 +70,8 @@ const breadcrumbSchema = {
     <div class="container">
       <div class="greece-grid">
 
-        <!-- Left: Trip Details -->
-        <div class="greece-details">
+        <!-- Trip Details (secondary) -->
+        <div class="greece-details" style="order:2;">
 
           <div class="details-block">
             <p class="eyebrow eyebrow--teal" style="text-align:left;">About the Trip</p>
@@ -106,8 +106,8 @@ const breadcrumbSchema = {
 
         </div>
 
-        <!-- Right: Waitlist Form -->
-        <div class="greece-form-col">
+        <!-- Waitlist Form (primary focus) -->
+        <div class="greece-form-col" style="order:1;">
           <div class="form-card">
             <div class="form-card-header">
               <p class="eyebrow eyebrow--teal">Early Access</p>
@@ -216,7 +216,7 @@ const breadcrumbSchema = {
   }
   .greece-grid {
     display: grid;
-    grid-template-columns: 1fr 480px;
+    grid-template-columns: 560px 1fr;
     gap: 4rem;
     align-items: start;
     max-width: 1160px;
