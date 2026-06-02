@@ -96,7 +96,7 @@ function formatDate(date: Date) {
     <div class="post-hero-overlay">
       <div class="container">
         <div class="post-hero-inner">
-          <span class="post-category-badge">{category}</span>
+          <a href={`/blog/category/${category.toLowerCase().replace(/\s+/g, "-")}`} class="post-category-badge">{category}</a>
           <h1 class="post-title">{title}</h1>
           <div class="post-meta">
             <span class="post-author">By {author}</span>
@@ -130,7 +130,7 @@ function formatDate(date: Date) {
             <div class="post-tags">
               <span class="post-tags-label">Filed under:</span>
               {tags.map((tag) => (
-                <span class="post-tag">{tag}</span>
+                <a href={`/blog/tag/${tag.toLowerCase().replace(/\s+/g, "-")}`} class="post-tag">{tag}</a>
               ))}
             </div>
           )}
@@ -159,7 +159,7 @@ function formatDate(date: Date) {
           <div class="sidebar-category">
             <p class="eyebrow" style="margin-bottom:0.5rem;">More in {category}</p>
             <div class="hairline hairline--left" style="margin-bottom:1rem;"></div>
-            <a href={`/blog/?category=${category}`} class="cta-link">
+            <a href={`/blog/category/${category.toLowerCase().replace(/\s+/g, "-")}`} class="cta-link">
               Browse all {category} posts →
             </a>
           </div>
@@ -209,7 +209,10 @@ function formatDate(date: Date) {
     border-radius: 3px;
     display: inline-block;
     margin-bottom: 1rem;
+    text-decoration: none;
+    transition: background 150ms ease;
   }
+  .post-category-badge:hover { background: rgba(230,206,146,0.95); }
   .post-title {
     font-family: var(--font-display);
     font-size: clamp(1.75rem, 3vw + 0.75rem, 3rem);
@@ -298,7 +301,10 @@ function formatDate(date: Date) {
     background: var(--teal-100);
     padding: 3px 10px;
     border-radius: 3px;
+    text-decoration: none;
+    transition: background 150ms ease;
   }
+  .post-tag:hover { background: var(--teal-200, #b2d8dc); }
 
   @media (max-width: 1024px) {
     .post-columns { grid-template-columns: 1fr; gap: 3rem; }
