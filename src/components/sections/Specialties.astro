@@ -163,6 +163,9 @@ const destinations = [
     margin: 0 auto 2rem;
   }
   @media (max-width: 900px) {
+    .destination-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
     .destination-grid { grid-template-columns: 1fr; }
   }
 </style>
