@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import PageHero from '../components/layout/PageHero.astro';
+
+const schema = {
+  '@type': 'WebPage',
+  '@id': 'https://destinationgotravel.com/sitemap#page',
+  name: 'Sitemap — DestinationGo Travel',
+  url: 'https://destinationgotravel.com/sitemap',
+  publisher: { '@id': 'https://destinationgotravel.com/#organization' },
+};
+
+const sections = [
+  {
+    title: 'Main Pages',
+    links: [
+      { href: '/', label: 'Home' },
+      { href: '/about', label: 'About Dawn' },
+      { href: '/plan-my-trip', label: 'Plan My Trip' },
+      { href: '/gallery', label: 'Travel Gallery' },
+      { href: '/travel-insurance', label: 'Travel Insurance' },
+    ],
+  },
+  {
+    title: 'Destinations',
+    links: [
+      { href: '/destinations', label: 'All Destinations' },
+      { href: '/destinations/europe', label: 'Europe' },
+      { href: '/destinations/all-inclusive', label: 'All-Inclusive Resorts' },
+      { href: '/destinations/cruises', label: 'Cruises' },
+      { href: '/destinations/greece', label: 'Greece Group Trip' },
+    ],
+  },
+  {
+    title: 'Blog',
+    links: [
+      { href: '/blog', label: 'Travel Blog' },
+      { href: '/blog/category/europe', label: 'Europe Articles' },
+      { href: '/blog/category/all-inclusive', label: 'All-Inclusive Articles' },
+      { href: '/blog/category/cruises', label: 'Cruise Articles' },
+      { href: '/blog/category/general', label: 'General Travel Tips' },
+    ],
+  },
+  {
+    title: 'Legal',
+    links: [
+      { href: '/privacy-policy', label: 'Privacy Policy' },
+      { href: '/terms', label: 'Terms & Conditions' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Sitemap — DestinationGo Travel"
+  description="A full list of pages on the DestinationGo Travel website."
+  schema={schema}
+>
+
+  <PageHero
+    eyebrow="Sitemap"
+    heading="Every page on <em>DestinationGo Travel.</em>"
+    size="compact"
+  />
+
+  <section class="sitemap-section">
+    <div class="container">
+      <div class="sitemap-grid">
+        {sections.map(section => (
+          <div class="sitemap-col">
+            <h2 class="sitemap-heading">{section.title}</h2>
+            <ul class="sitemap-links">
+              {section.links.map(link => (
+                <li><a href={link.href}>{link.label}</a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .sitemap-section {
+    padding: 5rem 0 7rem;
+    background: var(--cream-50);
+  }
+  .sitemap-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+  .sitemap-heading {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold-700);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--gold-500);
+  }
+  .sitemap-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+  .sitemap-links a {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--teal-700);
+    text-decoration: none;
+    transition: color 150ms ease;
+  }
+  .sitemap-links a:hover { color: var(--teal-500); }
+
+  @media (max-width: 900px) {
+    .sitemap-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .sitemap-grid { grid-template-columns: 1fr; }
+  }
+</style>

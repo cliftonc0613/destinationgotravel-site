@@ -26,7 +26,7 @@ All three pre-launch tasks completed. Destination card images on the home page n
   - Connect the GitHub repo to a new Netlify site
   - Set build command: `npm run build`, publish directory: `dist`
 
-- [ ] **Connect custom domain**
+- [x] **Connect custom domain**
   - Add `destinationgotravel.com` in Netlify domain settings
   - Update DNS records at registrar
 
@@ -94,3 +94,22 @@ All three pre-launch tasks completed. Destination card images on the home page n
 - [x] **Add `contactPoint` to Organization schema**
   - File: `src/components/seo/SEOHead.astro`
   - Move `telephone` and `email` into a proper `contactPoint` with `contactType`
+
+## Pre-Launch Gaps
+
+- [ ] **Set up Google Analytics 4**
+  - Get GA4 measurement ID from Dawn's Google account
+  - Add GA4 script to `BaseLayout.astro`
+
+- [x] **Add Apple touch icon and web manifest**
+  - Create `apple-touch-icon.png` (180x180)
+  - Add `manifest.webmanifest` for mobile home screen support
+  - Link both in `SEOHead.astro`
+
+- [x] **Add custom OG images to About and Travel Insurance pages**
+  - `about.astro` — use Dawn's photo (`/images/dawn-owens.webp`)
+  - `travel-insurance.astro` — use a relevant travel image
+
+- [ ] **Add real blog posts before launch**
+  - Seed blog with at least 2-3 published posts so it's not sparse
+  - Dawn to provide content or approve drafts
