@@ -1,12 +1,21 @@
 ---
 import BaseLayout from '../components/layout/BaseLayout.astro';
 const lastUpdated = 'May 2026';
+
+const schema = {
+  '@type': 'WebPage',
+  '@id': 'https://destinationgotravel.com/privacy-policy#page',
+  name: 'Privacy Policy — DestinationGo Travel',
+  url: 'https://destinationgotravel.com/privacy-policy',
+  publisher: { '@id': 'https://destinationgotravel.com/#organization' },
+};
 ---
 
 <BaseLayout
   title="Privacy Policy | DestinationGo Travel"
   description="Privacy policy for DestinationGo Travel. How we collect, use, and protect your information."
   noindex={true}
+  schema={schema}
 >
   <section class="legal-page">
     <div class="container">
