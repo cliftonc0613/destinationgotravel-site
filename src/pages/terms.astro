@@ -2,12 +2,21 @@
 import BaseLayout from '../components/layout/BaseLayout.astro';
 import PageHero from '../components/layout/PageHero.astro';
 const lastUpdated = 'May 2026';
+
+const schema = {
+  '@type': 'WebPage',
+  '@id': 'https://destinationgotravel.com/terms#page',
+  name: 'Terms & Conditions — DestinationGo Travel',
+  url: 'https://destinationgotravel.com/terms',
+  publisher: { '@id': 'https://destinationgotravel.com/#organization' },
+};
 ---
 
 <BaseLayout
   title="Terms & Conditions | DestinationGo Travel"
   description="Terms and conditions for using the DestinationGo Travel website."
   noindex={true}
+  schema={schema}
 >
   <PageHero
     eyebrow="Legal"
