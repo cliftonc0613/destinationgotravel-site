@@ -1,0 +1,16 @@
+{
+  "name": "DestinationGo Travel",
+  "short_name": "DestinationGo",
+  "description": "Luxury travel planning for empty nesters and retirees.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#062b30",
+  "theme_color": "#062b30",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
