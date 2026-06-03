@@ -26,7 +26,7 @@ All three pre-launch tasks completed. Destination card images on the home page n
   - Connect the GitHub repo to a new Netlify site
   - Set build command: `npm run build`, publish directory: `dist`
 
-- [ ] **Connect custom domain**
+- [x] **Connect custom domain**
   - Add `destinationgotravel.com` in Netlify domain settings
   - Update DNS records at registrar
 
