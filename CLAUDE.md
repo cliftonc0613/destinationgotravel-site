@@ -1,3 +1,19 @@
+
+# DestinationGo Travel Agency 
+
+## Core Working Rules
+
+1. First think through the problem, read the codebase for relevant files, and write a plan to tasks/todo.md.
+2. The plan should have a list of todo items that you can check off as you complete them.
+3. Before you begin working, check in with me and I will verify the plan.
+4. Then, begin working on the todo items, marking them as complete as you go.
+5. Please every step of the way just give me a high level explanation of what changes you made.
+6. Make every task and code change you do as simple as possible. Avoid massive or complex changes. Every change should impact as little code as possible. Simplicity above all.
+7. Finally, add a review section to the todo.md file with a summary of the changes you made and any other relevant information.
+8. DO NOT BE LAZY. NEVER BE LAZY. IF THERE IS A BUG FIND THE ROOT CAUSE AND FIX IT. NO TEMPORARY FIXES. YOU ARE A SENIOR DEVELOPER.
+9. MAKE ALL FIXES AND CODE CHANGES AS SIMPLE AS HUMANLY POSSIBLE. THEY SHOULD ONLY IMPACT NECESSARY CODE RELEVANT TO THE TASK AND NOTHING ELSE. IT'S ALL ABOUT SIMPLICITY.
+10. **NO EM-DASHES IN CONTENT.** Never use — in any blog post, backlink content, or copy. Rewrite the sentence instead.
+
 <claude-mem-context>
 # Recent Activity
 
