@@ -37,11 +37,11 @@ All three pre-launch tasks completed. Destination card images on the home page n
 - [ ] **Invite Dawn as CMS editor**
   - Send invite to `dawn@destinationgotravel.com` via Netlify Identity
 
-- [ ] **Submit to Google Search Console**
+- [x] **Submit to Google Search Console**
   - Add property for `destinationgotravel.com`
   - Submit sitemap: `https://destinationgotravel.com/sitemap-index.xml`
 
-- [ ] **Test form submissions**
+- [x] **Test form submissions**
   - Submit Plan My Trip form and confirm Netlify Forms receives it
   - Submit Greece waitlist form and confirm receipt
 
@@ -97,7 +97,7 @@ All three pre-launch tasks completed. Destination card images on the home page n
 
 ## Pre-Launch Gaps
 
-- [ ] **Set up Google Analytics 4**
+- [x] **Set up Google Analytics 4**
   - Get GA4 measurement ID from Dawn's Google account
   - Add GA4 script to `BaseLayout.astro`
 
@@ -110,6 +110,6 @@ All three pre-launch tasks completed. Destination card images on the home page n
   - `about.astro` — use Dawn's photo (`/images/dawn-owens.webp`)
   - `travel-insurance.astro` — use a relevant travel image
 
-- [ ] **Add real blog posts before launch**
+- [x] **Add real blog posts before launch**
   - Seed blog with at least 2-3 published posts so it's not sparse
   - Dawn to provide content or approve drafts
