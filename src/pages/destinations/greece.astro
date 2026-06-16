@@ -1,62 +1,134 @@
 ---
 import BaseLayout from '../../components/layout/BaseLayout.astro';
 import PageHero from '../../components/layout/PageHero.astro';
-import FinalCTA from '../../components/sections/FinalCTA.astro';
+
+const BOOK_URL = 'https://traveljoy.com/bookings/hp6ZEtYGxAML6wSzKgzrU3E5?fbclid=IwY2xjawSem7NleHRuA2FlbQIxMABicmlkETFteE9ORldoNjdCUnJmamJTc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHr07Ja3jENe7riKrEadZzoJKoU3Dx9HkH0QE5-fjPIICDxuhjIJ7Oo-Ag4Na_aem_q-2I84k0ZGGpNgQ4EHOLOw';
 
 const pageSchema = {
   '@type': 'Service',
   '@id': 'https://destinationgotravel.com/destinations/greece#service',
-  name: "Greece Group Trip — Luxury Travel Planning",
-  description: "An exclusive escorted all-women's group trip to Greece, curated by luxury travel advisor Dawn Owens of DestinationGo Travel.",
+  name: "Return to You — Meraki | Greece Group Trip",
+  description: "An exclusive escorted all-women's group trip to Santorini and Paros, curated and hosted by luxury travel advisor Dawn Owens of DestinationGo Travel. September 17-24, 2027.",
   provider: { '@id': 'https://destinationgotravel.com/#organization' },
   areaServed: 'Greece',
   serviceType: 'Group Travel Planning',
   url: 'https://destinationgotravel.com/destinations/greece',
 };
 
-const tripHighlights = [
-  {
-    label: 'Destination',
-    value: 'Greece: Athens, Santorini & Beyond',
-  },
-  {
-    label: 'Trip Style',
-    value: 'Escorted small-group, all-women',
-  },
-  {
-    label: 'Who It\'s For',
-    value: 'Women who want to travel well without traveling alone',
-  },
-  {
-    label: 'Availability',
-    value: 'Limited spots. Early access list open now.',
-  },
-];
-
-const whatIsIncluded = [
-  'Curated itinerary designed by Dawn, with no guesswork',
-  'Small group of like-minded women travelers',
-  'Accommodation selected for character and quality',
-  'Local guides and authentic experiences',
-  'All logistics handled start to finish',
-  'Dawn on-trip, personally hosting the group',
-];
 const breadcrumbSchema = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://destinationgotravel.com' },
     { '@type': 'ListItem', position: 2, name: 'Destinations', item: 'https://destinationgotravel.com/destinations' },
-    { '@type': 'ListItem', position: 3, name: 'Greece Group Trip', item: 'https://destinationgotravel.com/destinations/greece' },
+    { '@type': 'ListItem', position: 3, name: 'Return to You — Meraki', item: 'https://destinationgotravel.com/destinations/greece' },
   ],
 };
+
+const included = [
+  '7 Nights of boutique and luxury accommodation in Santorini and Paros with daily breakfast',
+  'Daily maid service',
+  'Private arrival and departure transfers to and from all hotels',
+  'Ferry from Santorini to Paros (Club Class Seats)',
+  'Santorini Premium Sunset Sailing Trip as a private experience, with dinner on board',
+  'Authentic Villages of Santorini and Farm-to-Table meal as a private experience',
+  'Paros cooking class: Mastering Greek recipes with round-trip transfers — 4-course meal with local wine',
+  'Tailor-made beach bar escape with round-trip transfers',
+  'Welcome dinner (set menu included)',
+  'Personal hosting and Concierge-Level Support from Dawn Owens and a dedicated Host Experience Coordinator throughout the journey',
+  'All Taxes, Environmental Fees, All Gratuities, and an exclusive welcome gift',
+];
+
+const notIncluded = [
+  'Flights',
+  'Additional Activities',
+  'Meals and beverages unless indicated in activities',
+  'Travel Insurance (Required)',
+  'Any pre or post stay',
+  'Souvenirs and Laundry services',
+  '3.5% + $0.30 credit card processing fee or 1.5% ACH fee',
+];
+
+const pricingPackages = [
+  {
+    name: 'Shared Experience',
+    subtitle: 'Double Occupancy',
+    price: '$8,500',
+    perPerson: true,
+    badge: null,
+    santorini: 'Secret View Hotel — Sea View Room',
+    paros: 'Vione Paros — Veranda Suites Panoramic View Room',
+    bedding: 'Santorini: Two separate single beds. Paros: Twin beds.',
+    deposit: '$1,000',
+    payments: [
+      { amount: '$1,875', due: 'Due August 7, 2026' },
+      { amount: '$1,875', due: 'Due November 7, 2026' },
+      { amount: '$1,875', due: 'Due February 7, 2027' },
+      { amount: '$1,875', due: 'Due June 7, 2027' },
+    ],
+  },
+  {
+    name: 'Shared Experience Plus',
+    subtitle: 'Double Occupancy',
+    price: '$9,000',
+    perPerson: true,
+    badge: 'Most Popular',
+    santorini: 'Secret View Hotel — Sunset Sea View Room',
+    paros: 'Vione Paros — Junior Suite with Private Pool',
+    bedding: 'Santorini: Queen Bed. Paros: Twin beds.',
+    deposit: '$1,000',
+    payments: [
+      { amount: '$2,000', due: 'Due August 7, 2026' },
+      { amount: '$2,000', due: 'Due November 7, 2026' },
+      { amount: '$2,000', due: 'Due February 7, 2027' },
+      { amount: '$2,000', due: 'Due June 7, 2027' },
+    ],
+  },
+  {
+    name: 'Private Retreat',
+    subtitle: 'Single Occupancy',
+    price: '$11,400',
+    perPerson: true,
+    badge: null,
+    santorini: 'Secret View Hotel — Sea View Room',
+    paros: 'Vione Paros — Veranda Suites Panoramic View Room',
+    bedding: 'Your own private room at both properties.',
+    deposit: '$1,500',
+    payments: [
+      { amount: '$2,475', due: 'Due August 7, 2026' },
+      { amount: '$2,475', due: 'Due November 7, 2026' },
+      { amount: '$2,475', due: 'Due February 7, 2027' },
+      { amount: '$2,475', due: 'Due June 7, 2027' },
+    ],
+  },
+  {
+    name: 'Private Retreat Plus',
+    subtitle: 'Single Occupancy',
+    price: '$12,200',
+    perPerson: true,
+    badge: 'Best Value Solo',
+    santorini: 'Secret View Hotel — Sunset Sea View Room',
+    paros: 'Vione Paros — Junior Suite with Private Pool',
+    bedding: 'Your own private room at both properties.',
+    deposit: '$1,500',
+    payments: [
+      { amount: '$2,675', due: 'Due August 7, 2026' },
+      { amount: '$2,675', due: 'Due November 7, 2026' },
+      { amount: '$2,675', due: 'Due February 7, 2027' },
+      { amount: '$2,675', due: 'Due June 7, 2027' },
+    ],
+  },
+];
 ---
+
 <BaseLayout
-  title="Greece Group Trip — Exclusive All-Women's Escorted Tour | DestinationGo Travel"
-  description="Dawn Owens is leading an all-women's escorted group trip to Greece. Limited spots available. Join the early access list to be first when details drop."
+  title="Return to You — Meraki | Greece Group Trip | DestinationGo Travel"
+  description="Dawn Owens is leading an exclusive all-women's escorted group trip to Santorini and Paros, September 17-24, 2027. Limited spots available."
   schema={[pageSchema, breadcrumbSchema]}
   ogImage="/images/greece-santorini-aegean-sea.jpg"
   noindex
 >
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.css" />
 
   <PageHero
     eyebrow="Exclusive Group Trip"
@@ -65,143 +137,357 @@ const breadcrumbSchema = {
     size="compact"
   />
 
-  <!-- Main content -->
-  <section class="greece-body">
+  <!-- ===================== -->
+  <!-- SECTION 1: TRIP INTRO -->
+  <!-- ===================== -->
+  <section class="trip-intro">
+    <div class="trip-intro-inner">
+
+      <!-- Left: text -->
+      <div class="trip-intro-left">
+        <p class="trip-intro-date">September 17–24, 2027</p>
+        <h2 class="trip-intro-heading">Return to You...<br/>Meraki</h2>
+        <p class="trip-intro-body">Imagine a place where there is nowhere you need to be, nothing you need to accomplish, and no one you need to take care of but yourself. Where the Aegean's gentle embrace, the warmth of Greek hospitality, and the peaceful beauty of Santorini's legendary Caldera sunsets create space to breathe, reflect, and reconnect with the woman you have always been.</p>
+        <div class="trip-intro-cta">
+          <a href={BOOK_URL} target="_blank" rel="noopener noreferrer" class="btn btn--intro-primary">Book Now</a>
+        </div>
+      </div>
+
+      <!-- Right: two stacked photos -->
+      <div class="trip-intro-photos" aria-hidden="true">
+        <div class="intro-photo intro-photo--top">
+          <img src="/images/destinations/greece/IMG_0022.jpeg" alt="Paros harbor village at sunset" />
+        </div>
+        <div class="intro-photo intro-photo--bottom">
+          <img src="/images/destinations/greece/IMG_0007.jpeg" alt="Infinity pool overlooking the Aegean Sea" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================== -->
+  <!-- SECTION 2: PHOTO CAROUSEL  -->
+  <!-- ========================== -->
+  <section class="carousel-section" aria-label="Greece trip photography">
+    <div class="carousel-wrapper">
+      <div class="carousel-track pswp-gallery" id="greeceCarousel">
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0003.jpeg"><img src="/images/destinations/greece/IMG_0003.jpeg" alt="Whitewashed village with bougainvillea, Santorini" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0005.jpeg"><img src="/images/destinations/greece/IMG_0005.jpeg" alt="Blue-domed church overlooking the Aegean Sea" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0008.jpeg"><img src="/images/destinations/greece/IMG_0008.jpeg" alt="Luxury hotel terrace with Aegean views" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0009.jpeg"><img src="/images/destinations/greece/IMG_0009.jpeg" alt="Caldera sunset from Santorini cliffside" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0010.jpeg"><img src="/images/destinations/greece/IMG_0010.jpeg" alt="Whitewashed alleyway in Oia, Santorini" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0011.jpeg"><img src="/images/destinations/greece/IMG_0011.jpeg" alt="Infinity pool overlooking the sea at sunset" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0014.jpeg"><img src="/images/destinations/greece/IMG_0014.jpeg" alt="Traditional Greek fishing village harbor" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0015.jpeg"><img src="/images/destinations/greece/IMG_0015.jpeg" alt="Crystal clear Aegean waters at a Paros beach" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0017.jpeg"><img src="/images/destinations/greece/IMG_0017.jpeg" alt="Outdoor dining at a Greek island taverna" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0018.jpeg"><img src="/images/destinations/greece/IMG_0018.jpeg" alt="Women cooking class with local Greek recipes" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0021.jpeg"><img src="/images/destinations/greece/IMG_0021.jpeg" alt="Scenic coastal view from Paros cliffs" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0024.jpeg"><img src="/images/destinations/greece/IMG_0024.jpeg" alt="Private sunset sailing on the Aegean" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0026.jpeg"><img src="/images/destinations/greece/IMG_0026.jpeg" alt="Colorful bougainvillea in a Greek island courtyard" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0027.jpeg"><img src="/images/destinations/greece/IMG_0027.jpeg" alt="Morning light over whitewashed Cycladic architecture" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0028.jpeg"><img src="/images/destinations/greece/IMG_0028.jpeg" alt="Seaside dinner at a Paros restaurant" loading="lazy" /></a></div>
+        <div class="carousel-slide"><a href="/images/destinations/greece/IMG_0029.jpeg"><img src="/images/destinations/greece/IMG_0029.jpeg" alt="Farm-to-table meal in an olive grove" loading="lazy" /></a></div>
+      </div>
+
+      <button class="carousel-btn carousel-btn--prev" id="carouselPrev" aria-label="Previous photos">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="carousel-btn carousel-btn--next" id="carouselNext" aria-label="Next photos">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+    <div class="carousel-footer">
+      <p class="carousel-footer-text">SANTORINI &middot; PAROS &middot; AEGEAN SEA &middot; THE CYCLADES &middot; AND BEYOND</p>
+    </div>
+  </section>
+
+  <script>
+    const track = document.getElementById('greeceCarousel');
+    document.getElementById('carouselPrev').addEventListener('click', () => {
+      track.scrollBy({ left: -420, behavior: 'smooth' });
+    });
+    document.getElementById('carouselNext').addEventListener('click', () => {
+      track.scrollBy({ left: 420, behavior: 'smooth' });
+    });
+  </script>
+
+  <script type="module">
+    import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe-lightbox.esm.js';
+
+    function setDimensions(galleryEl) {
+      galleryEl.querySelectorAll('a').forEach(link => {
+        const img = link.querySelector('img');
+        if (!img) return;
+        const apply = () => {
+          if (img.naturalWidth) {
+            link.dataset.pswpWidth = img.naturalWidth;
+            link.dataset.pswpHeight = img.naturalHeight;
+          }
+        };
+        if (img.complete) apply();
+        else img.addEventListener('load', apply, { once: true });
+      });
+    }
+
+    document.querySelectorAll('.pswp-gallery').forEach(galleryEl => {
+      setDimensions(galleryEl);
+      const lightbox = new PhotoSwipeLightbox({
+        gallery: galleryEl,
+        children: 'a',
+        pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.esm.js'),
+      });
+      lightbox.init();
+    });
+  </script>
+
+  <!-- ============================ -->
+  <!-- SECTION 3: EXPERIENCE NARRATIVE -->
+  <!-- ============================ -->
+  <section class="experience-narrative">
+    <div class="container experience-inner">
+      <p class="eyebrow eyebrow--teal">The Experience</p>
+      <div class="hairline hairline--left"></div>
+      <h2 class="experience-heading">Two extraordinary destinations. One unforgettable week.</h2>
+
+      <p class="experience-lead">Your Greek island retreat unfolds across two carefully chosen destinations, each selected for its unique character, beauty, and ability to help you slow down and savor the moment.</p>
+
+      <div class="destination-blocks">
+        <div class="destination-block">
+          <div class="destination-label">Santorini</div>
+          <h3 class="destination-name">Secret View Hotel</h3>
+          <p>You will spend three unforgettable nights at Secret View Hotel, an elegant boutique retreat overlooking the sparkling Aegean Sea. Away from the crowds yet perfectly positioned to enjoy the island's iconic beauty, Secret View offers the ideal setting to unwind, connect, and witness the peaceful magic of Santorini's famous Caldera sunsets.</p>
+        </div>
+        <div class="destination-divider" aria-hidden="true"></div>
+        <div class="destination-block">
+          <div class="destination-label">Paros</div>
+          <h3 class="destination-name">Vione Paros</h3>
+          <p>Your journey continues in Paros, where you will settle into the luxurious Vione Paros. With panoramic sea views, sophisticated accommodations, and a relaxed atmosphere just moments from the charming village of Naoussa, Vione provides the perfect backdrop for the slower pace that defines island life in the Cyclades.</p>
+        </div>
+      </div>
+
+      <div class="activities-narrative">
+        <p>Throughout the week, you will experience Greece through thoughtfully curated activities designed to immerse you in the culture, cuisine, and beauty of the islands. Sail aboard a private sunset catamaran through Santorini's stunning caldera, discover traditional villages and authentic local flavors, enjoy a farm-to-table culinary experience, participate in a hands-on Greek cooking class, and spend a blissful day soaking up the sunshine at one of Paros' most beautiful beach clubs.</p>
+        <p>Between experiences, you will have plenty of time to wander picturesque alleyways lined with whitewashed buildings and vibrant bougainvillea, linger over leisurely meals, browse local shops, relax by the pool, or simply sit quietly and watch the rhythm of island life unfold around you.</p>
+        <p>This is not a sightseeing marathon or a packed tour schedule. Every detail has been intentionally designed to create the perfect balance between meaningful experiences and the freedom to simply be present.</p>
+      </div>
+
+      <div class="experience-cta">
+        <p class="experience-urgency">This is an intimate and highly personalized experience. See the booking page for current availability.</p>
+        <a href={BOOK_URL} target="_blank" rel="noopener noreferrer" class="btn btn--primary-teal">Book Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================== -->
+  <!-- SECTION 4: SECOND PHOTO GRID -->
+  <!-- ========================== -->
+  <section class="photo-grid-section" aria-label="More Greece photography">
+    <div class="photo-grid-wrap">
+      <div class="photo-grid pswp-gallery">
+        <div class="photo-cell"><a href="/images/destinations/greece/IMG_0025.jpeg"><img src="/images/destinations/greece/IMG_0025.jpeg" alt="Outdoor dining at a traditional Greek taverna" loading="lazy" /></a></div>
+        <div class="photo-cell"><a href="/images/destinations/greece/IMG_0031.jpeg"><img src="/images/destinations/greece/IMG_0031.jpeg" alt="Women gathering at a Greek cooking class" loading="lazy" /></a></div>
+        <div class="photo-cell"><a href="/images/destinations/greece/IMG_0038.jpeg"><img src="/images/destinations/greece/IMG_0038.jpeg" alt="Scenic Greek village alleyway with blue doors" loading="lazy" /></a></div>
+        <div class="photo-cell"><a href="/images/destinations/greece/IMG_0042.jpeg"><img src="/images/destinations/greece/IMG_0042.jpeg" alt="Sunset over the Aegean Sea from a terrace" loading="lazy" /></a></div>
+        <div class="photo-cell"><a href="/images/destinations/greece/IMG_0043.jpeg"><img src="/images/destinations/greece/IMG_0043.jpeg" alt="Luxury hotel pool in Paros, Greece" loading="lazy" /></a></div>
+        <div class="photo-cell"><a href="/images/destinations/greece/IMG_0044.jpeg"><img src="/images/destinations/greece/IMG_0044.jpeg" alt="Woman walking along a Paros harbor jetty" loading="lazy" /></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================= -->
+  <!-- SECTION 5: INCLUDED / NOT INCLUDED -->
+  <!-- ================================= -->
+  <section class="inclusions-section">
     <div class="container">
-      <div class="greece-grid">
+      <div class="inclusions-grid">
 
-        <!-- Left: Trip Details -->
-        <div class="greece-details">
+        <div class="inclusions-col inclusions-col--yes">
+          <h2 class="inclusions-heading">What's Included</h2>
+          <ul class="inclusions-list">
+            {included.map(item => (
+              <li>
+                <svg class="inc-icon inc-icon--yes" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          <div class="details-block">
-            <p class="eyebrow eyebrow--teal" style="text-align:left;">About the Trip</p>
-            <div class="hairline hairline--left"></div>
-            <h2 class="details-heading">A curated Greece experience – hosted by Dawn, start to finish.</h2>
-            <p class="details-body">This isn't a trip you just take....it's a version of yourself you come back to. This will be a curated experience designed to slow you down, reconnect and experience Greece with intention – through meaningful moments, beautiful settings and space to simply be!</p>
-          </div>
+        <div class="inclusions-col inclusions-col--no">
+          <h2 class="inclusions-heading">What's Not Included</h2>
+          <ul class="inclusions-list inclusions-list--no">
+            {notIncluded.map(item => (
+              <li>
+                <svg class="inc-icon inc-icon--no" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          <div class="highlights-block">
-            <h3 class="highlights-heading">Trip at a glance</h3>
-            <dl class="highlights-list">
-              {tripHighlights.map(h => (
-                <div class="highlight-row">
-                  <dt class="highlight-label">{h.label}</dt>
-                  <dd class="highlight-value">{h.value}</dd>
+      </div>
+
+      <div class="inclusions-cta">
+        <a href={BOOK_URL} target="_blank" rel="noopener noreferrer" class="btn btn--primary-teal">Book Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== -->
+  <!-- SECTION 6: PRICING -->
+  <!-- ====================== -->
+  <section class="pricing-section">
+    <div class="container">
+      <p class="eyebrow eyebrow--teal" style="text-align:center;">Investment</p>
+      <div class="hairline hairline--center"></div>
+      <h2 class="pricing-heading">Pricing Details</h2>
+      <p class="pricing-subhead">Choose the experience that fits you best. All packages include every included item listed above.</p>
+
+      <div class="pricing-grid">
+        {pricingPackages.map(pkg => (
+          <div class={`pricing-card ${pkg.badge ? 'pricing-card--featured' : ''}`}>
+            {pkg.badge && <div class="pricing-badge">{pkg.badge}</div>}
+            <div class="pricing-card-header">
+              <div class="pricing-card-name">{pkg.name}</div>
+              <div class="pricing-card-subtitle">{pkg.subtitle}</div>
+              <div class="pricing-card-price">{pkg.price}<span class="pricing-per"> / person</span></div>
+            </div>
+            <div class="pricing-card-body">
+              <div class="pricing-hotels">
+                <div class="pricing-hotel-row">
+                  <span class="pricing-hotel-island">Santorini</span>
+                  <span class="pricing-hotel-name">{pkg.santorini}</span>
                 </div>
-              ))}
-            </dl>
-          </div>
-
-          <div class="included-block">
-            <h3 class="highlights-heading">What's included</h3>
-            <ul class="included-list">
-              {whatIsIncluded.map(item => (
-                <li>
-                  <svg class="include-check" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-        </div>
-
-        <!-- Right: Waitlist Form -->
-        <div class="greece-form-col">
-          <div class="form-card">
-            <div class="form-card-header">
-              <p class="eyebrow eyebrow--teal">Early Access</p>
-              <div class="hairline hairline--left"></div>
-              <h2 class="form-card-heading">Join the waitlist.</h2>
-              <p class="form-card-intro">Dates, pricing, and full itinerary details will go to the early access list first, before any public announcement. No commitment required.</p>
-              <ul class="form-perks">
-                <li>
-                  <svg class="perk-check" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                  First to hear when spots open
-                </li>
-                <li>
-                  <svg class="perk-check" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                  Directly from Dawn, no spam
-                </li>
-                <li>
-                  <svg class="perk-check" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                  No commitment to join the list
-                </li>
-              </ul>
-            </div>
-            <div class="form-embed">
-              <script is:inline src="https://www.google.com/recaptcha/api.js?render=site-key"></script>
-              <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.6/iframeResizer.min.js"></script>
-              <iframe src="https://traveljoy.com/webforms/WcFEnCJZhi94VQxqZ7f482rt/forms/CjmKwvuVCK2sgrtdpjva2utN" frameborder="0" width="100%" height="415" id="tj-form-CjmKwvuVCK2sgrtdpjva2utN" title="Greece Trip Waitlist Form"></iframe>
-              <script is:inline>iFrameResize({checkOrigin:false, onInit: function() { document.getElementById("tj-form-CjmKwvuVCK2sgrtdpjva2utN").iFrameResizer.sendMessage({ origin: document.location.origin }); }});</script>
+                <div class="pricing-hotel-row">
+                  <span class="pricing-hotel-island">Paros</span>
+                  <span class="pricing-hotel-name">{pkg.paros}</span>
+                </div>
+              </div>
+              <p class="pricing-bedding"><strong>Bedding:</strong> {pkg.bedding}</p>
+              <div class="pricing-schedule">
+                <div class="pricing-schedule-label">Payment Schedule</div>
+                <div class="pricing-schedule-row pricing-schedule-row--deposit">
+                  <span>{pkg.deposit}</span>
+                  <span>Deposit at time of booking</span>
+                </div>
+                {pkg.payments.map(p => (
+                  <div class="pricing-schedule-row">
+                    <span>{p.amount}</span>
+                    <span>{p.due}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        ))}
+      </div>
 
+      <div class="pricing-notes">
+        <p>Need a roommate? We are happy to assist with roommate matching based on availability. While we cannot guarantee a match, we will make every reasonable effort to pair you with another guest seeking shared accommodations.</p>
+        <p>Registration deadline: July 15, 2026. Payment plans available upon request. All payments are non-refundable. Airfare and travel insurance are not included. Non-refundable travel insurance is required at time of booking. See booking page for current availability.</p>
+      </div>
+
+      <div class="pricing-cta">
+        <a href={BOOK_URL} target="_blank" rel="noopener noreferrer" class="btn btn--primary-teal">Book Now</a>
+        <a href="/terms" class="btn btn--outline-teal">Terms &amp; Conditions</a>
       </div>
     </div>
   </section>
 
-  <!-- About Greece -->
-  <div hidden>
-  <section class="about-greece">
-    <div class="container">
-      <div class="about-greece-inner">
-        <div class="about-greece-text">
-          <p class="eyebrow eyebrow--teal">Why Greece</p>
-          <div class="hairline hairline--left"></div>
-          <h2 class="about-heading">One of the world's most enduring travel destinations.</h2>
-          <p class="about-body">Greece has captivated travelers for thousands of years. From the ancient ruins of Athens to the volcanic cliffs of Santorini to the crystal waters of the Ionian coast, few destinations offer the same combination of history, beauty, and warmth.</p>
-          <p class="about-body">The food alone is worth the trip. Fresh seafood, local olive oil, slow-cooked meats, and wine poured generously at tables that stay full well past midnight. Greece moves at a pace that invites you to slow down with it.</p>
-          <p class="about-body">Each destination has its own personality. Athens is energetic and timeless, where ancient history and modern life meet. Santorini is dramatic and iconic, with breathtaking views and moments that feel almost unreal. Paros is relaxed and effortlessly beautiful; slower mornings, seaside evenings, and space to simply be. There is no single Greece to experience, which is exactly why having someone thoughtfully curate the journey makes all the difference.</p>
-        </div>
-        <div class="about-greece-highlights">
-          <div class="greece-fact-card">
-            <div class="greece-fact-number">6,000+</div>
-            <div class="greece-fact-label">Islands and islets</div>
-          </div>
-          <div class="greece-fact-card">
-            <div class="greece-fact-number">18</div>
-            <div class="greece-fact-label">UNESCO World Heritage Sites</div>
-          </div>
-          <div class="greece-fact-card">
-            <div class="greece-fact-number">3,000+</div>
-            <div class="greece-fact-label">Years of recorded history</div>
-          </div>
-          <div class="greece-fact-card">
-            <div class="greece-fact-number">300+</div>
-            <div class="greece-fact-label">Days of sunshine per year</div>
-          </div>
-        </div>
+  <!-- ========================= -->
+  <!-- SECTION 7: ABOUT HOSTESS -->
+  <!-- ========================= -->
+  <section class="hostess-section">
+    <div class="hostess-card-wrap pswp-gallery">
+      <a href="/images/dawn-owens.webp" class="hostess-img-link">
+        <img
+          src="/images/dawn-owens.webp"
+          alt="Dawn Owens, founder of DestinationGo Travel"
+          class="hostess-photo"
+          loading="lazy"
+        />
+      </a>
+      <p class="hostess-name">Dawn Owens</p>
+      <p class="hostess-title">Luxury Travel Advisor &amp; Trip Host</p>
+    </div>
+
+    <div class="hostess-bio">
+      <p class="eyebrow eyebrow--teal" style="text-align:center;">Kalosórisma (Καλωσόρισμα)</p>
+      <div class="hairline hairline--center"></div>
+      <h2 class="hostess-heading">Get to Know Your Hostess</h2>
+
+      <p class="hostess-welcome"><strong>Welcome, my friend.</strong></p>
+      <p>A few years ago, if you had asked me what I needed most, the answer would have been simple: more time. More time to think. More time to breathe. More time to remember who I was outside of my responsibilities.</p>
+      <p>Like so many women, I spent years taking care of everyone else first. Building a career. Raising a family. Managing schedules, obligations, and the endless list of things that needed my attention. Somewhere along the way, I realized that while I was helping everyone else create memories, I was not giving myself enough space to create my own.</p>
+
+      <div class="hostess-expanded" id="hostessExpanded" hidden>
+        <p>That is why I created this experience.</p>
+        <p>This is not a trip designed to check destinations off a list. It is not a race to see everything Greece has to offer. Greece deserves more than that, and so do you.</p>
+        <p>This journey is about embracing the slower rhythm of the Greek islands. It is about lingering over conversations, watching sunsets without looking at your phone, wandering through whitewashed villages with nowhere particular to be, and remembering what it feels like to wake up each day without a long list of obligations waiting for you.</p>
+        <p>The Greeks have a beautiful way of approaching life. They understand that connection matters. Community matters. Rest matters. Joy matters.</p>
+        <p>Over this trip, my hope is that you will give yourself permission to step away from the noise and reconnect with the woman you have been taking care of last.</p>
+        <p>Whether you come with a friend, your mother, your sister, or entirely on your own, I hope you leave with new friendships, renewed confidence, unforgettable memories, and a deeper connection to yourself.</p>
+        <p>This experience is called <em>Return to You — Meraki</em> for a reason. Meraki means doing something with your soul, creativity, and love. Every detail of this journey has been designed with exactly that intention.</p>
+        <p>I would be honored to share Greece with you.</p>
+        <p class="hostess-closing">
+          Let's slow down together.<br />
+          Let's reconnect together.<br />
+          <strong>Let's return to you.</strong>
+        </p>
+        <p class="hostess-signature">— Dawn Owens, DestinationGo Travel</p>
       </div>
 
-      <div class="greece-places">
-        <h3 class="places-heading">Places worth knowing</h3>
-        <div class="places-grid">
-          <div class="place-card card">
-            <h4 class="place-name">Athens</h4>
-            <p class="place-desc">The cradle of Western civilization. The Acropolis, the Parthenon, the ancient Agora. Athens is also a living city with neighborhood markets, rooftop bars, and some of the best street food in Europe.</p>
-          </div>
-          <div class="place-card card">
-            <h4 class="place-name">Santorini</h4>
-            <p class="place-desc">The iconic caldera views, blue-domed churches, and spectacular sunsets. Best experienced slowly, off-season, and with a knowledgeable advisor who can steer you past the crowds toward the quieter side of the island.</p>
-          </div>
-          <div class="place-card card">
-            <h4 class="place-name">Paros</h4>
-            <p class="place-desc">Paros is the kind of Greek island that feels effortlessly beautiful without trying too hard. Think whitewashed villages, winding stone streets, crystal-clear water, waterfront tavernas, and a slower, more relaxed energy than some of the more famous islands nearby.</p>
-          </div>
-        </div>
-      </div>
+      <button class="hostess-toggle" id="hostessToggle" aria-expanded="false" aria-controls="hostessExpanded">
+        Read more
+      </button>
     </div>
   </section>
 
-  <FinalCTA />
-  </div>
+  <script>
+    const expanded = document.getElementById('hostessExpanded');
+    const toggle = document.getElementById('hostessToggle');
+    toggle.addEventListener('click', () => {
+      const isOpen = !expanded.hidden;
+      expanded.hidden = isOpen;
+      toggle.textContent = isOpen ? 'Read more' : 'Read less';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+  </script>
+
+  <!-- =================== -->
+  <!-- SECTION 8: FINAL CTA -->
+  <!-- =================== -->
+  <section class="final-cta-section">
+    <div class="container final-cta-inner">
+      <h2 class="final-cta-heading">Ready to Join Us?</h2>
+      <p class="final-cta-sub">Registration closes July 15, 2026. See booking page for current availability.</p>
+      <a href={BOOK_URL} target="_blank" rel="noopener noreferrer" class="btn btn--primary-teal btn--lg">Book Now</a>
+    </div>
+  </section>
 
 </BaseLayout>
 
 <style>
-  /* Greece hero background image override */
+  /* ===================== */
+  /* PhotoSwipe wrappers   */
+  /* ===================== */
+  .carousel-slide a,
+  .photo-cell a,
+  .hostess-image-col a {
+    display: block;
+    height: 100%;
+    cursor: zoom-in;
+  }
+  .hostess-image-col a {
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  /* ===================== */
+  /* Greece hero override  */
+  /* ===================== */
   :global(.page-hero) {
     background-image:
       linear-gradient(to bottom, rgba(14,81,89,0.65) 0%, rgba(14,81,89,0.55) 40%, rgba(14,81,89,0.80) 100%),
@@ -210,262 +496,742 @@ const breadcrumbSchema = {
     background-position: center 40%;
   }
 
-  .greece-body {
-    padding: 5rem 0 6rem;
-    background: #fff;
+  /* ===================== */
+  /* SECTION 1: TRIP INTRO */
+  /* ===================== */
+  .trip-intro {
+    background: var(--cream-50);
+    overflow: hidden;
   }
-  .greece-grid {
-    display: grid;
-    grid-template-columns: 1fr 480px;
-    gap: 4rem;
-    align-items: start;
-    max-width: 1160px;
+  .trip-intro-inner {
+    max-width: 1280px;
     margin-inline: auto;
+    padding: 5rem 2rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 3rem;
+    align-items: center;
+  }
+  .trip-intro-date {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--teal-500);
+    margin-bottom: 0.75rem;
+  }
+  .trip-intro-heading {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 5vw + 1rem, 6.5rem);
+    font-weight: 700;
+    color: var(--ink-900);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.75rem;
+  }
+  .trip-intro-body {
+    font-family: var(--font-heading);
+    font-size: clamp(1rem, 1.2vw + 0.5rem, 1.25rem);
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--ink-500);
+    margin-bottom: 2.25rem;
+    max-width: 520px;
+  }
+  .trip-intro-cta {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn--intro-primary,
+  .btn--intro-outline {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.875rem 2.5rem;
+    min-width: 220px;
+    text-align: center;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .btn--intro-primary {
+    background: var(--teal-700);
+    color: #fff;
+    border: 1.5px solid var(--teal-700);
+  }
+  .btn--intro-primary:hover {
+    background: var(--teal-800);
+    border-color: var(--teal-800);
+  }
+  .btn--intro-outline {
+    background: transparent;
+    color: var(--ink-700);
+    border: 1.5px solid var(--ink-300);
+  }
+  .btn--intro-outline:hover {
+    border-color: var(--teal-600);
+    color: var(--teal-700);
   }
 
-  /* Left column */
-  .details-block { margin-bottom: 3rem; }
-  .details-heading {
+  /* Two stacked photos on the right */
+  .trip-intro-photos {
+    position: relative;
+    height: 560px;
+  }
+  .intro-photo {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .intro-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .intro-photo--top {
+    width: 340px;
+    height: 280px;
+    top: 0;
+    right: 0;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.14);
+    outline: 1.5px solid var(--gold-500);
+    outline-offset: 8px;
+  }
+  .intro-photo--bottom {
+    width: 310px;
+    height: 270px;
+    bottom: 20px;
+    left: 0;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.14);
+  }
+
+  @media (max-width: 900px) {
+    .trip-intro-inner {
+      grid-template-columns: 1fr;
+      padding: 3.5rem 1.5rem;
+    }
+    .trip-intro-heading { font-size: clamp(2.5rem, 8vw, 4.5rem); }
+    .trip-intro-photos { height: 380px; }
+    .intro-photo--top { width: 260px; height: 210px; }
+    .intro-photo--bottom { width: 240px; height: 200px; }
+    .trip-intro-cta { flex-wrap: wrap; }
+  }
+  @media (max-width: 560px) {
+    .trip-intro-photos { height: 280px; }
+    .intro-photo--top { width: 56%; height: 180px; }
+    .intro-photo--bottom { width: 52%; height: 165px; bottom: 0; }
+  }
+
+  /* ========================== */
+  /* SECTION 2: PHOTO CAROUSEL  */
+  /* ========================== */
+  .carousel-section {
+    background: #000;
+  }
+  .carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  .carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 3px;
+    /* hide scrollbar */
+    scrollbar-width: none;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+
+  .carousel-slide {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    height: 360px;
+    overflow: hidden;
+  }
+  .carousel-slide img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(14,81,89,0.75);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s ease;
+  }
+  .carousel-btn:hover { background: rgba(14,81,89,1); }
+  .carousel-btn--prev { left: 1rem; }
+  .carousel-btn--next { right: 1rem; }
+
+  .carousel-footer {
+    background: var(--ink-900);
+    padding: 0.875rem 2rem;
+    text-align: center;
+  }
+  .carousel-footer-text {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--gold-500);
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  @media (max-width: 700px) {
+    .carousel-slide { height: 240px; }
+    .carousel-btn { width: 36px; height: 36px; }
+  }
+
+  /* ============================ */
+  /* SECTION 3: EXPERIENCE         */
+  /* ============================ */
+  .experience-narrative {
+    padding: 5rem 0 5rem;
+    background: #fff;
+  }
+  .experience-inner {
+    max-width: 800px;
+    margin-inline: auto;
+  }
+  .experience-heading {
     font-family: var(--font-display);
-    font-size: clamp(1.375rem, 1.5vw + 0.75rem, 2rem);
+    font-size: clamp(1.5rem, 2vw + 0.75rem, 2.5rem);
     font-weight: 600;
     color: var(--ink-900);
     line-height: 1.3;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
   }
-  .details-body {
+  .experience-lead {
     font-family: var(--font-sans);
-    font-size: 1rem;
+    font-size: 1.0625rem;
     line-height: 1.8;
     color: var(--ink-600);
-    margin-bottom: 1rem;
+    margin-bottom: 2.5rem;
   }
-
-  .highlights-block,
-  .included-block {
+  .destination-blocks {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2.5rem;
+    align-items: start;
     background: var(--cream-50);
     border: 1px solid var(--gold-400);
     border-radius: 4px;
-    padding: 2rem;
-    margin-bottom: 1.5rem;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
   }
-  .highlights-heading {
+  .destination-divider {
+    width: 1px;
+    background: var(--gold-400);
+    align-self: stretch;
+  }
+  .destination-label {
     font-family: var(--font-sans);
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: var(--ink-500);
-    margin-bottom: 1.25rem;
+    color: var(--teal-600);
+    margin-bottom: 0.5rem;
   }
-  .highlights-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .highlight-row {
-    display: grid;
-    grid-template-columns: 130px 1fr;
-    gap: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--line);
-  }
-  .highlight-row:last-child {
-    padding-bottom: 0;
-    border-bottom: none;
-  }
-  .highlight-label {
-    font-family: var(--font-sans);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    color: var(--ink-500);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  .highlight-value {
-    font-family: var(--font-sans);
-    font-size: 0.9375rem;
-    color: var(--ink-900);
-    line-height: 1.5;
-  }
-
-  .included-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .included-list li {
-    font-family: var(--font-sans);
-    font-size: 0.9375rem;
-    color: var(--ink-700);
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-  }
-  .include-check { color: var(--teal-600); flex-shrink: 0; }
-
-  /* Right column — form card */
-  .form-card {
-    background: var(--cream-50);
-    border: 1px solid var(--gold-400);
-    border-radius: 4px;
-    overflow: hidden;
-    position: sticky;
-    top: calc(4.5rem + 2rem);
-  }
-  .form-card-header {
-    padding: 2.5rem 2.5rem 0;
-  }
-  .form-card-heading {
-    font-family: var(--font-display);
-    font-size: 1.625rem;
-    font-weight: 600;
-    color: var(--ink-900);
-    line-height: 1.25;
-    margin-bottom: 0.75rem;
-  }
-  .form-card-intro {
-    font-family: var(--font-sans);
-    font-size: 0.9375rem;
-    color: var(--ink-600);
-    line-height: 1.65;
-    margin-bottom: 1.25rem;
-  }
-  .form-perks {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 0;
-  }
-  .form-perks li {
-    font-family: var(--font-sans);
-    font-size: 0.875rem;
-    color: var(--ink-700);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .perk-check { color: var(--teal-600); flex-shrink: 0; }
-
-  .form-embed {
-    padding: 1.5rem 2.5rem 2.5rem;
-  }
-  .form-embed iframe {
-    display: block;
-    border: none;
-    border-radius: 2px;
-  }
-
-  @media (max-width: 1024px) {
-    .greece-grid {
-      grid-template-columns: 1fr;
-      max-width: 720px;
-    }
-    .form-card { position: static; }
-  }
-
-  /* About Greece */
-  .about-greece {
-    padding: 5rem 0 6rem;
-    background: var(--cream-50);
-  }
-  .about-greece-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-    max-width: 1160px;
-    margin-inline: auto;
-    margin-bottom: 4rem;
-  }
-  .about-heading {
-    font-family: var(--font-display);
-    font-size: clamp(1.5rem, 2vw + 0.5rem, 2.25rem);
-    font-weight: 600;
-    color: var(--ink-900);
-    line-height: 1.3;
-    margin-bottom: 1.25rem;
-  }
-  .about-body {
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--ink-600);
-    margin-bottom: 1rem;
-  }
-  .about-greece-highlights {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-    align-self: center;
-  }
-  .greece-fact-card {
-    background: #fff;
-    border: 1px solid var(--gold-400);
-    border-radius: 4px;
-    padding: 1.75rem 1.5rem;
-    border-left: 3px solid var(--gold-500);
-  }
-  .greece-fact-number {
-    font-family: var(--font-display);
-    font-size: 2.25rem;
-    font-weight: 600;
-    color: var(--teal-700);
-    letter-spacing: 0.03em;
-    line-height: 1;
-    margin-bottom: 0.375rem;
-  }
-  .greece-fact-label {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--ink-500);
-  }
-
-  /* Places */
-  .greece-places { max-width: 1160px; margin-inline: auto; }
-  .places-heading {
-    font-family: var(--font-display);
-    font-size: clamp(1.25rem, 1.5vw + 0.5rem, 1.75rem);
-    font-weight: 600;
-    color: var(--ink-900);
-    margin-bottom: 2rem;
-  }
-  .places-grid {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-  }
-  .place-card {
-    max-width: 480px;
-    width: 100%;
-  }
-  .place-card { padding: 2rem; }
-  .place-name {
+  .destination-name {
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--teal-700);
-    margin-bottom: 0.75rem;
+    color: var(--ink-900);
+    margin-bottom: 0.875rem;
   }
-  .place-desc {
+  .destination-block p {
     font-family: var(--font-sans);
     font-size: 0.9375rem;
     line-height: 1.75;
     color: var(--ink-600);
+    margin: 0;
+  }
+  .activities-narrative { margin-bottom: 2.5rem; }
+  .activities-narrative p {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--ink-600);
+    margin-bottom: 1.25rem;
+  }
+  .activities-narrative p:last-child { margin-bottom: 0; }
+  .experience-cta {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--cream-300);
+  }
+  .experience-urgency {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--ink-600);
+    margin-bottom: 1.5rem;
+    font-style: italic;
   }
 
-  @media (max-width: 900px) {
-    .about-greece-inner { grid-template-columns: 1fr; }
-    .places-grid { grid-template-columns: 1fr; }
+  @media (max-width: 680px) {
+    .destination-blocks {
+      grid-template-columns: 1fr;
+    }
+    .destination-divider {
+      height: 1px;
+      width: 100%;
+    }
+  }
+
+  /* ========================== */
+  /* SECTION 4: SECOND PHOTO GRID */
+  /* ========================== */
+  .photo-grid-section {
+    background: var(--cream-50);
+    padding: 4px 0 0;
+  }
+  .photo-grid-wrap { overflow: hidden; }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+  }
+  .photo-cell {
+    height: 280px;
+    overflow: hidden;
+  }
+  .photo-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .photo-cell:hover img { transform: scale(1.04); }
+
+  @media (max-width: 700px) {
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .photo-cell { height: 200px; }
+  }
+
+  /* ================================= */
+  /* SECTION 5: INCLUDED / NOT INCLUDED */
+  /* ================================= */
+  .inclusions-section {
+    padding: 5rem 0;
+    background: #fff;
+  }
+  .inclusions-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 3rem;
+  }
+  .inclusions-col--yes {
+    background: var(--cream-50);
+    border: 1px solid var(--gold-400);
+    border-radius: 4px;
+    padding: 2.5rem;
+  }
+  .inclusions-col--no {
+    padding: 0;
+  }
+  .inclusions-heading {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--ink-900);
+    margin-bottom: 1.5rem;
+  }
+  .inclusions-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+  .inclusions-list li {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--ink-700);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+  }
+  .inclusions-list--no li { color: var(--ink-500); }
+  .inc-icon { flex-shrink: 0; margin-top: 2px; }
+  .inc-icon--yes { color: var(--teal-600); }
+  .inc-icon--no { color: var(--ink-300); }
+  .inclusions-cta { text-align: center; }
+
+  @media (max-width: 800px) {
+    .inclusions-grid { grid-template-columns: 1fr; }
+    .inclusions-col--no { padding: 2rem 0 0; }
+  }
+
+  /* ====================== */
+  /* SECTION 6: PRICING      */
+  /* ====================== */
+  .pricing-section {
+    padding: 5rem 0 5rem;
+    background: var(--cream-50);
+  }
+  .pricing-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 2vw + 0.75rem, 2.75rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+  .pricing-subhead {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--ink-500);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+  .pricing-card {
+    background: #fff;
+    border: 1px solid var(--gold-400);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .pricing-card--featured {
+    border-color: var(--teal-500);
+    box-shadow: 0 4px 20px rgba(14,81,89,0.12);
+  }
+  .pricing-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--teal-700);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.75rem;
+  }
+  .pricing-card-header {
+    background: var(--teal-800);
+    padding: 1.75rem 1.5rem 1.5rem;
+    color: #fff;
+  }
+  .pricing-card-name {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 0.25rem;
+  }
+  .pricing-card-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--teal-300);
+    margin-bottom: 1rem;
+  }
+  .pricing-card-price {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--gold-400);
+    line-height: 1;
+  }
+  .pricing-per {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--teal-300);
+  }
+  .pricing-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    flex: 1;
+  }
+  .pricing-hotels { display: flex; flex-direction: column; gap: 0.625rem; }
+  .pricing-hotel-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+  .pricing-hotel-island {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--teal-600);
+  }
+  .pricing-hotel-name {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--ink-700);
+    line-height: 1.4;
+  }
+  .pricing-bedding {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    color: var(--ink-500);
+    line-height: 1.5;
+    margin: 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--cream-300);
+  }
+  .pricing-schedule {
+    border-top: 1px solid var(--cream-300);
+    padding-top: 1rem;
+  }
+  .pricing-schedule-label {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-500);
+    margin-bottom: 0.625rem;
+  }
+  .pricing-schedule-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    color: var(--ink-600);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--cream-200);
+    gap: 0.5rem;
+  }
+  .pricing-schedule-row:last-child { border-bottom: none; }
+  .pricing-schedule-row--deposit {
+    font-weight: 700;
+    color: var(--ink-900);
+  }
+  .pricing-schedule-row span:first-child { white-space: nowrap; }
+  .pricing-notes {
+    max-width: 720px;
+    margin-inline: auto;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .pricing-notes p {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--ink-500);
+    margin-bottom: 0.75rem;
+  }
+  .pricing-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 1100px) {
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 600px) {
-    .about-greece-highlights { grid-template-columns: 1fr 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ========================= */
+  /* SECTION 7: ABOUT HOSTESS  */
+  /* ========================= */
+  .hostess-section {
+    padding: 5rem 0;
+    background: var(--cream-50);
+    text-align: center;
+  }
+
+  /* Portrait card */
+  .hostess-card-wrap {
+    max-width: 300px;
+    margin: 0 auto 2.5rem;
+  }
+  .hostess-img-link {
+    display: block;
+    position: relative;
+    border: 1px solid var(--gold-500);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    cursor: zoom-in;
+  }
+  .hostess-img-link::after {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border: 1px solid rgba(230, 206, 146, 0.55);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hostess-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    border-radius: 0;
+  }
+  .hostess-name {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--ink-900);
+    margin-bottom: 0.25rem;
+  }
+  .hostess-title {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-400);
+    margin: 0;
+  }
+
+  /* Bio text */
+  .hostess-bio {
+    max-width: 640px;
+    margin-inline: auto;
+    text-align: left;
+    padding: 0 1.5rem;
+  }
+  .hostess-bio .eyebrow { text-align: center; }
+  .hostess-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2vw + 0.75rem, 2.25rem);
+    font-weight: 600;
+    color: var(--ink-900);
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+    text-align: center;
+  }
+  .hostess-welcome {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    color: var(--ink-900);
+    margin-bottom: 1rem;
+  }
+  .hostess-bio p {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--ink-600);
+    margin-bottom: 1rem;
+  }
+  .hostess-closing {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.9;
+    color: var(--ink-800);
+    border-left: 3px solid var(--gold-500);
+    padding-left: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .hostess-signature {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--teal-700);
+    margin-bottom: 0;
+  }
+
+  /* Read more toggle */
+  .hostess-toggle {
+    display: inline-block;
+    margin-top: 1.25rem;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--teal-700);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+  }
+  .hostess-toggle:hover { color: var(--teal-500); }
+
+  /* =================== */
+  /* SECTION 8: FINAL CTA */
+  /* =================== */
+  .final-cta-section {
+    padding: 5rem 0;
+    background: var(--teal-900);
+    text-align: center;
+  }
+  .final-cta-inner {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+  .final-cta-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 2vw + 1rem, 2.75rem);
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.875rem;
+    line-height: 1.25;
+  }
+  .final-cta-sub {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--teal-300);
+    margin-bottom: 2rem;
+  }
+  .btn--lg {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+  }
+
+  /* =================== */
+  /* HAIRLINE CENTER      */
+  /* =================== */
+  .hairline--center {
+    width: 3rem;
+    height: 2px;
+    background: var(--gold-500);
+    margin: 0.75rem auto 1.25rem;
   }
 </style>
