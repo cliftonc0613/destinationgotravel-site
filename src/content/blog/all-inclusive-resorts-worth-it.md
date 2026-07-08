@@ -6,7 +6,6 @@ heroImage: /images/blog/all-inclusive-resort-pool.webp
 heroImageAlt: A stunning infinity pool overlooking the Caribbean Sea at a luxury all-inclusive resort
 category: All-Inclusive
 tags: ["all-inclusive", "Caribbean", "Mexico", "luxury resorts", "Sandals", "Excellence"]
-featured: false
 author: Dawn Owens
 draft: false
 ---

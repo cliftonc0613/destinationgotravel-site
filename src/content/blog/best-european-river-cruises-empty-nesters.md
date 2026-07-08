@@ -6,7 +6,6 @@ heroImage: /images/blog/european-river-cruise.webp
 heroImageAlt: A river cruise ship sailing through a lush European river valley at golden hour
 category: Europe
 tags: ["river cruise", "Europe", "empty nesters", "Rhine", "Danube"]
-featured: true
 author: Dawn Owens
 draft: false
 ---

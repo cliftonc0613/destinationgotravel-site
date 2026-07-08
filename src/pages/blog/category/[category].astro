@@ -45,7 +45,7 @@ function formatDate(date: Date) {
       ) : (
         <div class="blog-grid">
           {posts.map((post) => (
-            <article class={`blog-card card card-hover${post.data.featured ? ' blog-card--featured' : ''}`}>
+            <article class={`blog-card card card-hover${post.id === posts[0]?.id ? ' blog-card--featured' : ''}`}>
               <a href={`/blog/${post.id}`} class="blog-card-link" tabindex="-1" aria-hidden="true">
                 <div class="blog-card-image">
                   <img src={post.data.heroImage} alt={post.data.heroImageAlt} width="800" height="450" loading="lazy" />
