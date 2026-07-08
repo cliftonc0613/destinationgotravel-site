@@ -77,7 +77,7 @@ const schema = {
         <div class="blog-grid" id="blog-grid">
           {posts.map((post) => (
             <article
-              class={`blog-card card card-hover${post.data.featured ? ' blog-card--featured' : ''}`}
+              class={`blog-card card card-hover${post.id === posts[0]?.id ? ' blog-card--featured' : ''}`}
               data-category={post.data.category}
             >
               <a href={`/blog/${post.id}`} class="blog-card-link" tabindex="-1" aria-hidden="true">

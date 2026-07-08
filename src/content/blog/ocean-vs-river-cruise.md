@@ -6,7 +6,6 @@ heroImage: /images/blog/ocean-vs-river-cruise.webp
 heroImageAlt: Side-by-side comparison of an ocean cruise ship and a river cruise ship on calm water
 category: Cruises
 tags: ["ocean cruise", "river cruise", "cruise planning", "Viking", "Celebrity", "Princess"]
-featured: false
 author: Dawn Owens
 draft: false
 ---

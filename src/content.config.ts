@@ -12,7 +12,6 @@ const blog = defineCollection({
     heroImageAlt: z.string(),
     category: z.enum(['Europe', 'All-Inclusive', 'Cruises', 'General']),
     tags: z.array(z.string()).default([]),
-    featured: z.boolean().default(false),
     author: z.string().default('Dawn Owens'),
     draft: z.boolean().default(false),
   }),
