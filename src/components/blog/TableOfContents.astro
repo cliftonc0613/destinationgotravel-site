@@ -139,7 +139,7 @@ for (const h of headings) {
 </style>
 
 <script is:inline>
-  (function () {
+  document.addEventListener('DOMContentLoaded', function () {
     var toc = document.getElementById('post-toc');
     var article = document.querySelector('.post-content');
     if (!toc || !article) return;
@@ -148,5 +148,5 @@ for (const h of headings) {
       firstParagraph.insertAdjacentElement('afterend', toc);
     }
     toc.hidden = false;
-  })();
+  });
 </script>
