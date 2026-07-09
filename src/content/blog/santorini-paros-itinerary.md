@@ -28,7 +28,7 @@ For a 7-night trip, I generally recommend 3 to 4 nights in Santorini and 3 to 4 
 
 Paros rewards a longer stay differently. There's no single checklist item to knock out. It's Naoussa in the evening, a beach day, a cooking class, a slow lunch that runs long. The value shows up the more unstructured time you give it.
 
-In the group trips I've hosted using this pairing, three nights in Santorini before moving to Paros for the remainder of the week has consistently been the split that works best, and it's close to what I'd recommend for most travelers doing this on their own.
+When thoughtfully pairing Santorini and Paros, three nights in Santorini before moving to Paros for the remainder of the week creates an ideal balance. It allows enough time to experience the magic and energy of Santorini before slowing the pace and settling into the more relaxed rhythm of Paros. It's a pairing and pace I'd recommend for travelers wanting to experience two very different sides of the Greek islands.
 
 ### If You Only Have 5 Days
 
