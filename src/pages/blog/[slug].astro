@@ -29,19 +29,26 @@ const {
 
 const canonicalUrl = `https://destinationgotravel.com/blog/${post.id}`;
 
+const imageSchema = {
+  '@type': 'ImageObject',
+  '@id': `${canonicalUrl}#primaryimage`,
+  url: `https://destinationgotravel.com${heroImage}`,
+  width: 1200,
+  height: 630,
+  caption: heroImageAlt,
+};
+
 const blogPostingSchema = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   headline: title,
   description,
-  image: `https://destinationgotravel.com${heroImage}`,
+  image: { '@id': imageSchema['@id'] },
   datePublished: publishDate.toISOString(),
   ...(updatedDate && { dateModified: updatedDate.toISOString() }),
-  author: {
-    '@type': 'Person',
-    name: author,
-    url: 'https://destinationgotravel.com/about',
-  },
+  author: author === 'Dawn Owens'
+    ? { '@id': 'https://destinationgotravel.com/about#dawn' }
+    : { '@type': 'Person', name: author, url: 'https://destinationgotravel.com/about' },
   publisher: {
     '@type': 'Organization',
     name: 'DestinationGo Travel',
@@ -58,6 +65,19 @@ const blogPostingSchema = {
   },
   keywords: tags.join(', '),
 };
+
+const dawnPersonSchema = author === 'Dawn Owens' ? {
+  '@type': 'Person',
+  '@id': 'https://destinationgotravel.com/about#dawn',
+  name: 'Dawn Owens',
+  jobTitle: 'Luxury Travel Advisor',
+  url: 'https://destinationgotravel.com/about',
+  image: 'https://destinationgotravel.com/images/dawn-owens.webp',
+  sameAs: [
+    'https://facebook.com/profile.php?id=100095178252273',
+    'https://instagram.com/destinationgotravelagency',
+  ],
+} : null;
 
 const breadcrumbSchema = {
   '@type': 'BreadcrumbList',
@@ -81,7 +101,7 @@ function formatDate(date: Date) {
   title={`${title} | DestinationGo Travel`}
   description={description}
   ogImage={heroImage}
-  schema={[blogPostingSchema, breadcrumbSchema]}
+  schema={[blogPostingSchema, breadcrumbSchema, imageSchema, ...(dawnPersonSchema ? [dawnPersonSchema] : [])]}
 >
 
   <!-- Post Hero -->
