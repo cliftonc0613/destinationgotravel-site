@@ -44,6 +44,24 @@ I'll be straight with you: not every trip needs an agent. A simple weekend getaw
 
 Where I'd push back on going it alone: anything with multiple moving parts, anywhere you've never been, or any trip where a mistake would be expensive to fix. That's exactly where the reasons to use a travel agent start to outweigh the extra five minutes it takes to have the conversation.
 
+## Frequently Asked Questions
+
+### Why use a travel agent for a cruise specifically?
+
+Cruises have more moving parts than most trips: cabin category, deck location, dining time, shore excursions, and gratuities all affect the price. I know which cabins actually deliver the view or the quiet you want, and I can often get perks like onboard credit that aren't available booking direct.
+
+### What are the disadvantages of using a travel agent?
+
+The honest one is timing. Working with an agent means a conversation, not an instant checkout, so it's a poor fit if you want to book a simple trip at midnight on impulse. For anything with more than a couple of moving parts, that extra few minutes is what prevents the expensive mistakes.
+
+### Will I pay the same rate as everyone else if I use a travel agent?
+
+Usually, yes, and often better. On most hotel and cruise bookings I'm working with the same published rates you'd find yourself, plus perks like room upgrades or early check-in that come from the supplier relationship, not a markup added to your bill.
+
+### How do I get started working with you?
+
+Tell me where you want to go and what matters most about the trip. From there I put together options, walk you through the tradeoffs, and handle the booking once you're ready. No pressure to commit on the first conversation.
+
 ## The bottom line
 
 Booking sites are great at showing you options. They're not built to know you, flag what won't work for your trip, or answer the phone when your plans fall apart at midnight. That's the difference, and it's the reason clients keep coming back to me instead of a search bar.

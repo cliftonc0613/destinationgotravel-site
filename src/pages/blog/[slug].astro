@@ -29,6 +29,27 @@ const {
 
 const canonicalUrl = `https://destinationgotravel.com/blog/${post.id}`;
 
+function extractFaqs(markdown: string) {
+  const endOfString = '(?![\\s\\S])';
+  const section = markdown.match(new RegExp(`^## Frequently Asked Questions\\s*\\n([\\s\\S]*?)(?=\\n## |${endOfString})`, 'm'));
+  if (!section) return [];
+  return [...section[1].matchAll(new RegExp(`^### (.+)\\n([\\s\\S]*?)(?=\\n### |${endOfString})`, 'gm'))].map(([, question, answer]) => ({
+    '@type': 'Question',
+    name: question.trim(),
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: answer.trim().replace(/\n+/g, ' '),
+    },
+  }));
+}
+
+const faqEntities = extractFaqs(post.body ?? '');
+const faqSchema = faqEntities.length >= 2 ? {
+  '@type': 'FAQPage',
+  '@id': `${canonicalUrl}#faq`,
+  mainEntity: faqEntities,
+} : null;
+
 const imageSchema = {
   '@type': 'ImageObject',
   '@id': `${canonicalUrl}#primaryimage`,
@@ -101,7 +122,7 @@ function formatDate(date: Date) {
   title={`${title} | DestinationGo Travel`}
   description={description}
   ogImage={heroImage}
-  schema={[blogPostingSchema, breadcrumbSchema, imageSchema, ...(dawnPersonSchema ? [dawnPersonSchema] : [])]}
+  schema={[blogPostingSchema, breadcrumbSchema, imageSchema, ...(dawnPersonSchema ? [dawnPersonSchema] : []), ...(faqSchema ? [faqSchema] : [])]}
 >
 
   <!-- Post Hero -->
