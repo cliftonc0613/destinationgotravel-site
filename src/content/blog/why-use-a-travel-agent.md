@@ -10,7 +10,7 @@ author: Dawn Owens
 draft: false
 ---
 
-I hear it all the time: "I could just book this myself on my phone." And you could. The sites make it look effortless. So let me answer the question honestly, because I'd rather you know exactly what you're paying for than assume it's just a booking fee.
+I hear it all the time: "I could just book this myself on my phone." And you could. The sites make it look effortless. But trip planning has gotten more complicated, not less, which is part of why [81% of Americans now say they find a travel agent valuable](https://www.travelagewest.com/Industry-Insight/Business-Features/using-a-travel-agent-asta-research), according to a 2025 ASTA survey. So let me answer the question honestly, because I'd rather you know exactly what you're paying for than assume it's just a booking fee.
 
 ## What Does a Booking Site Actually Do for You?
 
@@ -26,11 +26,11 @@ The honest answer is that a good travel agent isn't selling you convenience. We'
 
 **We catch the problems before you book.** A connection that's too tight, a "resort fee" buried in the fine print, a destination that's in the middle of its rainy season. These are things I flag before you pay, not after.
 
-**We fix it when something goes wrong.** This is the big one. If your flight gets canceled at 2am in a country where you don't speak the language, you're not stuck untangling refund and rebooking rules on your own from the gate. You're calling me. This is also why I always talk clients through [travel insurance](/travel-insurance) before a trip, and how it works alongside protections like the ones [the CFPB outlines for travel purchases](https://www.consumerfinance.gov/), not after something goes wrong.
+**We fix it when something goes wrong.** This is the big one. If your flight gets canceled at 2am in a country where you don't speak the language, you're not stuck untangling refund and rebooking rules on your own from the gate. You're calling me. This is also why I always talk clients through [travel insurance](/travel-insurance) before a trip, and how it works alongside protections like the ones the [U.S. DOT outlines for flight delays and cancellations](https://www.transportation.gov/airconsumer/fly-rights), not after something goes wrong.
 
 ## Are travel agents worth it? The math on cost
 
-This is the question that actually matters, and it's a fair one. For most trips I book, my fee is small relative to what I save clients through rates, upgrades, and perks they wouldn't have access to booking direct. Many cruise lines, resorts, and tour operators pay agents directly, which means there's often no added cost to you at all. That renewed demand for agents, even as booking sites have gotten easier to use, is a big part of why the [travel agency](https://en.wikipedia.org/wiki/Travel_agency) never went away.
+This is the question that actually matters, and it's a fair one. For most trips I book, my fee is small relative to what I save clients through rates, upgrades, and perks they wouldn't have access to booking direct. That tracks with what's happening industry-wide: ASTA's research found travelers are now 50% more likely to use a travel advisor than they were a year prior, largely because 68% of Americans say planning a trip has gotten more complex. Many cruise lines, resorts, and tour operators pay agents directly, which means there's often no added cost to you at all. That renewed demand for agents, even as booking sites have gotten easier to use, is a big part of why the [travel agency](https://en.wikipedia.org/wiki/Travel_agency) never went away.
 
 Where it gets real is on a complicated trip. A multi-country itinerary, a big family reunion trip, a honeymoon where every detail matters. Pricing that out yourself across a dozen browser tabs takes hours, and a single mistake (wrong visa requirement, missed transfer window) can cost far more than any fee.
 
@@ -70,7 +70,7 @@ Booking sites are great at showing you options. They're not built to know you, f
 
 ![Dawn Owens, travel advisor, ready to help plan your next trip](/images/blog/dawn-owens-travel-advisor.webp)
 
-*Dawn Owens, your travel advisor. When your plans need a real person and not just a search bar, I'm the one you call.*
+*[Dawn Owens](/about), travel advisor at DestinationGo Travel. I've personally vetted the resorts, cruise lines, and destinations I recommend, and I specialize in multi-country itineraries, cruises, and milestone trips where the details matter most. When your plans need a real person and not just a search bar, I'm the one you call.*
 
 If you want to talk through your next trip before you book anything, that's exactly what I'm here for.
 
