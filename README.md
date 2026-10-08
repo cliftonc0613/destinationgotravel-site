@@ -350,8 +350,7 @@ Still open before the launch checklist is fully complete:
 
 ### Known issues
 
-- **`CLAUDE.md` files in `public/` are still published.** Astro copies everything in `public/` into the build as-is, so `public/CLAUDE.md` and `public/admin/CLAUDE.md` are served at `/CLAUDE.md` and `/admin/CLAUDE.md`. They are auto-generated AI tooling notes, not site content. Move them out of `public/`.
-- **Tooling can recreate `CLAUDE.md` files in `src/pages/`.** Astro turns Markdown files in `src/pages/` into routes, which is why the old `src/pages/CLAUDE.md` built into `/CLAUDE`. Those two files now live in `docs/claude-context/`. If a `CLAUDE.md` reappears in `src/pages/`, move it out again and check that `npm run build` produces no `/CLAUDE` page.
+- **Tooling can recreate `CLAUDE.md` files where they get published.** The AI tooling auto-generates `CLAUDE.md` notes in folders it works in. Two places publish them to the live site: Astro turns Markdown files in `src/pages/` into routes (`/CLAUDE`), and it copies everything in `public/` into the build as-is (`/CLAUDE.md`). The four existing files now live in `docs/claude-context/`, and the build contains none. If a `CLAUDE.md` reappears in `src/pages/` or `public/`, move it out again and run `npm run build`. Then check that `dist/` has no `CLAUDE` file. `CLAUDE.md` files elsewhere in `src/` are not published.
 - **Unused `destinations` collection.** `src/content.config.ts` defines a `destinations` collection, but `src/content/destinations/` is empty and the destination pages are `.astro` files. It is harmless; remove it or start using it.
 - **The PRD is partly out of date.** It names Sveltia CMS and lists `.mdx` posts and Netlify Forms for the trip inquiry. The live site uses Decap CMS, `.md` posts, and TravelJoy.
 
