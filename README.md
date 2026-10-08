@@ -193,7 +193,7 @@ Write the post body in Markdown here.
 | `author` | No | Defaults to `Dawn Owens`. |
 | `draft` | No | `true` keeps the post out of the site. Defaults to `false`. |
 
-The newest published post is shown as the featured card at the top of the blog index. The "Featured Post" checkbox in the CMS does not change this (see [Known issues](#known-issues)).
+The newest published post is shown as the featured card at the top of the blog index. There is no `featured` field; the newest `publishDate` decides.
 
 ### Change text or images on a page
 
@@ -257,7 +257,6 @@ There is no draft review step in the CMS. The `config.yml` does not turn on Deca
 | Hero Image Alt Text | `heroImageAlt` | Describes the image for screen readers and search. |
 | Category | `category` | Europe, All-Inclusive Resorts, Cruises, or General Travel. |
 | Tags | `tags` | A list. Used for the tag pages. |
-| Featured Post | `featured` | Has no effect today (see [Known issues](#known-issues)). |
 | Author | `author` | Hidden. Always "Dawn Owens". |
 | Draft | `draft` | On keeps the post off the live site. |
 | Body | `body` | The article, written in a Markdown editor with a formatting toolbar. |
@@ -351,8 +350,8 @@ Still open before the launch checklist is fully complete:
 
 ### Known issues
 
-- **Two content config files exist.** `src/content.config.ts` (the current Astro location, which also defines an unused `destinations` collection) and `src/content/config.ts` (an older blog-only copy). Keep only one, and update the field list in `public/admin/config.yml` to match.
-- **The "Featured Post" checkbox does nothing.** It exists in `public/admin/config.yml`, but the schema has no `featured` field and the blog index features the newest post automatically.
+- **`CLAUDE.md` files are published as pages.** Astro treats Markdown files inside `src/pages/` as routes, so `src/pages/CLAUDE.md` and `src/pages/destinations/CLAUDE.md` are built into `/CLAUDE` and `/destinations/CLAUDE`. They hold AI tooling notes, not site content. Move them out of `src/pages/` or exclude them.
+- **Unused `destinations` collection.** `src/content.config.ts` defines a `destinations` collection, but `src/content/destinations/` is empty and the destination pages are `.astro` files. It is harmless; remove it or start using it.
 - **The PRD is partly out of date.** It names Sveltia CMS and lists `.mdx` posts and Netlify Forms for the trip inquiry. The live site uses Decap CMS, `.md` posts, and TravelJoy.
 
 ## Further docs
