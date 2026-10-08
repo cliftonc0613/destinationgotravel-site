@@ -48,7 +48,7 @@ It is a **static site**. Every page is built ahead of time into plain HTML, so i
 ## Site map
 
 | Route | Page | File |
-|---|---|---|
+| --- | --- | --- |
 | `/` | Home | `src/pages/index.astro` |
 | `/about` | About Dawn | `src/pages/about.astro` |
 | `/destinations` | Destinations overview | `src/pages/destinations/index.astro` |
@@ -73,7 +73,7 @@ The file name in `src/pages/` becomes the URL. Trailing slashes are turned off (
 ## Tech stack
 
 | Piece | Choice | Why |
-|---|---|---|
+| --- | --- | --- |
 | Framework | [Astro](https://astro.build) 6 | Builds fast static pages and ships almost no JavaScript by default. |
 | Styling | Plain CSS with custom properties | Brand colors and fonts live in one file, so changes are easy and consistent. |
 | Content | Markdown files in `src/content/blog/` | Posts are plain text files that a CMS can read and write. |
@@ -103,7 +103,7 @@ npm run dev
 Open [http://localhost:4321](http://localhost:4321). The page reloads as you edit files.
 
 | Command | What it does |
-|---|---|
+| --- | --- |
 | `npm install` | Installs dependencies. |
 | `npm run dev` | Starts the dev server at `localhost:4321`. |
 | `npm run build` | Builds the production site into `dist/`. |
@@ -181,7 +181,7 @@ Write the post body in Markdown here.
 ```
 
 | Field | Required | Notes |
-|---|---|---|
+| --- | --- | --- |
 | `title` | Yes | Text. |
 | `description` | Yes | Text. Used as the meta description. |
 | `publishDate` | Yes | Date. |
@@ -223,7 +223,7 @@ It has no database and no server of its own. The blog posts are the Markdown fil
 ### The pieces
 
 | Piece | What it does | Where it lives |
-|---|---|---|
+| --- | --- | --- |
 | Editor app | The visual editor Dawn uses. Decap 3.x is loaded from a CDN. | `public/admin/index.html` |
 | Settings | Defines what can be edited and which fields each post has. | `public/admin/config.yml` |
 | Netlify Identity | Handles logins: invites, passwords, and password resets. | Netlify dashboard, plus the widget script in `BaseLayout.astro` |
@@ -248,7 +248,7 @@ There is no draft review step in the CMS. The `config.yml` does not turn on Deca
 `config.yml` defines one collection, **Blog Posts**. Each post has these fields in the editor:
 
 | Editor label | Field | Notes |
-|---|---|---|
+| --- | --- | --- |
 | Title | `title` | Required. |
 | Description | `description` | Used for search results and social previews. Keep it under 160 characters. |
 | Publish Date | `publishDate` | Date only. |
@@ -286,7 +286,7 @@ Run `npm run build` after any change to either file to confirm the posts still p
 ### Troubleshooting
 
 | Problem | Likely cause and fix |
-|---|---|
+| --- | --- |
 | The login window never appears on `/admin`. | Identity is not enabled in Netlify, or the Identity script was blocked. Check **Site configuration, Identity**. |
 | Login works but publishing fails with a Git Gateway error. | Git Gateway is off. Turn it on under **Identity, Services**. |
 | A post was published but is missing from the site. | The rebuild is still running, or `draft` is on. Check the Netlify deploy log and the post's Draft setting. |
@@ -302,7 +302,7 @@ The `config.yml` does not set up a local backend, so `/admin` on `localhost:4321
 There are three ways a visitor gets in touch:
 
 | Where | How it works | Where submissions go |
-|---|---|---|
+| --- | --- | --- |
 | Plan My Trip (`/plan-my-trip`) | A TravelJoy form embedded in an iframe. | Dawn's TravelJoy account. |
 | Book a call (Plan My Trip and the final call-to-action) | A link to Dawn's Calendly page. | Dawn's Calendly calendar. |
 | Footer newsletter (`NewsletterBar.astro`) | A Netlify Form named `newsletter`. | The **Forms** tab in the Netlify dashboard. |
@@ -325,7 +325,7 @@ SEO is built in so that new pages and posts get it without extra work.
 The site is hosted on Netlify and deploys automatically from the `main` branch of `cliftonc0613/destinationgotravel-site`.
 
 | Setting | Value |
-|---|---|
+| --- | --- |
 | Build command | `npm run build` |
 | Publish directory | `dist` |
 | Node | 22.12 or newer |
@@ -367,12 +367,12 @@ All paths are relative to the parent folder unless marked `site/`.
 
 ## Contacts
 
-| | |
-|---|---|
+| Item | Detail |
+| --- | --- |
 | Business | DestinationGo Travel |
 | Advisor | Dawn Owens |
 | Phone | 864-506-0213 |
-| Email | dawn@destinationgotravel.com |
+| Email | [dawn@destinationgotravel.com](mailto:dawn@destinationgotravel.com) |
 | Instagram | @destinationgotravelagency |
 | Service area | Greenville, Spartanburg, Anderson, and Clemson, SC |
 | Developer | Clifton Canady |
